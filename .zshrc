@@ -26,3 +26,5 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/racket/bin:$PATH
 # Common junk
 [[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"
 
+# Added aliases
+source $HOME/.dotfiles/.aliases
