@@ -5,7 +5,7 @@
 export HISTFILESIZE=10000
 export HISTSIZE=10000
 
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH:$HOME/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Common junk
 [[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"
