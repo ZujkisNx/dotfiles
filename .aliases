@@ -11,6 +11,12 @@ alias rm='rm -i'
 # always ask for confirmation when copying files
 alias cp='cp -i';
 
+Shortcuts
+alias d="cd ~/Documents/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/Projects"
+
 # Utilities
 alias a="ack -ia"
 alias b="bundle exec"
