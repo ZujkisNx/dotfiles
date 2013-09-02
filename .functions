@@ -28,7 +28,7 @@ cjson () {
   fi
 }
 
-Extract archives - use: extract <file>
+# Extract archives - use: extract <file>
 # Based on http://dotfiles.org/~pseup/.bashrc
 function extract() {
 if [ -f "$1" ] ; then
