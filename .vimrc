@@ -18,6 +18,10 @@ set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 set undodir=~/.vim/undo
 
+" Some magic
+" Vim will select the word under the cursor
+map <space> viw
+
 
 " Set some junk
 set autoindent " Copy indent from last line when starting new line.
