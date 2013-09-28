@@ -194,6 +194,7 @@ Bundle 'scrooloose/syntastic'
 " 	:help :lnext
 " 	:help :lprev
 " FOR ease of use: check vim plugin - unimpaired
+" TODO: add shortcut for syntex check
 
 
 Bundle 'kien/ctrlp.vim'
@@ -225,7 +226,10 @@ Bundle 'kien/ctrlp.vim'
 " Run :help ctrlp-mappings or submit ? in CtrlP for more mapping help.
 "
 Bundle 'ervandew/supertab'
+" Supertab is a vim plugin which allows you to use <Tab> for all your
+" insert completion needs (:help ins-completion)
 
+" TODO
 " Syntax plugins
 " Bundle 'hail2u/vim-css3-syntax'
 " Bundle 'othree/html5-syntax.vim'
@@ -238,6 +242,13 @@ Bundle 'ervandew/supertab'
 
 
 Bundle 'altercation/vim-colors-solarized'
+" Precision colorscheme for the vim text editor
+" 
+" Modify .vimrc
+" syntax enable
+" set backgound=dark
+" colorscheme solarized
+
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
@@ -293,12 +304,19 @@ imap <C-W> <C-O><C-W>
 " ==========================================================
 " Basic Settings
 " ==========================================================
-syntax on                     " syntax highlighing
+
+" Solarized setup
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+" ==========================================================
+"syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
 set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
-set background=dark           " We are using dark background in vim
+"set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
@@ -333,7 +351,7 @@ if has("gui_running")
     set guioptions-=T
 endif
 
-colorscheme ir_black "molokai
+"colorscheme ir_black "molokai
 
 " Paste from clipboard
 map <leader>p "+p
