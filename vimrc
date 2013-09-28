@@ -169,6 +169,18 @@ Bundle 'Lokaltog/vim-powerline'
 " set -g default-terminal "screen-256color"
 
 Bundle 'airblade/vim-rooter'
+" Changes Vim working directory to project root (identify by presence
+" of directory or file"
+"
+" By default you don't need to do anything: vim-rooter will change the
+" working directory automatically.
+" You can always invoke vim-rooter manually with <Leader>cd.
+"
+" You can change the manual-invocation mapping by adding this to your .vimrc:
+" map <silent> <unique> <Leader>foo <Plug>RooterChangeToRootDirectory
+" where <Leader>foo is the mapping you want.
+" TODO: add command to manualy invoking rood directory. 2 lines higher.
+
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
