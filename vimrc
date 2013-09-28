@@ -56,6 +56,42 @@ Bundle 'majutsushi/tagbar'
 " Opens tags window with F8
 nmap <F8> :TagbarToggle<CR>
 
+
+" To check
+" Let's you align statements on their equal signs, make comment boxes,
+" align comments, align declarations, etc.
+" commands: 
+" 	:Align - the basic alignment command
+" 	:AlignCtrl - provides options for the next call to :Align
+" 	:AlignMaps - many three or four key maps which support aligning
+" 	    C/C++ style declarations, expressions, coments, numbers,
+" 	    tables based on tabs or spaces, and more.
+" 	:AutoAlign uses the Align function to align =s as you type
+" 	:help align
+" more info: http://www.vim.org/scripts/script.php?script_id=294
+Bundle 'vim-scripts/Align'
+
+Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-ragtag'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'airblade/vim-rooter'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-commentary'
+Bundle 'kien/ctrlp.vim'
+Bundle 'ervandew/supertab'
+
+" Syntax plugins
+" Bundle 'hail2u/vim-css3-syntax'
+" Bundle 'othree/html5-syntax.vim'
+" Bundle 'tpope/vim-markdown'
+" Bundle 'jelera/vim-javascript-syntax'
+" Bundle 'tpope/vim-haml'
+" Bundle 'jQuery'
+
+
+
+
 Bundle 'altercation/vim-colors-solarized'
 
 " Github repos of the user 'vim-scripts'
@@ -69,7 +105,7 @@ Bundle 'git://git.wincent.com/command-t.git'
 
 " filetype plugin indent on     " required!
 
-" Change the leader to be comma vs slash
+" Change the leader o be comma vs slash
 let mapleader=","
 
 " ============================================
