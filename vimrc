@@ -151,10 +151,15 @@ Bundle "tpope/vim-aboish"
 " commands support repeat.vim.
 " TODO: Play around with commands crs crm crc crs cru
 
+Bundle 'tpope/vim-commentary'
+" Comment stuff out. Use gcc to comment out a line (takes a count), 
+" gc to comment out the target of a motion (for exaple, gcap to comment out a
+" paragraph), and gc in visual mode to comment out the selection.
+" more info: http://www.vim.org/scripts/script.php?script_id=3695
+
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'airblade/vim-rooter'
 Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-commentary'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
 
