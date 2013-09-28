@@ -86,9 +86,43 @@ Bundle 'tpope/vim-ragtag'
 " More info: http://www.vim.org/scripts/script.php?script_id=1896
 "TODO - try it
 
+Bundle 'tpope/vim-surround'
+" Provides mappings to easily delete, change and add parantheses, 
+" brackets, quotes, XML tags in pairs.
+" HOW TO USE:
+" Press cs"' inside "Hello world!" => 'Hello world!'
+" Press cs '<q> to change it to <q>Hello world!</q>
+" To go full circle, press cst" to get "Hello world"
+" To remove the delimiters entirely, press ds"
+" Now with the cursor on "Hello", press ysiw] ( iw is a text object) =>
+" [Hello] world!
+" Let's make that braces and add some space (use } insread of { for no sapce): cs]{ => { Hello } world!
+" Now wrap the entire line in parentheses with yssb or yys) => ({ Hello } world!)
+" Revert to original text: ds{ds) => Hello world!
+" Emphasize hello: ysiw<em> => <em>Hello</em> world!
+" Finally, let's try out visual mode. Press a capital V (for linevise
+" visual mode) followed by S<p class="important">. =>
+" <p class="important">
+"   <em>Hello</em> world!
+" </p>
+" NOTE: The . command will work with ds, cs and yss if you install repeat.vim
+" more info: https://github.com/tpope/vim-surround
+" TODO: play around with it.
+" TODO: add repeat.vim to support . repeating last map as a whole.
+
+Bundle 'tpope/vim-repeat'
+" Repeat.vim remaps . in a way that plugins can tap into it.
+"
+" Adding support to a plugin is generally as simple as the following command at
+" the end of your map functions.
+" silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+"
+" more info: http://www.vim.org/scripts/script.php?script_id=2136
+" TODO: test it with surround commands.
+" TODO: find out about "command after your map function"
+
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'airblade/vim-rooter'
-Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-commentary'
 Bundle 'kien/ctrlp.vim'
