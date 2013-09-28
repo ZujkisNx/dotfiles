@@ -53,6 +53,7 @@ Bundle 'gmarik/vundle'
 " displays tags in a window, ordered by class etc. 
 " more info: majutsushi.github.io/tagbar/
 Bundle 'majutsushi/tagbar'
+" Opens tags window with F8
 nmap <F8> :TagbarToggle<CR>
 
 Bundle 'altercation/vim-colors-solarized'
