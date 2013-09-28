@@ -182,6 +182,20 @@ Bundle 'airblade/vim-rooter'
 " TODO: add command to manualy invoking rood directory. 2 lines higher.
 
 Bundle 'scrooloose/syntastic'
+" Synastic is a syntax checking plugin that runs files through external
+" syntax checkers and displays any resulting errors to the user.
+" 
+" For python requires either flake8, pyflakes or pylint.
+"
+" Synastics idea of available checkers by running :SynasticInfo
+" more info: https://github.com/scrooloose/syntastic
+" TODO: install python checker
+" How to jump between errors without using location list:
+" 	:help :lnext
+" 	:help :lprev
+" FOR ease of use: check vim plugin - unimpaired
+
+
 Bundle 'kien/ctrlp.vim'
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 " 
