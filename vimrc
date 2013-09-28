@@ -40,24 +40,24 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " " required! 
+Bundle 'gmarik/vundle'
 " Vundle commands:
 " 	to install selected bundles :BundleInstall
 " 	to update plugins	    :BundleUpdate
 " 	to clean unuded plugins     :BundleClean
-Bundle 'gmarik/vundle'
+
 
 " My Bundles here:
 "
 " original repos on github
 " 
-" displays tags in a window, ordered by class etc. 
-" more info: majutsushi.github.io/tagbar/
 Bundle 'majutsushi/tagbar'
+" Displays tags in a window, ordered by class etc. 
+" more info: majutsushi.github.io/tagbar/
 " Opens tags window with F8
 nmap <F8> :TagbarToggle<CR>
 
-
-" To check
+Bundle 'vim-scripts/Align'
 " Let's you align statements on their equal signs, make comment boxes,
 " align comments, align declarations, etc.
 " commands: 
@@ -69,10 +69,23 @@ nmap <F8> :TagbarToggle<CR>
 " 	:AutoAlign uses the Align function to align =s as you type
 " 	:help align
 " more info: http://www.vim.org/scripts/script.php?script_id=294
-Bundle 'vim-scripts/Align'
+"TODO - add command for autoaligning
 
 Bundle 'Raimondi/delimitMate'
+" Provides automatic closing of quotes, parenthesis, brackets, etc.,
+" besides some other related features that should make your time in
+" insert mode a little bit easier, like syntax awareness (will not
+" insert the closing delimiter in comments and other configurable
+" regions), and expansions (off by default), and some more.
+" Most of the features can be modified or disabled permanently, using
+" global variables, or on a FileType basis, using :autocmd.
+
 Bundle 'tpope/vim-ragtag'
+" A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more
+" Enhances surround.vim
+" More info: http://www.vim.org/scripts/script.php?script_id=1896
+"TODO - try it
+
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'airblade/vim-rooter'
 Bundle 'tpope/vim-surround'
