@@ -121,6 +121,36 @@ Bundle 'tpope/vim-repeat'
 " TODO: test it with surround commands.
 " TODO: find out about "command after your map function"
 
+" 1999-12-24
+" NOTE: CTRL+a decrements number by one
+" NOTE: CTRL+x increments number by one
+Bundle "tpope/vim-speeddating"
+" increments/decrements date formats with commands CTRL-X/CTRL-A
+" d<C-A> sets the timestamp under the cursor to the current time. d<C-X> does
+" the same, but uses UTC rather than the local time.
+" 
+" more info: http://www.vim.org/scripts/script.php?script_id=2120
+
+Bundle "tpope/vim-aboish"
+" Advanded substitution for words and their forms like:
+" Address to Reference
+"
+" :Subvert/address{,es}/reference{,s}/g
+"
+" Blog to Post (you can just do this with a regular :s also)
+"
+" :Subvert/blog{,s}/post{,s}/g
+"
+" Child to Adult
+"
+" :Subvert/child{,ren}/adult{,s}/g
+" 
+" MY FAVOURITE: Want to turn fooBar into foo_bar?
+" Press crs (coerce to snake_case). MixedCase (crm), camelCase (crc),
+" snake_case (crs), and UPPER_CASE (cru) are all just 3 keystrokes away. These
+" commands support repeat.vim.
+" TODO: Play around with commands crs crm crc crs cru
+
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'airblade/vim-rooter'
 Bundle 'scrooloose/syntastic'
