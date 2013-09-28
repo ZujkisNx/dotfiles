@@ -158,6 +158,16 @@ Bundle 'tpope/vim-commentary'
 " more info: http://www.vim.org/scripts/script.php?script_id=3695
 
 Bundle 'Lokaltog/vim-powerline'
+" Powerline is a utility plugin which allows you to create better-looking,
+" more functional vim statuslines. 
+" :help Powerline - instructions on how to configure it.
+" TODO: configure powerline to be nice.
+" TODO: set laststatus=2
+" TODO: in txmux powerline looks like crap, whats wrong?
+" A: you need to tell tmux that it has 256-color capabilities. Add this to
+" yout tmux.conf to solve this issue:
+" set -g default-terminal "screen-256color"
+
 Bundle 'airblade/vim-rooter'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
