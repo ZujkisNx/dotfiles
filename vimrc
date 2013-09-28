@@ -131,7 +131,7 @@ Bundle "tpope/vim-speeddating"
 " 
 " more info: http://www.vim.org/scripts/script.php?script_id=2120
 
-Bundle "tpope/vim-aboish"
+Bundle "tpope/vim-abolish"
 " Advanded substitution for words and their forms like:
 " Address to Reference
 "
@@ -253,10 +253,13 @@ Bundle 'altercation/vim-colors-solarized'
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
 Bundle 'L9'
+"TODO
 Bundle 'FuzzyFinder'
+"TODO
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
+"TODO
 " ...
 
 " filetype plugin indent on     " required!
