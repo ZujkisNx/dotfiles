@@ -287,7 +287,8 @@ Bundle 'tyru/undoclosewin'
 
 
 " not so cool
-Bundle 'altercation/vim-colors-solarized'
+" shitty colors in terminal.. can get it to work..
+" Bundle 'altercation/vim-colors-solarized'
 " TODO not working.. try to fix :)"
 " Precision colorscheme for the vim text editor
 "
@@ -300,14 +301,33 @@ Bundle 'altercation/vim-colors-solarized'
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
 Bundle 'L9'
-"TODO
+" dependancy for fuzzyfinder
+
 Bundle 'FuzzyFinder'
-"TODO
+" buffer/file/command/tag/etc explorer with fuzzy matching
+"TODO add bindings for commands
+" :help FuzzyFinder
+
+Bundle 'open-pdf'
+" convert pdf file to plain-text file, cache it and open it in vim
+" commands:
+"       :Pdf path/to/pdf-file converts, caches and opens the pdf-file.
+"       :Unite pdf/history displays histories you have ever opened.
+"
+" Auto Conversion
+"
+    " When a pdf file is edited with :edit or :read, conversion from pdf to txt is
+    " automatically executed and open the text file instead of pdf file. You must
+    " set g:pdf_convert_on_edit or g:pdf_convert_on_read to 1 to enable these
+    " features.
+"
+" Read doc/open-pdf.txt to get more information.
+
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
-"TODO
-" ...
+" requires ruby so not so cool.. 
+" TODO: try to use neerd tree and fuzzy finder
 
 " filetype plugin indent on     " required!
 
