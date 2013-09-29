@@ -162,6 +162,7 @@ Bundle 'Lokaltog/vim-powerline'
 " :help Powerline - instructions on how to configure it.
 " TODO: configure powerline to be nice.
 " TODO: set laststatus=2
+set laststatus=2
 " TODO: in txmux powerline looks like crap, whats wrong?
 " A: you need to tell tmux that it has 256-color capabilities. Add this to
 " yout tmux.conf to solve this issue:
@@ -199,6 +200,29 @@ Bundle 'tpope/vim-unimpaired'
 " pairs of handy bracket mappings
 " more info on github
 " TODO: see the :help unimpaired for mapings
+
+Bundle 'kshenoy/vim-signature'
+" Plugin to place, toggle and display marks.
+" more info: https://github.com/kshenoy/vim-signature
+"
+"   m[a-zA-Z]    : Toggle mark
+"   m<Space>     : Delete all marks
+"   m,           : Place the next available mark
+"   ]`           : Jump to next mark
+"   [`           : Jump to prev mark
+"   ]'           : Jump to start of next line containing a mark
+"   ['           : Jump to start of prev line containing a mark
+"   `]           : Jump by alphabetical order to next mark
+"   `[           : Jump by alphabetical order to prev mark
+"   ']           : Jump by alphabetical order to start of next line containing a mark
+"   '[           : Jump by alphabetical order to start of prev line containing a mark
+"
+"   m[0-9]       : Toggle the corresponding marker
+"   !@#$%^&*()
+"   m<S-[0-9]>   : Remove all markers of the same type
+"   ]-           : Jump to next line having same marker
+"   [-           : Jump to prev line having same marker
+"   m<BackSpace> : Remove all markers
 
 Bundle 'kien/ctrlp.vim'
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
@@ -247,6 +271,7 @@ Bundle 'SirVer/ultisnips'
 
 Bundle 'tyru/undoclosewin'
 " undo closing windows/tabs
+" TODO: not working
 
 
 " TODO
