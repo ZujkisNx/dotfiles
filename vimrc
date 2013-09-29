@@ -3,17 +3,17 @@ echo 'lol'
 " Leader - ","
 " Reload vimrc - leader + V
 " select word under the cursor - space
-" exit from insert mode to normal mode - jj 
+" exit from insert mode to normal mode - jj
 " :W = :w
 " ctrl-jklm  changes to that split
 " Open NERD tree - leader + n
-" 
+"
 
 " ============================================
 " Plugins
 " ============================================
 " vundle - managing plugins
-" 
+"
 " vim-fugitive - best Git wrapper of all time
 "     commands: :Gedit - view any blob, tree or tag in repository
 "               :Gstatus - git status
@@ -30,7 +30,7 @@ echo 'lol'
 "               :Gread - git checkout -- filename
 "               :Gwrite - writes to both the work tree and index
 "               :Gbrowse - open the current file on GitHub
-"               
+"
 
 set nocompatible               " be iMproved
 filetype off                   " required!
@@ -39,7 +39,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" " required! 
+" " required!
 Bundle 'gmarik/vundle'
 " Vundle commands:
 " 	to install selected bundles :BundleInstall
@@ -50,9 +50,9 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-" 
+"
 Bundle 'majutsushi/tagbar'
-" Displays tags in a window, ordered by class etc. 
+" Displays tags in a window, ordered by class etc.
 " more info: majutsushi.github.io/tagbar/
 " Opens tags window with F8
 nmap <F8> :TagbarToggle<CR>
@@ -60,7 +60,7 @@ nmap <F8> :TagbarToggle<CR>
 Bundle 'vim-scripts/Align'
 " Let's you align statements on their equal signs, make comment boxes,
 " align comments, align declarations, etc.
-" commands: 
+" commands:
 " 	:Align - the basic alignment command
 " 	:AlignCtrl - provides options for the next call to :Align
 " 	:AlignMaps - many three or four key maps which support aligning
@@ -87,7 +87,7 @@ Bundle 'tpope/vim-ragtag'
 "TODO - try it
 
 Bundle 'tpope/vim-surround'
-" Provides mappings to easily delete, change and add parantheses, 
+" Provides mappings to easily delete, change and add parantheses,
 " brackets, quotes, XML tags in pairs.
 " HOW TO USE:
 " Press cs"' inside "Hello world!" => 'Hello world!'
@@ -108,7 +108,6 @@ Bundle 'tpope/vim-surround'
 " NOTE: The . command will work with ds, cs and yss if you install repeat.vim
 " more info: https://github.com/tpope/vim-surround
 " TODO: play around with it.
-" TODO: add repeat.vim to support . repeating last map as a whole.
 
 Bundle 'tpope/vim-repeat'
 " Repeat.vim remaps . in a way that plugins can tap into it.
@@ -128,7 +127,7 @@ Bundle "tpope/vim-speeddating"
 " increments/decrements date formats with commands CTRL-X/CTRL-A
 " d<C-A> sets the timestamp under the cursor to the current time. d<C-X> does
 " the same, but uses UTC rather than the local time.
-" 
+"
 " more info: http://www.vim.org/scripts/script.php?script_id=2120
 
 Bundle "tpope/vim-abolish"
@@ -144,7 +143,7 @@ Bundle "tpope/vim-abolish"
 " Child to Adult
 "
 " :Subvert/child{,ren}/adult{,s}/g
-" 
+"
 " MY FAVOURITE: Want to turn fooBar into foo_bar?
 " Press crs (coerce to snake_case). MixedCase (crm), camelCase (crc),
 " snake_case (crs), and UPPER_CASE (cru) are all just 3 keystrokes away. These
@@ -152,14 +151,14 @@ Bundle "tpope/vim-abolish"
 " TODO: Play around with commands crs crm crc crs cru
 
 Bundle 'tpope/vim-commentary'
-" Comment stuff out. Use gcc to comment out a line (takes a count), 
+" Comment stuff out. Use gcc to comment out a line (takes a count),
 " gc to comment out the target of a motion (for exaple, gcap to comment out a
 " paragraph), and gc in visual mode to comment out the selection.
 " more info: http://www.vim.org/scripts/script.php?script_id=3695
 
 Bundle 'Lokaltog/vim-powerline'
 " Powerline is a utility plugin which allows you to create better-looking,
-" more functional vim statuslines. 
+" more functional vim statuslines.
 " :help Powerline - instructions on how to configure it.
 " TODO: configure powerline to be nice.
 " TODO: set laststatus=2
@@ -184,7 +183,7 @@ Bundle 'airblade/vim-rooter'
 Bundle 'scrooloose/syntastic'
 " Synastic is a syntax checking plugin that runs files through external
 " syntax checkers and displays any resulting errors to the user.
-" 
+"
 " For python requires either flake8, pyflakes or pylint.
 "
 " Synastics idea of available checkers by running :SynasticInfo
@@ -196,12 +195,16 @@ Bundle 'scrooloose/syntastic'
 " FOR ease of use: check vim plugin - unimpaired
 " TODO: add shortcut for syntex check
 
+Bundle 'tpope/vim-unimpaired'
+" pairs of handy bracket mappings
+" more info on github
+" TODO: see the :help unimpaired for mapings
 
 Bundle 'kien/ctrlp.vim'
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-" 
+"
 " Basic usage:
-"  Run :CtrlP or :CtrlP [starting-directory] to invoke CtrlP in find 
+"  Run :CtrlP or :CtrlP [starting-directory] to invoke CtrlP in find
 "  	mode.
 "  Run :CtrlPBuffer or :CtrlPMRU to invoke CtrlP in find buffer or find
 "  	MRU file mode.
@@ -209,7 +212,7 @@ Bundle 'kien/ctrlp.vim'
 "	same time.
 " Check :help :ctrlp-commands and :help ctrlp-extensions for other
 " 	commands.
-" 	
+"
 " Once CtrlP is open:
 "    Press F5 to purge the cache for the current directory to get new
 "    	files, remove deleted files and apply new ignore options.
@@ -232,7 +235,15 @@ Bundle 'ervandew/supertab'
 Bundle 'SirVer/ultisnips'
 " snippets
 " more info: http://www.vim.org/scripts/script.php?script_id=2715
+
+" The trigger used to jump forward to the next placeholder.
+" " NOTE: expansion and forward jumping can, but needn't be the same trigger
 "
+" Set ultisnips triggers
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 
 " TODO
 " Syntax plugins
@@ -250,7 +261,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'altercation/vim-colors-solarized'
 " TODO not working.. try to fix :)"
 " Precision colorscheme for the vim text editor
-" 
+"
 " Modify .vimrc
 " syntax enable
 " set backgound=dark
@@ -288,7 +299,7 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
 
-" Allow saving of files as sudo when I forgot to start vim using sudo 
+" Allow saving of files as sudo when I forgot to start vim using sudo
 cmap W! w !sudo tee % >/dev/null
 " The >/dev/null part explicitly throws away the standard output, since we
 " don't need to pass anything to another piped command.
@@ -361,7 +372,7 @@ map <leader>n :NERDTreeToggle<CR>
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
-set smarttab                " Handle tabs more intelligently 
+set smarttab                " Handle tabs more intelligently
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
@@ -398,7 +409,7 @@ set scrolloff=3            " minimum lines to keep above and below cursor
 set list
 set listchars=tab:>.,trail:.,extends:\#,nbsp:. " Highlight problematic whitespace
 
-"sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf 
+"sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf
 set nowrap "wrap long lines
 
 set autoindent " indent at the same level of the previous line
