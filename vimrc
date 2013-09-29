@@ -229,6 +229,11 @@ Bundle 'ervandew/supertab'
 " Supertab is a vim plugin which allows you to use <Tab> for all your
 " insert completion needs (:help ins-completion)
 
+Bundle 'SirVer/ultisnips'
+" snippets
+" more info: http://www.vim.org/scripts/script.php?script_id=2715
+"
+
 " TODO
 " Syntax plugins
 " Bundle 'hail2u/vim-css3-syntax'
@@ -241,7 +246,9 @@ Bundle 'ervandew/supertab'
 
 
 
+" not so cool
 Bundle 'altercation/vim-colors-solarized'
+" TODO not working.. try to fix :)"
 " Precision colorscheme for the vim text editor
 " 
 " Modify .vimrc
@@ -287,17 +294,12 @@ cmap W! w !sudo tee % >/dev/null
 " don't need to pass anything to another piped command.
 
 
-
-
-" Place for spliting screens
-
 " Place for better movement between splits
 " ctrl-jklm  changes to that split
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-
 
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
@@ -310,9 +312,26 @@ imap <C-W> <C-O><C-W>
 
 " Solarized setup
 syntax enable
-set background=dark
-let g:solarized_termcolors=256
+
+syntax enable
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 colorscheme solarized
+
+
+
+" set background=dark
+" let g:solarized_termcolors=16
+" colorscheme solarized
+
+"colorscheme jellybeans
+"if $TERM =~ "-256color"
+"    set t_Co=256
+"endif
+"let g:solarized_termcolors=256
 " ==========================================================
 "syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
@@ -322,7 +341,8 @@ set numberwidth=1             " using only 1 column (and 1 space) while possible
 "set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
-set wildmode=full             " <Tab> cycles between all matching choices.
+" set wildmode=full             " <Tab> cycles between all matching choices.
+set wildmode=list:longest,full " command <tab> completion, list matches, then longest common part, then all. /from spf
 
 set nolist                    " no whitespace
 
@@ -367,4 +387,33 @@ nnoremap <leader><space> :nohlsearch<cr>
 
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Some stuff from spf13
+set virtualedit=onemore    " allow cursor beyond las character
+set history=1000 	   " store a ton of history
+" set spell                  " spell checking on
+set scrolloff=3            " minimum lines to keep above and below cursor
+" set scrolljump=5           " lines to scroll when cursor leaves screen
+
+set list
+set listchars=tab:>.,trail:.,extends:\#,nbsp:. " Highlight problematic whitespace
+
+"sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf 
+set nowrap "wrap long lines
+
+set autoindent " indent at the same level of the previous line
+set shiftwidth=4 " uses indents of 4 spaces
+set expandtab         " tabs are spaces, not tabs
+set tabstop=4         " and indentation every four columns
+" set softtabstop=4     " let backspace delete indent
+
+set matchpairs+=<:>   " match, to be used with %
+set pastetoggle=<F12> " pastetoggle (sane indentation on pastes)
+
+" Making it so ; works like : for commands. Saves typing and
+" eliminates :W style typos due to lazy holding shift.
+nnoremap ; :
+
+"clearing highlighted search
+nmap <silent> <leader>/ :nohlsearch<CR>"
 
