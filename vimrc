@@ -240,9 +240,13 @@ Bundle 'SirVer/ultisnips'
 " " NOTE: expansion and forward jumping can, but needn't be the same trigger
 "
 " Set ultisnips triggers
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" NOT WORKING.. 
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+Bundle 'tyru/undoclosewin'
+" undo closing windows/tabs
 
 
 " TODO
