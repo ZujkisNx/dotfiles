@@ -174,6 +174,8 @@ Bundle "tpope/vim-abolish"
 " ============================================
 
 Bundle 'scrooloose/nerdcommenter'
+" Always leave a space between the comment character and the comment
+let NERDSpaceDelims=1
 " Intensely orgasmic commenting.
 " [count]<leader>cc |NERDComComment|
 " Comment out the current line or text selected in visual mode.
@@ -225,6 +227,49 @@ Bundle 'tpope/vim-fugitive'
 " Git wrapper so awesome, it should be ilegal!
 " TODO: watch screencasts
 " more info: github.com/tpope/vim-fugitive
+" ============================================
+" ============================================
+
+Bundle 'thinca/vim-quickrun'
+" Run commands quickly
+" <leader> r
+" read the docs..
+" TODO test with python
+" ============================================
+" ============================================
+
+Bundle 'mileszs/ack.vim'
+" search"
+
+" TODO:
+" code completion
+" Bundle 'Valloric/YouCompleteMe'
+"
+" file browsing
+" Bundle 'Shougo/vimfiler'
+" (with nerdtree)
+"
+" Shell
+" Bundle 'Shougo/vimshell'
+" Bundle 'tpope/vim-dispatch'
+"
+" motions
+" Bundle 'Localtog/vim-easymotion'
+" Bundle 'goldfeld/vim-seek'
+"
+"colors
+"Bundle 'nanotech/jellybeans.vim'
+" " Misc
+" NeoBundle 'kana/vim-submode'
+" NeoBundle 'kana/vim-scratch'
+" NeoBundle 'vim-scripts/BufOnly.vim'
+" NeoBundle 'sjl/gundo.vim'
+" NeoBundle 't9md/vim-quickhl'
+" NeoBundle 'mattn/webapi-vim'
+" NeoBundle 'mattn/gist-vim'
+" NeoBundle 'koron/nyancat-vim'
+" NeoBundle 'Raimondi/delimitMate'
+" NeoBundle 'ton/vim-bufsurf'
 
 " NOTE: gona try nerdcommenter
 " Bundle 'tpope/vim-commentary'
@@ -421,7 +466,11 @@ Bundle 'scrooloose/nerdtree'
 "   press p to go to parent directory
 "   press r to refresh the current directory
 "   press m to lauch nerdtree enu inside vim
-" TODO: NEVEIKIA JUDESIAI!!! ISHSIAISKINK!
+"   TODO: play around
+
+let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 " ============================================
 " ============================================
 
