@@ -1,4 +1,3 @@
-echo 'lol'
 " Info
 " Leader - ","
 " Reload vimrc - leader + V
@@ -80,7 +79,7 @@ Bundle 'Raimondi/delimitMate'
 " Most of the features can be modified or disabled permanently, using
 " global variables, or on a FileType basis, using :autocmd.
 
-Bundle 'tpope/vim-ragtag'
+" Bundle 'tpope/vim-ragtag'
 " A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more
 " Enhances surround.vim
 " More info: http://www.vim.org/scripts/script.php?script_id=1896
@@ -167,6 +166,14 @@ set laststatus=2
 " A: you need to tell tmux that it has 256-color capabilities. Add this to
 " yout tmux.conf to solve this issue:
 " set -g default-terminal "screen-256color"
+" also need to add line to bashrc 
+" export TERM=xterm-256color
+
+Bundle 'zhaocai/linepower'
+" powerlines enchantment
+" TODO: isntallation instructions in https://github.com/vim-scripts/linepower.vim
+" need to replace the json files under config in ~/.config/powerline
+" TODO: test if it works.
 
 Bundle 'airblade/vim-rooter'
 " Changes Vim working directory to project root (identify by presence
@@ -179,7 +186,7 @@ Bundle 'airblade/vim-rooter'
 " You can change the manual-invocation mapping by adding this to your .vimrc:
 " map <silent> <unique> <Leader>foo <Plug>RooterChangeToRootDirectory
 " where <Leader>foo is the mapping you want.
-" TODO: add command to manualy invoking rood directory. 2 lines higher.
+" TODO: add command to manualy invoking root directory. 2 lines higher.
 
 Bundle 'scrooloose/syntastic'
 " Synastic is a syntax checking plugin that runs files through external
@@ -322,6 +329,8 @@ Bundle 'open-pdf'
     " features.
 "
 " Read doc/open-pdf.txt to get more information.
+" TODO: test it
+
 
 
 " non github repos
@@ -373,13 +382,7 @@ imap <C-W> <C-O><C-W>
 " Solarized setup
 syntax enable
 
-syntax enable
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
-colorscheme solarized
+colorscheme ir_black
 
 
 
