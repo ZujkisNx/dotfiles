@@ -221,6 +221,11 @@ Bundle 'scrooloose/nerdcommenter'
 " ============================================
 " ============================================
 
+Bundle 'tpope/vim-fugitive'
+" Git wrapper so awesome, it should be ilegal!
+" TODO: watch screencasts
+" more info: github.com/tpope/vim-fugitive
+
 " NOTE: gona try nerdcommenter
 " Bundle 'tpope/vim-commentary'
 " Comment stuff out. Use gcc to comment out a line (takes a count),
