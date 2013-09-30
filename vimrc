@@ -168,7 +168,16 @@ Bundle 'bling/vim-airline'
 
 Bundle 'fs111/pydoc.vim'
 " pydoc integration for the best text editor on earth. :))
-" pydF
+" usage:
+" View documentation of a module or class
+"   :Pydoc foo.bar.baz (e.g.:Pydoc re.compile)
+" Search a word in documentation
+"   :PydocSearch foobar (e.g. :PydocSearch socket)
+" 
+" documentation of the 'word' under the cursor by pressing <Leader>pw>
+" or the 'WORD' (see :help WORD) under the cursor by pressing <Leader>pW
+" Additionally K is mapped to show invoke pydoc as well, when you are editing
+" python files.
 
 Bundle 'Lokaltog/vim-easymotion'
 " vim motions on speed.
@@ -176,8 +185,15 @@ Bundle 'Lokaltog/vim-easymotion'
 " e.g. <leader><leader>t,
 "      <leader><leader>gE
 
-
-
+Bundle 'merlinrebrovic/focus.vim'
+" plugin that removes clutter and makes working on a widescree monitor
+" enjoyable
+" Default key = <leader>fmt
+" that satnds for FOCUS MODE TOGGLE
+" cann ramap it with the following:
+"
+" terminale neveikia mappingas
+nmap <S-Space> <Plug>FocusModeToggle
 
 " NOTE: disabled for testing vim-airline
 " Bundle 'Lokaltog/vim-powerline'
@@ -457,7 +473,7 @@ let mapleader=","
 
 " ============================================
 " My stuff from learning vim the hard way
-:map <space> viw
+" :map <space> viw
 
 " jj instead of ESC in insert mode. Helps to keep hands on the home row.
 :imap jj <Esc>
