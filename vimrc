@@ -49,7 +49,8 @@ Bundle 'gmarik/vundle'
 " 	to install selected bundles :BundleInstall
 " 	to update plugins	    :BundleUpdate
 " 	to clean unuded plugins     :BundleClean
-
+" ============================================
+" ============================================
 
 " My Bundles here:
 "
@@ -61,6 +62,9 @@ Bundle 'majutsushi/tagbar'
 " Opens tags window with F8
 nmap <F8> :TagbarToggle<CR>
 " TODO: not working becouse exuberant is not installed
+" ============================================
+" ============================================
+
 
 Bundle 'vim-scripts/Align'
 " Let's you align statements on their equal signs, make comment boxes,
@@ -76,6 +80,8 @@ Bundle 'vim-scripts/Align'
 " more info: http://www.vim.org/scripts/script.php?script_id=294
 "TODO - add command for autoaligning
 "TODO cosider going for tabular plugin
+" ============================================
+" ============================================
 
 Bundle 'Raimondi/delimitMate'
 " Provides automatic closing of quotes, parenthesis, brackets, etc.,
@@ -91,6 +97,9 @@ Bundle 'Raimondi/delimitMate'
 " Enhances surround.vim
 " More info: http://www.vim.org/scripts/script.php?script_id=1896
 "TODO - try it
+" ============================================
+" ============================================
+
 
 Bundle 'tpope/vim-surround'
 " Provides mappings to easily delete, change and add parantheses,
@@ -114,6 +123,8 @@ Bundle 'tpope/vim-surround'
 " NOTE: The . command will work with ds, cs and yss if you install repeat.vim
 " more info: https://github.com/tpope/vim-surround
 " TODO: play around with it.
+" ============================================
+" ============================================
 
 Bundle 'tpope/vim-repeat'
 " Repeat.vim remaps . in a way that plugins can tap into it.
@@ -125,6 +136,8 @@ Bundle 'tpope/vim-repeat'
 " more info: http://www.vim.org/scripts/script.php?script_id=2136
 " TODO: test it with surround commands.
 " TODO: find out about "command after your map function"
+" ============================================
+" ============================================
 
 " 1999-12-24
 " NOTE: CTRL+a decrements number by one
@@ -135,6 +148,8 @@ Bundle "tpope/vim-speeddating"
 " the same, but uses UTC rather than the local time.
 "
 " more info: http://www.vim.org/scripts/script.php?script_id=2120
+" ============================================
+" ============================================
 
 Bundle "tpope/vim-abolish"
 " Advanded substitution for words and their forms like:
@@ -155,16 +170,33 @@ Bundle "tpope/vim-abolish"
 " snake_case (crs), and UPPER_CASE (cru) are all just 3 keystrokes away. These
 " commands support repeat.vim.
 " TODO: Play around with commands crs crm crc crs cru
+" ============================================
+" ============================================
 
 Bundle 'tpope/vim-commentary'
 " Comment stuff out. Use gcc to comment out a line (takes a count),
 " gc to comment out the target of a motion (for exaple, gcap to comment out a
 " paragraph), and gc in visual mode to comment out the selection.
 " more info: http://www.vim.org/scripts/script.php?script_id=3695
+" ============================================
+" ============================================
 
 Bundle 'bling/vim-airline'
 " lean & mean status/tabline for vim that's light as air.
 " Can change theme by :AirlineTheme <theme>
+"
+" Always show statusline
+set laststatus=2
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
+
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=         " don't do any encoding conversion
+" also need to add line to bashrc
+" export TERM=xterm-256color
+" ============================================
+" ============================================
 
 Bundle 'fs111/pydoc.vim'
 " pydoc integration for the best text editor on earth. :))
@@ -178,12 +210,20 @@ Bundle 'fs111/pydoc.vim'
 " or the 'WORD' (see :help WORD) under the cursor by pressing <Leader>pW
 " Additionally K is mapped to show invoke pydoc as well, when you are editing
 " python files.
+"
+" If you want to open pydoc files in vertical splits or tabs, give the
+" appropriate command in your .vimrc with:
+let g:pydoc_open_cmd = 'vsplit'
+" ============================================
+" ============================================
 
 Bundle 'Lokaltog/vim-easymotion'
 " vim motions on speed.
 " default <leader><leader>
 " e.g. <leader><leader>t,
 "      <leader><leader>gE
+" ============================================
+" ============================================
 
 Bundle 'merlinrebrovic/focus.vim'
 " plugin that removes clutter and makes working on a widescree monitor
@@ -194,45 +234,10 @@ Bundle 'merlinrebrovic/focus.vim'
 "
 " terminale neveikia mappingas
 nmap <S-Space> <Plug>FocusModeToggle
+" ============================================
+" ============================================
 
-" NOTE: disabled for testing vim-airline
-" Bundle 'Lokaltog/vim-powerline'
-" Powerline is a utility plugin which allows you to create better-looking,
-" more functional vim statuslines.
-" :help Powerline - instructions on how to configure it.
-" TODO: configure powerline to be nice.
-" TODO: set laststatus=2
-"
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
-" Always show statusline
-set laststatus=2
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
 
-" For fancy symbols
-" let g:Powerliine_symbols = 'fancy'
-
-" To remove ^B from powerline
-set encoding=utf-8
-set termencoding=utf-8
-set fileencodings=         " don't do any encoding conversion
-
-" Format the status line
-" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-" NOTE: neveikia..
-
-" TODO: in txmux powerline looks like crap, whats wrong?
-" A: you need to tell tmux that it has 256-color capabilities. Add this to
-" yout tmux.conf to solve this issue:
-" set -g default-terminal "screen-256color"
-" also need to add line to bashrc
-" export TERM=xterm-256color
-
-" Bundle 'zhaocai/linepower'
-" powerlines enchantment
-" TODO: isntallation instructions in https://github.com/vim-scripts/linepower.vim
-" need to replace the json files under config in ~/.config/powerline
-" TODO: test if it works.
 
 Bundle 'airblade/vim-rooter'
 " Changes Vim working directory to project root (identify by presence
@@ -246,6 +251,8 @@ Bundle 'airblade/vim-rooter'
 " map <silent> <unique> <Leader>foo <Plug>RooterChangeToRootDirectory
 " where <Leader>foo is the mapping you want.
 " TODO: add command to manualy invoking root directory. 2 lines higher.
+" ============================================
+" ============================================
 
 Bundle 'scrooloose/syntastic'
 " Synastic is a syntax checking plugin that runs files through external
@@ -261,11 +268,15 @@ Bundle 'scrooloose/syntastic'
 " 	:help :lprev
 " FOR ease of use: check vim plugin - unimpaired
 " TODO: add shortcut for syntex check
+" ============================================
+" ============================================
 
 Bundle 'tpope/vim-unimpaired'
 " pairs of handy bracket mappings
 " more info on github
 " TODO: see the :help unimpaired for mapings
+" ============================================
+" ============================================
 
 Bundle 'kshenoy/vim-signature'
 " Plugin to place, toggle and display marks.
@@ -289,6 +300,8 @@ Bundle 'kshenoy/vim-signature'
 "   ]-           : Jump to next line having same marker
 "   [-           : Jump to prev line having same marker
 "   m<BackSpace> : Remove all markers
+" ============================================
+" ============================================
 
 Bundle 'kien/ctrlp.vim'
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
@@ -317,10 +330,14 @@ Bundle 'kien/ctrlp.vim'
 "    Use <c-y> to create a new file and its parent directories.
 "    Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 " Run :help ctrlp-mappings or submit ? in CtrlP for more mapping help.
-"
+" ============================================
+" ============================================
+
 Bundle 'ervandew/supertab'
 " Supertab is a vim plugin which allows you to use <Tab> for all your
 " insert completion needs (:help ins-completion)
+" ============================================
+" ============================================
 
 Bundle 'SirVer/ultisnips'
 " snippets
@@ -334,6 +351,8 @@ Bundle 'SirVer/ultisnips'
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" ============================================
+" ============================================
 
 Bundle 'scrooloose/nerdtree'
 " A tree explorer plugin for vim
@@ -347,6 +366,9 @@ Bundle 'scrooloose/nerdtree'
 "   press p to go to parent directory
 "   press r to refresh the current directory
 "   press m to lauch nerdtree enu inside vim
+" TODO: NEVEIKIA JUDESIAI!!! ISHSIAISKINK!
+" ============================================
+" ============================================
 
 Bundle 'YankRing.vim'
 " Maintains a history of previous yanks
@@ -356,28 +378,8 @@ Bundle 'YankRing.vim'
 "   :h yankring.txt
 "   :h yankring-tutorial
 "TODO: go throo tutorial
-
-
-
-"Bundle 'tyru/undoclosewin'
-" undo closing windows/tabs
-" TODO: not working
-
-" Bundle 'rhysd/open-pdf'
-" convert pdf file to plain-text file, cache it and open it in vim
-" commands:
-"       :Pdf path/to/pdf-file converts, caches and opens the pdf-file.
-"       :Unite pdf/history displays histories you have ever opened.
-"
-" Auto Conversion
-"
-    " When a pdf file is edited with :edit or :read, conversion from pdf to txt is
-    " automatically executed and open the text file instead of pdf file. You must
-    " set g:pdf_convert_on_edit or g:pdf_convert_on_read to 1 to enable these
-    " features.
-"
-" Read doc/open-pdf.txt to get more information.
-" TODO: not working.. 
+" ============================================
+" ============================================
 
 Bundle 'mhinz/vim-startify'
 " fancy start screen
@@ -410,6 +412,8 @@ let g:startify_custom_header = [
  \ '',
  \ '',
  \ ]
+" ============================================
+" ============================================
 
 Bundle 'sjl/gundo.vim'
 " Plugin to visualize your Vim undo tree.
@@ -424,6 +428,8 @@ nnoremap <F5> :GundoToggle<CR>
 "  target, with a slight pause after each change. It's mostly useless, but can
 "  be fun to watch and see where your editing lags — that might be a good
 "  place to define a new mapping to speed up your editing. 
+" ============================================
+" ============================================
 
 
 " TODO
@@ -434,19 +440,6 @@ nnoremap <F5> :GundoToggle<CR>
 " Bundle 'jelera/vim-javascript-syntax'
 " Bundle 'tpope/vim-haml'
 " Bundle 'jQuery'
-
-
-
-    " not so cool
-    " shitty colors in terminal.. can get it to work..
-    " Bundle 'altercation/vim-colors-solarized'
-    " TODO not working.. try to fix :)"
-    " Precision colorscheme for the vim text editor
-    "
-    " Modify .vimrc
-    " syntax enable
-    " set backgound=dark
-    " colorscheme solarized
 
 
 " Github repos of the user 'vim-scripts'
