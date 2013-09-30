@@ -7,6 +7,11 @@
 " ctrl-jklm  changes to that split
 " Open NERD tree - leader + n
 "
+"
+" ============================================
+" Requirements
+" ============================================
+" apt-get install vim curl git exuberent-ctags
 
 " ============================================
 " Plugins
@@ -287,6 +292,25 @@ Bundle 'SirVer/ultisnips'
 Bundle 'scrooloose/nerdtree'
 " A tree explorer plugin for vim
 " more info in github
+"
+" commands:
+"   press o to opent he file in new buffer or open/close directory
+"   press t to open the file in a new tab
+"   press i to open the file in a new horizontal split
+"   press s to open the file in a new vertical split
+"   press p to go to parent directory
+"   press r to refresh the current directory
+"   press m to lauch nerdtree enu inside vim
+
+Bundle 'YankRing'
+" Maintains a history of previous yanks
+"
+" A tutorial is included to take you through the various features of the
+" plugin. After you installed the plugin just run:
+"   :h yankring.txt
+"   :h yankring-tutorial
+"TODO: go throo tutorial
+
 
 
 "Bundle 'tyru/undoclosewin'
@@ -353,16 +377,16 @@ let g:startify_custom_header = [
 
 
 
-" not so cool
-" shitty colors in terminal.. can get it to work..
-" Bundle 'altercation/vim-colors-solarized'
-" TODO not working.. try to fix :)"
-" Precision colorscheme for the vim text editor
-"
-" Modify .vimrc
-" syntax enable
-" set backgound=dark
-" colorscheme solarized
+    " not so cool
+    " shitty colors in terminal.. can get it to work..
+    " Bundle 'altercation/vim-colors-solarized'
+    " TODO not working.. try to fix :)"
+    " Precision colorscheme for the vim text editor
+    "
+    " Modify .vimrc
+    " syntax enable
+    " set backgound=dark
+    " colorscheme solarized
 
 
 " Github repos of the user 'vim-scripts'
@@ -524,3 +548,5 @@ nnoremap ; :
 "clearing highlighted search
 nmap <silent> <leader>/ :nohlsearch<CR>"
 
+" Enable full mouse support
+set mouse+=a
