@@ -372,7 +372,7 @@ let g:startify_custom_header = [
  \ '    `P`     .    .     `q`      8888888888888888888888  ', 
  \ '     `-..____:  :____..-`       888P""""""""""""""4888  ', 
  \ '             :  :               `P`     .    .     `q`  ', 
- \ '             :  :                `-..____:  :____..-`   ', 
+ \ '             :  :                `-..____:  :____..:q-`   ', 
  \ '             :  :                        :  :           ', 
  \ '             :  :                        :  :           ', 
  \ '             :  :                        :  :           ', 
@@ -380,6 +380,21 @@ let g:startify_custom_header = [
  \ '',
  \ '',
  \ ]
+
+Bundle 'sjl/gundo.vim'
+" Plugin to visualize your Vim undo tree.
+"
+nnoremap <F5> :GundoToggle<CR>
+"  You can use p on a state to make the preview window show the diff between
+"  your current state and the selected state, instead of a preview of what the
+"  selected state changed.
+"
+"  Pressing P while on a state will initiate "play to" mode targeted at that
+"  state. This will replay all the changes between your current state and the
+"  target, with a slight pause after each change. It's mostly useless, but can
+"  be fun to watch and see where your editing lags — that might be a good
+"  place to define a new mapping to speed up your editing. 
+
 
 " TODO
 " Syntax plugins
@@ -389,7 +404,6 @@ let g:startify_custom_header = [
 " Bundle 'jelera/vim-javascript-syntax'
 " Bundle 'tpope/vim-haml'
 " Bundle 'jQuery'
-
 
 
 
@@ -558,6 +572,7 @@ set expandtab         " tabs are spaces, not tabs
 set tabstop=4         " and indentation every four columns
 " set softtabstop=4     " let backspace delete indent
 
+
 set matchpairs+=<:>   " match, to be used with %
 set pastetoggle=<F9> " pastetoggle (sane indentation on pastes)
 
@@ -577,3 +592,12 @@ autocmd BufReadPost *
 
 " Remeber info about open buffers on close
 set viminfo^=%
+
+" Use english spellchecking, but don't spellcheck by default
+if version > 700
+  set spl=en spell
+  set nospell
+endif
+
+" Space will toggle folds!
+nnoremap <space> za
