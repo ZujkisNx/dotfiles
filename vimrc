@@ -170,7 +170,6 @@ set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
-"set laststatus=2
 " TODO: in txmux powerline looks like crap, whats wrong?
 " A: you need to tell tmux that it has 256-color capabilities. Add this to
 " yout tmux.conf to solve this issue:
@@ -305,6 +304,38 @@ Bundle 'SirVer/ultisnips'
 " Read doc/open-pdf.txt to get more information.
 " TODO: not working.. 
 
+Bundle 'mhinz/vim-startify'
+" fancy start screen
+" Commands:
+"  in startify screen - v opens vertical split
+"                       s opens horizontal split
+"                       t opens in new tab
+
+let g:startify_custom_header = [
+ \ '             .8.                 ',
+ \ '             888                 ',
+ \ '             888l                        .8.            ',
+ \ '            j8888.                       888            ',
+ \ '           .888888.                      888l           ',
+ \ '         .88888888.                     j8888.          ',
+ \ '        .d8888888888b.                 .888888.         ',
+ \ '      .d88888888888888b.             .88888888.         ',
+ \ '     .888888888888888888b.          .d8888888888b.      ',
+ \ '    .888888888888888888888        .d88888888888888b.    ', 
+ \ '    8888888888888888888888       .888888888888888888b.  ', 
+ \ '    888P""""""""""""""4888      .888888888888888888888  ', 
+ \ '    `P`     .    .     `q`      8888888888888888888888  ', 
+ \ '     `-..____:  :____..-`       888P""""""""""""""4888  ', 
+ \ '             :  :               `P`     .    .     `q`  ', 
+ \ '             :  :                `-..____:  :____..-`   ', 
+ \ '             :  :                        :  :           ', 
+ \ '             :  :                        :  :           ', 
+ \ '             :  :                        :  :           ', 
+ \ '           \(/\\)\/                    \(/\\)\/         ', 
+ \ '',
+ \ '',
+ \ ]
+
 " TODO
 " Syntax plugins
 " Bundle 'hail2u/vim-css3-syntax'
@@ -338,7 +369,6 @@ Bundle 'FuzzyFinder'
 " buffer/file/command/tag/etc explorer with fuzzy matching
 "TODO add bindings for commands
 " :help FuzzyFinder
-
 
 
 
