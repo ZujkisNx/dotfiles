@@ -682,10 +682,14 @@ set ruler " Always show curent position
 
 set cmdheight=2 " Height of the command bar
 
+" Set to auto read when a file is changed from the outside
+set autoread
+
 " Some stuff from spf13
 set virtualedit=onemore    " allow cursor beyond las character
-set history=1000 	   " store a ton of history
-set scrolloff=3            " minimum lines to keep above and below cursor
+set history=10000 	   " store a ton of history
+set scrolloff=7            " minimum lines to keep above and below cursor
+set scrolljump=1          " how many lines to scrool at a time
 
 set list
 set listchars=tab:>.,trail:.,extends:\#,nbsp:. " Highlight problematic whitespace
@@ -728,3 +732,15 @@ endif
 
 " Space will toggle folds!
 nnoremap <space> za
+
+" Open all folds initially
+set foldmethod=indent
+set foldlevelstart=99
+
+" No need to show mode (coz of statusline)
+set noshowmode
+
+" Auto complete setting
+set completeopt=longest,menuone
+
+
