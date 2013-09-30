@@ -55,6 +55,7 @@ Bundle 'majutsushi/tagbar'
 " more info: majutsushi.github.io/tagbar/
 " Opens tags window with F8
 nmap <F8> :TagbarToggle<CR>
+" TODO: not working becouse exuberant is not installed
 
 Bundle 'vim-scripts/Align'
 " Let's you align statements on their equal signs, make comment boxes,
@@ -69,6 +70,7 @@ Bundle 'vim-scripts/Align'
 " 	:help align
 " more info: http://www.vim.org/scripts/script.php?script_id=294
 "TODO - add command for autoaligning
+"TODO cosider going for tabular plugin
 
 Bundle 'Raimondi/delimitMate'
 " Provides automatic closing of quotes, parenthesis, brackets, etc.,
@@ -161,7 +163,14 @@ Bundle 'Lokaltog/vim-powerline'
 " :help Powerline - instructions on how to configure it.
 " TODO: configure powerline to be nice.
 " TODO: set laststatus=2
+"
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
+" Always show statusline
 set laststatus=2
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
+
+"set laststatus=2
 " TODO: in txmux powerline looks like crap, whats wrong?
 " A: you need to tell tmux that it has 256-color capabilities. Add this to
 " yout tmux.conf to solve this issue:
@@ -169,7 +178,7 @@ set laststatus=2
 " also need to add line to bashrc 
 " export TERM=xterm-256color
 
-Bundle 'zhaocai/linepower'
+" Bundle 'zhaocai/linepower'
 " powerlines enchantment
 " TODO: isntallation instructions in https://github.com/vim-scripts/linepower.vim
 " need to replace the json files under config in ~/.config/powerline
@@ -276,10 +285,25 @@ Bundle 'SirVer/ultisnips'
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-Bundle 'tyru/undoclosewin'
+"Bundle 'tyru/undoclosewin'
 " undo closing windows/tabs
 " TODO: not working
 
+" Bundle 'rhysd/open-pdf'
+" convert pdf file to plain-text file, cache it and open it in vim
+" commands:
+"       :Pdf path/to/pdf-file converts, caches and opens the pdf-file.
+"       :Unite pdf/history displays histories you have ever opened.
+"
+" Auto Conversion
+"
+    " When a pdf file is edited with :edit or :read, conversion from pdf to txt is
+    " automatically executed and open the text file instead of pdf file. You must
+    " set g:pdf_convert_on_edit or g:pdf_convert_on_read to 1 to enable these
+    " features.
+"
+" Read doc/open-pdf.txt to get more information.
+" TODO: not working.. 
 
 " TODO
 " Syntax plugins
@@ -315,21 +339,6 @@ Bundle 'FuzzyFinder'
 "TODO add bindings for commands
 " :help FuzzyFinder
 
-Bundle 'open-pdf'
-" convert pdf file to plain-text file, cache it and open it in vim
-" commands:
-"       :Pdf path/to/pdf-file converts, caches and opens the pdf-file.
-"       :Unite pdf/history displays histories you have ever opened.
-"
-" Auto Conversion
-"
-    " When a pdf file is edited with :edit or :read, conversion from pdf to txt is
-    " automatically executed and open the text file instead of pdf file. You must
-    " set g:pdf_convert_on_edit or g:pdf_convert_on_read to 1 to enable these
-    " features.
-"
-" Read doc/open-pdf.txt to get more information.
-" TODO: test it
 
 
 
