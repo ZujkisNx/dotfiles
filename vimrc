@@ -284,6 +284,11 @@ Bundle 'SirVer/ultisnips'
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+Bundle 'scrooloose/nerdtree'
+" A tree explorer plugin for vim
+" more info in github
+
+
 "Bundle 'tyru/undoclosewin'
 " undo closing windows/tabs
 " TODO: not working
