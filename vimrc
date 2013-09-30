@@ -743,4 +743,28 @@ set noshowmode
 " Auto complete setting
 set completeopt=longest,menuone
 
+" Allow changing buffer without saving it first
+set hidden
 
+" Make regex a little easier to type
+set magic
+
+" Don't show matching brackets
+set noshowmatch
+
+"Show incomplete commands
+set showcmd
+
+" Lower the delay of escaping out of other modes
+set timeout timeoutlen=1000 ttimeoutlen=0
+
+" Cursor settings. This makes terminal vim sooo much nicer!
+" Tmux will only forward escape sequences to the terminal if surrounded by a DCS
+" sequence
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
