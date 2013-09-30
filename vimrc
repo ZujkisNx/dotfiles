@@ -170,6 +170,14 @@ Bundle 'fs111/pydoc.vim'
 " pydoc integration for the best text editor on earth. :))
 " pydF
 
+Bundle 'Lokaltog/vim-easymotion'
+" vim motions on speed.
+" default <leader><leader>
+" e.g. <leader><leader>t,
+"      <leader><leader>gE
+
+
+
 
 " NOTE: disabled for testing vim-airline
 " Bundle 'Lokaltog/vim-powerline'
