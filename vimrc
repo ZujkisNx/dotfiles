@@ -164,6 +164,12 @@ Bundle 'tpope/vim-commentary'
 
 Bundle 'bling/vim-airline'
 " lean & mean status/tabline for vim that's light as air.
+" Can change theme by :AirlineTheme <theme>
+
+Bundle 'fs111/pydoc.vim'
+" pydoc integration for the best text editor on earth. :))
+" pydF
+
 
 " NOTE: disabled for testing vim-airline
 " Bundle 'Lokaltog/vim-powerline'
