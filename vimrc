@@ -162,7 +162,11 @@ Bundle 'tpope/vim-commentary'
 " paragraph), and gc in visual mode to comment out the selection.
 " more info: http://www.vim.org/scripts/script.php?script_id=3695
 
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+" lean & mean status/tabline for vim that's light as air.
+
+" NOTE: disabled for testing vim-airline
+" Bundle 'Lokaltog/vim-powerline'
 " Powerline is a utility plugin which allows you to create better-looking,
 " more functional vim statuslines.
 " :help Powerline - instructions on how to configure it.
@@ -175,11 +179,23 @@ set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
+" For fancy symbols
+" let g:Powerliine_symbols = 'fancy'
+
+" To remove ^B from powerline
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=         " don't do any encoding conversion
+
+" Format the status line
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+" NOTE: neveikia..
+
 " TODO: in txmux powerline looks like crap, whats wrong?
 " A: you need to tell tmux that it has 256-color capabilities. Add this to
 " yout tmux.conf to solve this issue:
 " set -g default-terminal "screen-256color"
-" also need to add line to bashrc 
+" also need to add line to bashrc
 " export TERM=xterm-256color
 
 " Bundle 'zhaocai/linepower'
@@ -284,7 +300,7 @@ Bundle 'SirVer/ultisnips'
 " " NOTE: expansion and forward jumping can, but needn't be the same trigger
 "
 " Set ultisnips triggers
-" NOT WORKING.. 
+" NOT WORKING..
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -302,7 +318,7 @@ Bundle 'scrooloose/nerdtree'
 "   press r to refresh the current directory
 "   press m to lauch nerdtree enu inside vim
 
-Bundle 'YankRing'
+Bundle 'YankRing.vim'
 " Maintains a history of previous yanks
 "
 " A tutorial is included to take you through the various features of the
@@ -505,8 +521,6 @@ if has("gui_running")
     set guioptions-=T
 endif
 
-"colorscheme ir_black "molokai
-
 " Paste from clipboard
 map <leader>p "+p
 
@@ -515,16 +529,22 @@ nnoremap <leader>q :q<CR>
 
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
+nnoremap <silent> <leader>/ :nohlsearch<CR>"
 
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
+" Fast saving
+nnoremap <leader>w :w!<CR>
+
+set ruler " Always show curent position
+
+set cmdheight=2 " Height of the command bar
+
 " Some stuff from spf13
 set virtualedit=onemore    " allow cursor beyond las character
 set history=1000 	   " store a ton of history
-" set spell                  " spell checking on
 set scrolloff=3            " minimum lines to keep above and below cursor
-" set scrolljump=5           " lines to scroll when cursor leaves screen
 
 set list
 set listchars=tab:>.,trail:.,extends:\#,nbsp:. " Highlight problematic whitespace
@@ -539,14 +559,31 @@ set tabstop=4         " and indentation every four columns
 " set softtabstop=4     " let backspace delete indent
 
 set matchpairs+=<:>   " match, to be used with %
-set pastetoggle=<F12> " pastetoggle (sane indentation on pastes)
+set pastetoggle=<F9> " pastetoggle (sane indentation on pastes)
 
 " Making it so ; works like : for commands. Saves typing and
 " eliminates :W style typos due to lazy holding shift.
 nnoremap ; :
 
-"clearing highlighted search
-nmap <silent> <leader>/ :nohlsearch<CR>"
 
 " Enable full mouse support
 set mouse+=a
+
+" Return to last edit position when opening files!! :))
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+" Remeber info about open buffers on close
+set viminfo^=%
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
