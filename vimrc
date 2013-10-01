@@ -456,6 +456,7 @@ Bundle 'kshenoy/vim-signature'
 " ============================================
 
 Bundle 'kien/ctrlp.vim'
+noremap <leader>t :CtrlP<CR>
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 "
 let g:ctrlp_use_caching=0 " For updating files without reloading.
@@ -520,6 +521,8 @@ Bundle 'scrooloose/nerdtree'
 "   press r to refresh the current directory
 "   press m to lauch nerdtree enu inside vim
 "   TODO: play around
+" <Leader>tab: Toggles NERDTree
+nnoremap <silent> <Leader><tab> :NERDTreeToggle<cr>
 
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
@@ -696,8 +699,12 @@ set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 
-" Open NerdTree
-map <leader>n :NERDTreeToggle<CR>
+" Tabs
+" Easy navigation of tabs
+nnoremap <leader>[ :tabp<cr>
+nnoremap <leader>] :tabn<cr>
+" Create new tab with leader n
+noremap <leader>n :tabnew<cr>
 
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
@@ -835,8 +842,6 @@ nnoremap <silent> <Leader>2 :TagbarToggle<cr>
 " output
 vnoremap <silent> <Leader>0 :!python<cr>
 
-" <Leader>tab: Toggles NERDTree
-nnoremap <silent> <Leader><tab> :NERDTreeToggle<cr>
 
 " <Leader>o: only
 nnoremap <Leader>o :only<cr>
