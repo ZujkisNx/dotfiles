@@ -508,7 +508,7 @@ let g:startify_custom_header = [
  \ '    `P`     .    .     `q`      8888888888888888888888  ', 
  \ '     `-..____:  :____..-`       888P""""""""""""""4888  ', 
  \ '             :  :               `P`     .    .     `q`  ', 
- \ '             :  :                `-..____:  :____..:q-`   ', 
+ \ '             :  :                `-..____:  :____..-`   ', 
  \ '             :  :                        :  :           ', 
  \ '             :  :                        :  :           ', 
  \ '             :  :                        :  :           ', 
@@ -663,6 +663,8 @@ if has("gui_running")
 endif
 
 " Paste from clipboard
+" NOTE: working only in gui?
+" TODO check it out! :)
 map <leader>p "+p
 
 " Quit window on <leader>q
@@ -705,7 +707,6 @@ set tabstop=4         " and indentation every four columns
 
 
 " set matchpairs+=<:>   " match, to be used with %
-set pastetoggle=<F9> " pastetoggle (sane indentation on pastes)
 
 " Making it so ; works like : for commands. Saves typing and
 " eliminates :W style typos due to lazy holding shift.
@@ -774,6 +775,8 @@ nnoremap <Leader>`` :qa!<cr>
 
 " <Leader>1: Toggle between paste mode
 nnoremap <silent> <Leader>1 :set paste!<cr>
+" other idea for mapping paste
+" map <leader>pp :setlocal paste!<CR>
 
 " <Leader>2: Toggle Tagbar
 nnoremap <silent> <Leader>2 :TagbarToggle<cr>
@@ -790,4 +793,7 @@ nnoremap <Leader>o :only<cr>
 
 " <Leader>m: Maximize current split
 nnoremap <Leader>m <C-w>_<C-w><Bar>
+
+vnoremap <silent> * :call VisualSelection('f')<CR>
+vnoremap <silent> # :call VisualSelection('b')<CR>
 
