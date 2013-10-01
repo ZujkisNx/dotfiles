@@ -243,6 +243,22 @@ Bundle 'gregsexton/gitv'
 "
 " Start the plugin by running :Gitv in Vim when viewing a file in a git repo.
 
+" TOCHECK: (workflow plugins)
+" Bundle 'terryma/vim-multiple-cursors'
+" Bundle 'jpalardy/vim-slime'
+
+" Languages and markup
+" Languages and markup
+" Bundle 'othree/html5.vim'
+" Bundle 'tpope/vim-haml'
+" Bundle 'tpope/vim-markdown'
+" Bundle 'zaiste/VimClojure'
+" Bundle 'nono/vim-handlebars'
+" Bundle 'pangloss/vim-javascript'
+" Bundle 'kchmck/vim-coffee-script'
+
+
+
 
 Bundle 'thinca/vim-quickrun'
 " Run commands quickly
@@ -742,6 +758,9 @@ set expandtab         " tabs are spaces, not tabs
 set tabstop=4         " and indentation every four columns
 " set softtabstop=4     " let backspace delete indent
 
+set backupcopy=yes " Keeps original creator code
+set splitbelow     " Open hsplits below rather than above
+set splitright     " Open vsplits to the right rather than left
 
 " set matchpairs+=<:>   " match, to be used with %
 
@@ -752,12 +771,6 @@ nnoremap ; :
 
 " Enable full mouse support
 set mouse+=a
-
-" Return to last edit position when opening files!! :))
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
 
 " Remeber info about open buffers on close
 set viminfo^=%
@@ -830,4 +843,27 @@ nnoremap <Leader>o :only<cr>
 
 " <Leader>m: Maximize current split
 nnoremap <Leader>m <C-w>_<C-w><Bar>
+"
+
+if has("autocmd")
+" If the first arg is a directory, open up nerdtree
+  if isdirectory(argv(0))
+    bd
+    autocmd vimenter * exe "cd" argv(0)
+    autocmd VimEnter * NERDTree
+  endif
+
+" Language Specific Settings
+  autocmd FileType text setlocal textwidth=78
+  autocmd FileType gitcommit setlocal spell
+  autocmd FileType markdown setlocal spell
+  autocmd FileType markdown setlocal wrap
+
+" Go to last known valid cursor position
+  autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \ exe "normal! g`\"" |
+        \ endif
+endif
+
 
