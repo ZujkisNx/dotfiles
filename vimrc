@@ -239,7 +239,29 @@ Bundle 'thinca/vim-quickrun'
 " ============================================
 
 Bundle 'mileszs/ack.vim'
-" search"
+" recursively search files content in the current directory
+nnoremap <leader>a :Ack 
+" You can specify a custom ack name and path like this
+" let g:ackprg="<custom-ack-path-goes-here> -H --nocolor --nogroup --column"
+"
+" Usage:
+" :Ack [options] {pattern} [{directory}]
+" In the quickfix window, you can use:
+" o    to open (same as enter)
+" go   to preview file (open but maintain focus on ack.vim results)
+" t    to open in new tab
+" T    to open in new tab silently
+" h    to open in horizontal split
+" H    to open in horizontal split silently
+" v    to open in vertical split
+" gv   to open in vertical split silently
+" q    to close the quickfix window
+" 
+" examples:
+"   if you want to find "setup" in python files:
+"       :Ack --python setup
+" TODO: play around.
+
 
 " TODO:
 " code completion
@@ -406,6 +428,7 @@ Bundle 'kshenoy/vim-signature'
 Bundle 'kien/ctrlp.vim'
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 "
+let g:ctrlp_use_caching=0 " For updating files without reloading.
 " Basic usage:
 "  Run :CtrlP or :CtrlP [starting-directory] to invoke CtrlP in find
 "  	mode.
@@ -793,7 +816,4 @@ nnoremap <Leader>o :only<cr>
 
 " <Leader>m: Maximize current split
 nnoremap <Leader>m <C-w>_<C-w><Bar>
-
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
 
