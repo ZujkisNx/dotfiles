@@ -6,12 +6,15 @@
 " :W = :w
 " ctrl-jklm  changes to that split
 " Open NERD tree - leader + n
+"                  leader + tab
 "
+" Indetnt all file gg=G
+" Indent current line ==
 "
 " ============================================
 " Requirements
 " ============================================
-" apt-get install vim curl git exuberent-ctags
+" apt-get install vim curl git exuberent-ctags gtk-ack
 
 " ============================================
 " Plugins
@@ -229,6 +232,17 @@ Bundle 'tpope/vim-fugitive'
 " more info: github.com/tpope/vim-fugitive
 " ============================================
 " ============================================
+
+Bundle 'gregsexton/gitv'
+" Extension of fugitive
+" Using this plugin you can view a repository's history
+" including branching and merging, you can see which commits refs point to.
+" You can quickly an easily view what changed tto which files and when.
+" You can perform arbitrary diffs and you can easily check out whole commits
+" and branches or just individual files if needed be.
+"
+" Start the plugin by running :Gitv in Vim when viewing a file in a git repo.
+
 
 Bundle 'thinca/vim-quickrun'
 " Run commands quickly
