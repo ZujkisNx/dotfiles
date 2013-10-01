@@ -768,3 +768,26 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" <Leader>``: Force quit all
+nnoremap <Leader>`` :qa!<cr>
+
+" <Leader>1: Toggle between paste mode
+nnoremap <silent> <Leader>1 :set paste!<cr>
+
+" <Leader>2: Toggle Tagbar
+nnoremap <silent> <Leader>2 :TagbarToggle<cr>
+
+" <Leader>0: Run the visually selected code in python and replace it with the
+" output
+vnoremap <silent> <Leader>0 :!python<cr>
+
+" <Leader>tab: Toggles NERDTree
+nnoremap <silent> <Leader><tab> :NERDTreeToggle<cr>
+
+" <Leader>o: only
+nnoremap <Leader>o :only<cr>
+
+" <Leader>m: Maximize current split
+nnoremap <Leader>m <C-w>_<C-w><Bar>
+
