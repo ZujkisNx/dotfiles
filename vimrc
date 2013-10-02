@@ -619,7 +619,7 @@ nnoremap <F5> :GundoToggle<CR>
 
 
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+" Bundle 'git://git.wincent.com/command-t.git'
 " requires ruby so not so cool.. 
 " TODO: try to use neerd tree and fuzzy finder
 
