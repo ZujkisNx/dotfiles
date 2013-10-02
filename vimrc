@@ -709,6 +709,8 @@ nmap <leader>sw<right> :botright vnew<CR>
 nmap <leader>sw<up> :topleft new<CR>
 nmap <leader>sw<down> :botright new<CR>
 
+" buffers
+" TODO: need to figgure this one out.
 nmap <leader>s<left> :leftabove vnew<CR>
 nmap <leader>s<right> :rightbelow vnew<CR>
 nmap <leader>s<up> :leftabove new<CR>
@@ -782,6 +784,15 @@ nnoremap <leader>[ :tabp<cr>
 nnoremap <leader>] :tabn<cr>
 " Create new tab with leader n
 noremap <leader>n :tabnew<cr>
+
+" Up and down are for switching tabs, not moving the cursor:
+nnoremap <up> <ESC>:tabp<CR>
+nnoremap <down> <ESC>:tabn<CR>
+
+" Left and Right are for switching buffers, not moving the cursor:
+nnoremap <right> <ESC>:bn<CR>
+nnoremap <left> <ESC>:bp<CR>
+
 
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
@@ -871,9 +882,6 @@ set directory=~/.vim/tmp
 " eliminates :W style typos due to lazy holding shift.
 nnoremap ; :
 
-" Left and Right are for switching buffers, not moving the cursor:
-nnoremap <right> <ESC>:bn<CR>
-nnoremap <left> <ESC>:bp<CR>
 
 " Enable full mouse support
 set mouse+=a
