@@ -257,6 +257,56 @@ Bundle 'gregsexton/gitv'
 " Bundle 'pangloss/vim-javascript'
 " Bundle 'kchmck/vim-coffee-script'
 
+Bundle 'airblade/vim-gitgutter'
+" Shows a git diff in the sign column.
+" It shows wheather each line has been added, modified, and where lines have
+" been removed.
+"
+" Usage - just works.
+" Fixing signcolumn color:
+" TODO:!! fix greyish sign column.
+" :highlight clear SignColumn
+"
+" You can expliciltly turn it off(default=on):
+"   :GitGutterDisable
+"   :GitGutterEnable
+"   :GitGutterToggle
+"
+" You can turn line highlighting on and off(default=off):
+"   :GitGutterHighlightsEnable
+"   :GitGutterHighlightsDisable
+"   :GitGutterHighlightsToggle
+"
+" You can jump between "hunks"(can take count):
+"   jump to next hunk: ]h
+"   jump to previous hunk [h
+" TODO: test what a hell is hunk.. :)
+"
+" To set your own mappings for example gh and gH:
+"   nmap gh <Plug>GitGutterNextHunk
+"   nmap gH <Plug>GitGutterPrevHunk
+"
+" Finally you can force vim-gutter to update its signs across all visible
+" buffers with :GitGutterAll.
+"
+" To turn off vim-gutter by default
+"   let g:gitgutter_enabled=0
+" To turn on line highliting by default
+" TODO: check this one
+"   let g:gitgutter_highlight_lines=1
+" To stop vim-gutter running in realtime
+"   By default the plugin runs when you stop typing. The delay is governed by
+"   updatetime (Vim's default is 4000ms, i.e. 4 seconds; I prefer 750.)
+"   To turn this off:
+"       let g:gitgutter_realtime=0
+" To stop vim-gutter runnig eagerly
+"   By default the plugin also runs every time you read a file, on BufEnter,
+"   TabEnter and FocusGained. This can cause a noticeable lag for some people
+"   so you can set the plugin to run instead only when you read or write a
+"   file.
+"       To turn off eager execution:
+"           let g:gitgutter_eager = 0
+
 Bundle 'uguu-org/vim-matrix-screensaver' 
 " Matrix screen fro VIM
 " Usage:
@@ -391,10 +441,9 @@ nmap <S-Space> <Plug>FocusModeToggle
 " ============================================
 " ============================================
 
-Bundle ''
-
 
 Bundle 'airblade/vim-rooter'
+" TODO not sure if it works.. :)) test it.
 " Changes Vim working directory to project root (identify by presence
 " of directory or file"
 "
@@ -752,9 +801,15 @@ map <leader>p "+p
 " Quit window on <leader>q
 nnoremap <leader>q :q<CR>
 
-" hide matches on <leader>space
-nnoremap <leader><space> :nohlsearch<cr>
-nnoremap <silent> <leader>/ :nohlsearch<CR>"
+" hide search highlights
+" space could be used better.
+" nnoremap <leader><space> :nohlsearch<cr>
+" nnoremap <silent> <leader>/ :nohlsearch<CR>"
+
+" Removes highlight when pressing ESC in normal mode!!! :)) cool
+nnoremap <silent><esc> :noh<return><esc>
+" Removes highlight when pressing enter in normal mode
+nnoremap <silent><CR> :noh<CR> <CR>
 
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
