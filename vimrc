@@ -835,6 +835,7 @@ set autoread
 set virtualedit=onemore    " allow cursor beyond las character
 set history=10000 	   " store a ton of history
 set scrolloff=7            " minimum lines to keep above and below cursor
+set sidescrolloff=5        " minimum lines to keep in sides from cursor
 set scrolljump=1          " how many lines to scrool at a time
 
 set list
@@ -846,8 +847,15 @@ set wrap "wrap long lines
 set autoindent " indent at the same level of the previous line
 set shiftwidth=4 " uses indents of 4 spaces
 set expandtab         " tabs are spaces, not tabs
-set tabstop=4         " and indentation every four columns
+set softtabstop=4       " spaces for each step of (auto)indent
+set tabstop=8           " for proper display of files with tabs
+set shiftround          " always round indents to multiple of shiftwidth
+set copyindent          " use existing indents for new indents
+set preserveindent      " save as much indent structure as posible
+
+" set tabstop=4         " and indentation every four columns
 " set softtabstop=4     " let backspace delete indent
+
 
 set backupcopy=yes " Keeps original creator code
 set splitbelow     " Open hsplits below rather than above
