@@ -577,7 +577,7 @@ nnoremap <silent> <Leader><tab> :NERDTreeToggle<cr>
 
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.pyo$', '\.pyc$']
 " ============================================
 " ============================================
 
@@ -678,6 +678,8 @@ let mapleader=","
 
 " ============================================
 " My stuff from learning vim the hard way
+" 
+" Highlights word under the cursor
 " :map <space> viw
 
 " jj instead of ESC in insert mode. Helps to keep hands on the home row.
@@ -896,7 +898,27 @@ if version > 700
 endif
 
 " Space will toggle folds!
+" TODO: change mapping to sth not so cool placed.
 nnoremap <space> za
+
+" TODO: clean up this space thingy.. :)
+" <space> switches to the next window (give it a second)
+" <space>n switches to the next window
+" <space><space> switches to the next window and maximizes it
+" <space>= Equalizes the size of all windows
+" + Increases the size of the current window
+" - Decreases the size of the current window
+
+:map <space> <c-W>w
+:map <space>n <c-W>w
+:map <space><space> <c-W>w<c-W>_
+:map <space>= <c-W>=
+if bufwinnr(1)
+  map + <c-W>+
+  map - <c-W>-
+endif
+
+
 
 " Open all folds initially
 set foldmethod=indent
