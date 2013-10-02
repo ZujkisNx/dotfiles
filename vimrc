@@ -871,6 +871,9 @@ set directory=~/.vim/tmp
 " eliminates :W style typos due to lazy holding shift.
 nnoremap ; :
 
+" Left and Right are for switching buffers, not moving the cursor:
+nnoremap <right> <ESC>:bn<CR>
+nnoremap <left> <ESC>:bp<CR>
 
 " Enable full mouse support
 set mouse+=a
