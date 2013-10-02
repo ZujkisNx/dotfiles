@@ -263,9 +263,8 @@ Bundle 'airblade/vim-gitgutter'
 " been removed.
 "
 " Usage - just works.
-" Fixing signcolumn color:
-" TODO:!! fix greyish sign column.
-" :highlight clear SignColumn
+" Fixing signcolumn greyish color:
+autocmd ColorScheme * highlight clear SignColumn
 "
 " You can expliciltly turn it off(default=on):
 "   :GitGutterDisable
@@ -807,7 +806,8 @@ nnoremap <leader>q :q<CR>
 " nnoremap <silent> <leader>/ :nohlsearch<CR>"
 
 " Removes highlight when pressing ESC in normal mode!!! :)) cool
-nnoremap <silent><esc> :noh<return><esc>
+" but causes strange behaviour.. :((
+" nnoremap <silent><esc> :noh<return><esc>
 " Removes highlight when pressing enter in normal mode
 nnoremap <silent><CR> :noh<CR> <CR>
 
