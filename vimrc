@@ -556,15 +556,15 @@ let g:startify_custom_header = [
  \ '             888                 ',
  \ '             888l                        .8.            ',
  \ '            j8888.                       888            ',
- \ '           .888888.                      888l           ',
- \ '         .88888888.                     j8888.          ',
- \ '        .d8888888888b.                 .888888.         ',
- \ '      .d88888888888888b.             .88888888.         ',
- \ '     .888888888888888888b.          .d8888888888b.      ',
- \ '    .888888888888888888888        .d88888888888888b.    ', 
- \ '    8888888888888888888888       .888888888888888888b.  ', 
- \ '    888P""""""""""""""4888      .888888888888888888888  ', 
- \ '    `P`     .    .     `q`      8888888888888888888888  ', 
+ \ '           .888888.                      8 8l           ',
+ \ '          .88888888.                    j8888.          ',
+ \ '        .d8888888888b.                 .88 888.         ',
+ \ '      .d88888888888888b.             .88 88888.         ',
+ \ '     .888888888888888888b.          .d888888 888b.      ',
+ \ '    .888888888888888888888        .d88 888 888 888b.    ', 
+ \ '    8888888888888888888888       .888888 888 888 888b.  ', 
+ \ '    888P""""""""""""""4888      .88 8888888888 8888 88  ', 
+ \ '    `P`     .    .     `q`      8 8888 888 888888 88 8  ', 
  \ '     `-..____:  :____..-`       888P""""""""""""""4888  ', 
  \ '             :  :               `P`     .    .     `q`  ', 
  \ '             :  :                `-..____:  :____..-`   ', 
@@ -607,10 +607,11 @@ nnoremap <F5> :GundoToggle<CR>
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
-Bundle 'L9'
+" Bundle 'L9'
 " dependancy for fuzzyfinder
 
-Bundle 'FuzzyFinder'
+" Disabled becouse CtrlP seems better.
+" Bundle 'FuzzyFinder'
 " buffer/file/command/tag/etc explorer with fuzzy matching
 "TODO add bindings for commands
 " :help FuzzyFinder
@@ -653,6 +654,24 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+" spliting windows
+nmap <leader>sw<left> :topleft vnew<CR>
+nmap <leader>sw<right> :botright vnew<CR>
+nmap <leader>sw<up> :topleft new<CR>
+nmap <leader>sw<down> :botright new<CR>
+
+nmap <leader>s<left> :leftabove vnew<CR>
+nmap <leader>s<right> :rightbelow vnew<CR>
+nmap <leader>s<up> :leftabove new<CR>
+nmap <leader>s<down> :rightbelow new<CR>
+
+
+
+
+
+
+
 
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
@@ -903,3 +922,5 @@ endif
   " endfunction
   " set tabline=%!MyTabLine()
 " endif
+
+
