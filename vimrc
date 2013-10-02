@@ -1,7 +1,7 @@
 " Info
 " Leader - ","
 " Reload vimrc - leader + V
-" select word under the cursor - space
+" fold/unfold - space
 " exit from insert mode to normal mode - jj
 " :W = :w
 " ctrl-jklm  changes to that split
@@ -277,9 +277,9 @@ autocmd ColorScheme * highlight clear SignColumn
 "   :GitGutterHighlightsToggle
 "
 " You can jump between "hunks"(can take count):
+" (hunks are modified place in file which differs from commited file.)
 "   jump to next hunk: ]h
 "   jump to previous hunk [h
-" TODO: test what a hell is hunk.. :)
 "
 " To set your own mappings for example gh and gH:
 "   nmap gh <Plug>GitGutterNextHunk
@@ -764,6 +764,13 @@ set nolist                    " no whitespace
 set noerrorbells
 set vb t_vb=
 
+" Up and down are more logical with g.. (on wraped lines)
+nnoremap <silent> k gk
+nnoremap <silent> j gj
+inoremap <silent> <Up> <Esc>gka
+inoremap <silent> <Down> <Esc>gja
+
+
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
@@ -834,7 +841,7 @@ set list
 set listchars=tab:>.,trail:.,extends:\#,nbsp:. " Highlight problematic whitespace
 
 "sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf
-set nowrap "wrap long lines
+set wrap "wrap long lines
 
 set autoindent " indent at the same level of the previous line
 set shiftwidth=4 " uses indents of 4 spaces
@@ -845,6 +852,10 @@ set tabstop=4         " and indentation every four columns
 set backupcopy=yes " Keeps original creator code
 set splitbelow     " Open hsplits below rather than above
 set splitright     " Open vsplits to the right rather than left
+
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
 
 " set matchpairs+=<:>   " match, to be used with %
 
