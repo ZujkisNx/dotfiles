@@ -476,7 +476,7 @@ Bundle 'scrooloose/syntastic'
 " ============================================
 " ============================================
 
-Bundle 'rodjek-/vim-puppet.git'
+Bundle 'rodjek/vim-puppet.git'
 " Make vim more Puppet friendly!
 " 
 " provides:
@@ -486,12 +486,11 @@ Bundle 'rodjek-/vim-puppet.git'
 "   Doesn't require a blaoted JRE
 "   Doesn't take munutes to open
 
-Bundle 'goldygeek/tabular'
-" Vim cript for filering and alignment
+Bundle 'godlygeek/tabular'
+" Vim script for filering and alignment
 " TODO :help tabular
 
 
-Bundle 'tabular'
 
 Bundle 'tpope/vim-unimpaired'
 " pairs of handy bracket mappings
@@ -576,35 +575,34 @@ Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'kien/rainbow_parentheses.vim'
 " Better Rainbow Parentheses
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+" let g:rbpt_colorpairs = [
+    " \ ['brown',       'RoyalBlue3'],
+    " \ ['Darkblue',    'SeaGreen3'],
+    " \ ['darkgray',    'DarkOrchid3'],
+    " \ ['darkgreen',   'firebrick3'],
+    " \ ['darkcyan',    'RoyalBlue3'],
+    " \ ['darkred',     'SeaGreen3'],
+    " \ ['darkmagenta', 'DarkOrchid3'],
+    " \ ['brown',       'firebrick3'],
+    " \ ['gray',        'RoyalBlue3'],
+    " \ ['black',       'SeaGreen3'],
+    " \ ['darkmagenta', 'DarkOrchid3'],
+    " \ ['Darkblue',    'firebrick3'],
+    " \ ['darkgreen',   'RoyalBlue3'],
+    " \ ['darkcyan',    'SeaGreen3'],
+    " \ ['darkred',     'DarkOrchid3'],
+    " \ ['red',         'firebrick3'],
+    " \ ]
+" let g:rbpt_max = 16
 
-let g:rbpt_max = 16
-
-let g:rbpt_loadcmd_toggle = 0
-
-" Always on:
+" let g:rbpt_loadcmd_toggle = 0
+" TODO: neveikia kol neijungi rankiniu budu TODO: neveikia kol neijungi
+" rankiniu budu
+" " Always on:
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
 
 
 
