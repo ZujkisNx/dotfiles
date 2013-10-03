@@ -442,11 +442,18 @@ nmap <S-Space> <Plug>FocusModeToggle
 " ============================================
 " ============================================
 
+Bundle 'mru.vim'
+" Plugin to manage most recently used files (MRU)
+" Usage:
+"   :MRU
+
 Bundle 'klen/python-mode'
 " Vim python-mode. PyLing, Rope, Pydoc, breakpoints from box.
 " Python-mode is a vim plugin that allows you to use pylint, rope, pydoc,
 " pyflakes, pep8, mccabe libraries in vim to provide features like python code
 " looking for bugs, refactoring and some other useful things.
+" TODO: check manual
+" TODO check screencast www.github.com/klein/python-mode
 
 
 Bundle 'airblade/vim-rooter'
