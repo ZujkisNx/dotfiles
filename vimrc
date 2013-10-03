@@ -15,6 +15,8 @@
 " Requirements
 " ============================================
 " apt-get install vim curl git exuberent-ctags gtk-ack
+" (for you complete me)
+" cmake python-dev
 
 " ============================================
 " Plugins
@@ -474,6 +476,23 @@ Bundle 'scrooloose/syntastic'
 " ============================================
 " ============================================
 
+Bundle 'rodjek-/vim-puppet.git'
+" Make vim more Puppet friendly!
+" 
+" provides:
+"   Formatting based on the lates Puppetlabs Style Guide
+"   Syntax highlighting
+"   Automatic => alignment (when tabuler plugin is also insalled)
+"   Doesn't require a blaoted JRE
+"   Doesn't take munutes to open
+
+Bundle 'goldygeek/tabular'
+" Vim cript for filering and alignment
+" TODO :help tabular
+
+
+Bundle 'tabular'
+
 Bundle 'tpope/vim-unimpaired'
 " pairs of handy bracket mappings
 " more info on github
@@ -538,11 +557,56 @@ let g:ctrlp_use_caching=0 " For updating files without reloading.
 " ============================================
 " ============================================
 
-Bundle 'ervandew/supertab'
-" Supertab is a vim plugin which allows you to use <Tab> for all your
-" insert completion needs (:help ins-completion)
+Bundle 'Valloric/YouCompleteMe'
+" abosteles SuperTab
+" need to compile ycm core plugin. 
+" You winn need cmake -
+"   sudo apt-get install cmake
+" You will need pytodn headers -
+"   sudo apt-get install python-dev
+"
+" cd ~
+" mkdir ycm_build
+" cd ycm_build
+" cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/cpp
+" make ymc_core
+"
 " ============================================
 " ============================================
+
+Bundle 'kien/rainbow_parentheses.vim'
+" Better Rainbow Parentheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+
+let g:rbpt_loadcmd_toggle = 0
+
+" Always on:
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+
+
 
 Bundle 'SirVer/ultisnips'
 " snippets
@@ -909,14 +973,14 @@ nnoremap <space> za
 " + Increases the size of the current window
 " - Decreases the size of the current window
 
-:map <space> <c-W>w
-:map <space>n <c-W>w
-:map <space><space> <c-W>w<c-W>_
-:map <space>= <c-W>=
-if bufwinnr(1)
-  map + <c-W>+
-  map - <c-W>-
-endif
+" :map <space> <c-W>w
+" :map <space>n <c-W>w
+" :map <space><space> <c-W>w<c-W>_
+" :map <space>= <c-W>=
+" if bufwinnr(1)
+  " map + <c-W>+
+  " map - <c-W>-
+" endif
 
 
 
