@@ -442,6 +442,12 @@ nmap <S-Space> <Plug>FocusModeToggle
 " ============================================
 " ============================================
 
+Bundle 'klen/python-mode'
+" Vim python-mode. PyLing, Rope, Pydoc, breakpoints from box.
+" Python-mode is a vim plugin that allows you to use pylint, rope, pydoc,
+" pyflakes, pep8, mccabe libraries in vim to provide features like python code
+" looking for bugs, refactoring and some other useful things.
+
 
 Bundle 'airblade/vim-rooter'
 " TODO not sure if it works.. :)) test it.
@@ -490,7 +496,8 @@ Bundle 'godlygeek/tabular'
 " Vim script for filering and alignment
 " TODO :help tabular
 
-
+Bundle 'gf3/vim-css-color'
+"Highlight files in CSS files
 
 Bundle 'tpope/vim-unimpaired'
 " pairs of handy bracket mappings
@@ -498,6 +505,10 @@ Bundle 'tpope/vim-unimpaired'
 " TODO: see the :help unimpaired for mapings
 " ============================================
 " ============================================
+
+Bundle 'tpope/vim-markdown'
+" markdown runtime files
+" TODO: read manual
 
 Bundle 'kshenoy/vim-signature'
 " Plugin to place, toggle and display marks.
