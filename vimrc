@@ -578,7 +578,7 @@ Bundle 'renh/vim-makegreen'
 "TODO: config for python!!!
 
 
-Bundle 'pytest'
+" Bundle 'pytest'
 
 
 Bundle 'airblade/vim-rooter'
@@ -899,7 +899,7 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 command! W :w
 
 " Allow saving of files as sudo when I forgot to start vim using sudo
-cmap W! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee % >/dev/null
 " The >/dev/null part explicitly throws away the standard output, since we
 " don't need to pass anything to another piped command.
 
@@ -1092,7 +1092,9 @@ nnoremap ; :
 
 
 " Enable full mouse support
-set mouse+=a
+set mouse+=a    " mouse in all modes
+set mousehide   " hide mouse after chars typed
+
 
 " Remeber info about open buffers on close
 set viminfo^=%
