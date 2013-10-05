@@ -262,12 +262,13 @@ Bundle 'gregsexton/gitv'
 Bundle 'cisco.vim'
 " highlights cisco configuration files
 
-Bundle 'sexy_scroller.vim'
+" Not sure if i like it..
+" Bundle 'sexy_scroller.vim'
 " Smooth animation on the cursor and the page whenever they move, with easing.
 " Set the time it takes (in milliseconds) for the buffer to scroll one line or
 " column.
 
-    " :let g:SexyScroller_ScrollTime = 10
+" :let g:SexyScroller_ScrollTime = 1500
 
 " Set the time it takes for the cursor to travel one line.
 " Probably only visible if you have `:set cursorline`.  Set it to 0 to never
@@ -338,6 +339,13 @@ Bundle 'terryma/vim-multiple-cursors'
 "Ctrl-x - in Visual mode will remove the current virtual cursor and skip to
 "   the next virtual cursor location. This is useful if you don't want the
 "   current selection to be a candidate to operate on later.
+"
+"You can also add multiple cursors using a regual expression. The command
+"   MultipleCursorFind accpets a range and a patter, and it will create a
+"   virtual cursor at the end of every match within the range. If no range 
+"   is passed in,  then it defaults to the entire buffer.
+
+
 
 
 Bundle 'taboo.vim'
