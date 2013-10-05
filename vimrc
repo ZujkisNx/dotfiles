@@ -553,6 +553,33 @@ Bundle 'klen/python-mode'
 " for opening pydoc in vertical split
 let g:pydoc_open_cmd = 'vsplit'
 
+Bundle 'pytest-compiler'
+" Compile plugin for py.test
+" provides :compiler pytest  to work with Vim's :make command and plugins like
+" MakeGreen
+"
+" If you don' know this make thingy see :help quickfix to get started
+" TODO: :help quickfix for make
+
+Bundle 'renh/vim-makegreen'
+" Runs make and shows a red or green message bar for success/failure. Speeds
+" the red-green-refactor cycle!
+"
+" Usage:
+"   :MakeGreen %    will run make for the current file and show its status
+"                   with a red or green message bar.
+"
+"   Example:
+"   $ cd <your rails/merb root>
+"   $ vim test/unit/user_teset.rb
+"
+"   :compiler rubyunit
+"   :MakeGreen %
+"TODO: config for python!!!
+
+
+Bundle 'pytest'
+
 
 Bundle 'airblade/vim-rooter'
 " TODO not sure if it works.. :)) test it.
