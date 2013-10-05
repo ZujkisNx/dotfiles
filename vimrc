@@ -636,7 +636,7 @@ Bundle 'pytest-compiler'
 " If you don' know this make thingy see :help quickfix to get started
 " TODO: :help quickfix for make
 
-Bundle 'renh/vim-makegreen'
+" Bundle 'reinh/vim-makegreen'
 " Runs make and shows a red or green message bar for success/failure. Speeds
 " the red-green-refactor cycle!
 "
@@ -650,10 +650,20 @@ Bundle 'renh/vim-makegreen'
 "
 "   :compiler rubyunit
 "   :MakeGreen %
+" Mapping *makegreen-mapping*
+" ===========================================================================
+
+" There is no default key mapping at the moment. You can define your own
+" mapping easily anyway:
+" >
+    " nmap <leader>t :MakeGreen %<CR>
+" <
+" Or more conservatively:
+" >
+    " nnoremap <unique> <leader>t :MakeGreen %<CR>
 "TODO: config for python!!!
 
 
-" Bundle 'pytest'
 
 
 Bundle 'airblade/vim-rooter'
@@ -902,6 +912,7 @@ let g:startify_custom_header = [
  \ '             :  :                        :  :           ', 
  \ '           \(/\\)\/                    \(/\\)\/         ', 
  \ '',
+ \ '                     WELCOME STRANGER! ',
  \ '',
  \ ]
 " ============================================
