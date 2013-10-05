@@ -259,6 +259,60 @@ Bundle 'gregsexton/gitv'
 " Bundle 'pangloss/vim-javascript'
 " Bundle 'kchmck/vim-coffee-script'
 
+Bundle 'cisco.vim'
+" highlights cisco configuration files
+
+Bundle 'sexy_scroller.vim'
+" Smooth animation on the cursor and the page whenever they move, with easing.
+" Set the time it takes (in milliseconds) for the buffer to scroll one line or
+" column.
+
+    " :let g:SexyScroller_ScrollTime = 10
+
+" Set the time it takes for the cursor to travel one line.
+" Probably only visible if you have `:set cursorline`.  Set it to 0 to never
+" animate the cursor.
+
+    " :let g:SexyScroller_CursorTime = 5
+
+" (I like to pretend the cursor is "lighter" than the buffer.)
+
+" Set the maximum amount of time that longer scrolls can take:
+
+    " :let g:SexyScroller_MaxTime = 500
+
+" Choose the easing style (how scrolling accelerates and decelerates):
+
+    " :let g:SexyScroller_EasingStyle = 2
+
+" where
+
+  " - 1 = start fast, finish slowly            (like 2 but less so)
+  " - 2 = start very fast, finish very slowly  (recommended, default)
+  " - 3 = start slowly, get faster, end slowly (sexy)
+  " - 4 = start very slowly, end very slowly   (like 3 but more so)
+  " - ? = constant speed                       (dull)
+
+" Interrupts the animation if you press a key.  Resumes the animation if they
+" key you pressed causes further scrolling, otherwise just jumps directly to
+" the destination.  Resuming animation looks best with EasingStyle 1.
+
+    " :let g:SexyScroller_DetectPendingKeys = 1   /   0
+
+" This command is provided to enable/disable the scrolling:
+
+    " :SexyScrollerToggle
+
+" For eye candy, try MaxTime=1200, EasingStyle=3 and increase ScrollTime as
+" well.  This can help to visualise the distance travelled when moving through
+" a document.
+
+
+Bundle 'taboo.vim'
+" bring order to vim tabs
+" More info : www.github.com/gcmt/taboo.vim
+
+
 Bundle 'airblade/vim-gitgutter'
 " Shows a git diff in the sign column.
 " It shows wheather each line has been added, modified, and where lines have
