@@ -605,6 +605,31 @@ Bundle 'alfredodeza/pytest.vim'
 "                           then you need to pass in the no-capture flag -s
 "
 
+Bundle 'xolox/vim-session'
+" Extended session managment for Vim
+" :SaveSession
+" :OpenSession
+" It works by generating a Vim script that restores your current settings and
+" the arrangement of tab pages and/or split windows and the files they
+" contain.
+"
+" To persist you current editin session you can execute the :SaveSession
+" command. If you don't provide a name for the sesssion 'default' is used (you
+" can change this name with an option). You're free to use whatever cahracters
+" you like in session names. When you want to restore your session simply
+" execute :OpenSession. Again the name 'default' is used if you don't provide
+" one. When session is active, has been changed and you quit Vim you'll be
+" prompted wheteher you want to save the open session before quitting vim.
+"
+" If you want plug-in can also automatically save your session every few
+" minutes (see the g:session_autosave_periodic option). When you start Vim
+" without editing any files and the defautl session exits, you'll be prompted
+" whether you want to restore the default session.
+
+" dependency for vim-session
+Bundle 'xolox/vim-misc'
+" Miscelenious auto-load Vim scripts
+
 Bundle 'Conque-Shell'
 " Conque is a Vim plugin which allows you to run interactive programs, such as
 " bash on linux or powershell.exe on Windows, inside a Vim buffer. In other
@@ -847,6 +872,27 @@ Bundle 'SirVer/ultisnips'
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+
+" for making ultisnips work with youcompleteme
+function! g:UltiSnips_Complete()
+    call UltiSnips_ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips_JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-e>"
 " ============================================
 " ============================================
 
