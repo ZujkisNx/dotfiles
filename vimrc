@@ -246,10 +246,8 @@ Bundle 'gregsexton/gitv'
 " Start the plugin by running :Gitv in Vim when viewing a file in a git repo.
 
 " TOCHECK: (workflow plugins)
-" Bundle 'terryma/vim-multiple-cursors'
-" Bundle 'jpalardy/vim-slime'
+" Bundle 'jpalardy/vim-slime' "for executing code in other tmux window
 
-" Languages and markup
 " Languages and markup
 " Bundle 'othree/html5.vim'
 " Bundle 'tpope/vim-haml'
@@ -552,6 +550,83 @@ Bundle 'klen/python-mode'
 " TODO check screencast www.github.com/klein/python-mode
 " for opening pydoc in vertical split
 let g:pydoc_open_cmd = 'vsplit'
+
+Bundle 'alfredodeza/pytest.vim'
+" Runs your UnitTests with py.test displaying red/green bars and errors
+" Provides single command - :Pytest
+"   for running test the plugin provides 4 arguments with an optional one.
+"       class
+"       method
+"       function
+"       file
+"   example:
+"       if you are in a class and want to run all the tests for that class,
+"       you would call this plugin like:
+"           :Pytest class
+"       If you would like to see the complete py.test output you can add an
+"       optional verbose flag to any of the commands for Pytest. For the
+"       previous command, it would look like:
+"           :Pytest class verbose
+"   strongly encourage a mapping for the above acctions:
+"   nmap <silent><Leader>f <Esc>:Pytest file<CR>
+"   nmap <silent><Leader>c <Esc>:Pytest class<CR>
+"   nmap <silent><Leader>m <Esc>:Pytest method<CR>
+"
+" Errors can be jumped to with arguments:
+"   first
+"   last
+"   next
+"   previous
+"   end     - if an error starts in the current file but ends on a different
+"             one, you can call that "end of erro" by calling :Pytest end
+" 
+" Output:
+"   You can display in a split scrach buffer either the last list of failed
+"   tests (with line numbers, errors and paths) or the last session. The
+"   arguments are:
+"       session    " is the buffer with a similar output to the terminal
+"       fails      " has the list of last fails with the exceptions
+"   
+"   If you are looking for the actual error, we have stripped it from the
+"   normal reporting but you can call it at any time with:
+"       :Pytest error
+"     The reson behind this is that as soon as you hit any key, the quick
+"     dislpay goes away. With a split buffer you are in control and you can
+"     quit that window when you decide - while yo work on fixing errors.
+"     (commands that open the last session and the last fails are toggable:
+"     they will colose the scratch buffer if it is open or will open it if its
+"     closed.
+" PDB:
+"   :Pytest class --pdb       "opens python debuger in vim for
+"                              class/method/file
+"   :Pytest class -s       " if you are placeing important pdb;
+"                           pdb.set_trace() somewhere in your code and you
+"                           want to drop to pdb when that code gets executed,
+"                           then you need to pass in the no-capture flag -s
+"
+
+Bundle 'Conque-Shell'
+" Conque is a Vim plugin which allows you to run interactive programs, such as
+" bash on linux or powershell.exe on Windows, inside a Vim buffer. In other
+" words it is a terminal emulator which uses a Vim buffer to display the
+" program output.
+" More info : http://code.google.com/p/conque/
+"
+" Type :ConqueTerm <command> to run your command in vim, for example:
+" TODO: paly around!:)
+"    :ConqueTerm bash
+"    :ConqueTerm mysql -h localhost -u joe -p sock_collection
+"    :ConqueTerm Powershell.exe
+"    :ConqueTerm C:\Python27\python.exe
+
+" To open ConqueTerm in a new horizontal or vertical buffer use:
+
+"    :ConqueTermSplit <command>
+"    :ConqueTermVSplit <command>
+"    :ConqueTermTab <command>
+" All text typed in insert mode will be sent to your shell. Use the <F9> key to send a visual selection from any buffer to the shell.
+" For more help type :help ConqueTerm
+
 
 Bundle 'pytest-compiler'
 " Compile plugin for py.test
