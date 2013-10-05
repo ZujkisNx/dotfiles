@@ -156,6 +156,18 @@ Bundle "tpope/vim-speeddating"
 " ============================================
 " ============================================
 
+Bundle 'buffkill.vim'
+" Unload/delete/wipe a buffer, keep its window(s) display last accessed
+" buffer(s)
+" Basic Usage:
+" When you want to unload/delete/wipe a buffer, use:
+"   :bun/:bd/:bw to close the window as well (vim command), or
+"     :BUN/:BD/:BW to leave the window(s) intact (this script).
+" To move backwards and forwards through the chronological 
+" list of buffers accessed, use :BB and :BF, respectively.
+" Mappings are also defined.
+"
+
 Bundle "tpope/vim-abolish"
 " Advanded substitution for words and their forms like:
 " Address to Reference
@@ -232,6 +244,18 @@ Bundle 'tpope/vim-fugitive'
 " Git wrapper so awesome, it should be ilegal!
 " TODO: watch screencasts
 " more info: github.com/tpope/vim-fugitive
+" 
+" :Git add %     " adds currently editing file
+" same as :Gwrite
+"
+" :Git rm %      " removes currently editing file
+" :Gremove
+"
+" :Git mv % target_path
+" :Gmove target path
+"
+" :Git checkout %
+" :Git read
 " ============================================
 " ============================================
 
@@ -536,6 +560,12 @@ nmap <S-Space> <Plug>FocusModeToggle
 " ============================================
 " ============================================
 
+Bundle 'ZoomWin'
+" Zoom in/out of windows (toggle between one window and multi-window
+" Usage:
+"   Press <c-w>o - the current window zooms into a full screen
+"   Press <c-w>o again - the precious set of windows is restored
+
 Bundle 'mru.vim'
 " Plugin to manage most recently used files (MRU)
 " Usage:
@@ -609,6 +639,10 @@ Bundle 'xolox/vim-session'
 " Extended session managment for Vim
 " :SaveSession
 " :OpenSession
+" :RestartVim
+" :CloseSession
+" :DeleteSession
+" :ViewSession
 " It works by generating a Vim script that restores your current settings and
 " the arrangement of tab pages and/or split windows and the files they
 " contain.
@@ -625,6 +659,7 @@ Bundle 'xolox/vim-session'
 " minutes (see the g:session_autosave_periodic option). When you start Vim
 " without editing any files and the defautl session exits, you'll be prompted
 " whether you want to restore the default session.
+" https://github.com/xolox/vim-session)
 
 " dependency for vim-session
 Bundle 'xolox/vim-misc'
@@ -1263,6 +1298,7 @@ nnoremap <space> za
 " Open all folds initially
 set foldmethod=indent
 set foldlevelstart=99
+set foldenable " Turn on folding
 
 " No need to show mode (coz of statusline)
 set noshowmode
