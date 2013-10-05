@@ -307,8 +307,16 @@ Bundle 'sexy_scroller.vim'
 " well.  This can help to visualise the distance travelled when moving through
 " a document.
 
+Bundle 'talek/obvious-resize'
+" A plugin for easy resizing of Vim windows
+noremap <silent> <C-Up> :ObviousResizeUp<CR>
+noremap <silent> <C-Down> :ObviousResizeDown<CR>
+noremap <silent> <C-Left> :ObviousResizeLeft<CR>
+noremap <silent> <C-Right> :ObviousResizeRight<CR>
+
 
 Bundle 'taboo.vim'
+"TODO
 " bring order to vim tabs
 " More info : www.github.com/gcmt/taboo.vim
 
@@ -457,7 +465,8 @@ set fileencodings=         " don't do any encoding conversion
 " ============================================
 " ============================================
 
-Bundle 'fs111/pydoc.vim'
+" included in python-mode plugin 
+" Bundle 'fs111/pydoc.vim'
 " pydoc integration for the best text editor on earth. :))
 " usage:
 " View documentation of a module or class
@@ -472,7 +481,7 @@ Bundle 'fs111/pydoc.vim'
 "
 " If you want to open pydoc files in vertical splits or tabs, give the
 " appropriate command in your .vimrc with:
-let g:pydoc_open_cmd = 'vsplit'
+" let g:pydoc_open_cmd = 'vsplit'
 " ============================================
 " ============================================
 
@@ -508,6 +517,8 @@ Bundle 'klen/python-mode'
 " looking for bugs, refactoring and some other useful things.
 " TODO: check manual
 " TODO check screencast www.github.com/klein/python-mode
+" for opening pydoc in vertical split
+let g:pydoc_open_cmd = 'vsplit'
 
 
 Bundle 'airblade/vim-rooter'
@@ -628,6 +639,7 @@ let g:ctrlp_use_caching=0 " For updating files without reloading.
 " ============================================
 " ============================================
 
+" TODO: doesn't work with old Vim. alternative is supertab.
 Bundle 'Valloric/YouCompleteMe'
 " abosteles SuperTab
 " need to compile ycm core plugin. 
