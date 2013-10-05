@@ -314,6 +314,31 @@ noremap <silent> <C-Down> :ObviousResizeDown<CR>
 noremap <silent> <C-Left> :ObviousResizeLeft<CR>
 noremap <silent> <C-Right> :ObviousResizeRight<CR>
 
+Bundle 'terryma/vim-multiple-cursors'
+" True Sublime Text style multiple selections for Vim
+" Ctrl-n - in normal mode highlights the current word under the cursor in
+"   Visual mode and places a virtual cursor at the end of the visual
+"   selection. Pressing it again finds the next ocurrence and places another
+"   virtual cursor at the end of the visual selection. If you select multiple
+"   lines in visual mode, pressing the key puts a virual cursor at every line
+"   and leaves you in Normal mode.
+"
+"   After you've marked all your locations with Ctrl-n, you can change to the
+"   visual selectionwith noral Vim motion commands in Visual mode. You could
+"   go to Normal mode by pressing v and wield your motion commands there.
+"   Single key command to switch to Insert mode such as c or s from Visual
+"   mode or i, a, I, A in Normal mode should work without any issues.
+"
+"   At any time, you can press <Esc> to exit back to regular Vim.
+"
+" Two additional keys are also mapped
+" Ctrl-p - in Visual mode will remove the current vritual cursor and go back
+"   to the previous virtual cursor location. This is useful if you are trigger
+"   happy with ctrl-n and accidentally went too far.
+"Ctrl-x - in Visual mode will remove the current virtual cursor and skip to
+"   the next virtual cursor location. This is useful if you don't want the
+"   current selection to be a candidate to operate on later.
+
 
 Bundle 'taboo.vim'
 "TODO
