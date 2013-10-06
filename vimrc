@@ -170,6 +170,10 @@ Bundle 'bufkill.vim'
 " Bundle 'CSApprox'
 " Make gvim-only colorschemes work transparently in terminal vim
 
+Bundle 'flazz/vim-colorschemes'
+" One colorscheme pack to rule them all!
+" Total of 468 color schemes
+
 Bundle "tpope/vim-abolish"
 " Advanded substitution for words and their forms like:
 " Address to Reference
