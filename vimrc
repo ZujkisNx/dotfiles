@@ -156,7 +156,7 @@ Bundle "tpope/vim-speeddating"
 " ============================================
 " ============================================
 
-Bundle 'buffkill.vim'
+Bundle 'bufkill.vim'
 " Unload/delete/wipe a buffer, keep its window(s) display last accessed
 " buffer(s)
 " Basic Usage:
@@ -166,7 +166,9 @@ Bundle 'buffkill.vim'
 " To move backwards and forwards through the chronological 
 " list of buffers accessed, use :BB and :BF, respectively.
 " Mappings are also defined.
-"
+
+" Bundle 'CSApprox'
+" Make gvim-only colorschemes work transparently in terminal vim
 
 Bundle "tpope/vim-abolish"
 " Advanded substitution for words and their forms like:
@@ -258,6 +260,13 @@ Bundle 'tpope/vim-fugitive'
 " :Git read
 " ============================================
 " ============================================
+
+Bundle "git.zip"
+" Vim Git runtime files
+" Included are syntax, indent, and filetype plugin files for git, gitcommit,
+" gitconfig, gitrebase, and gitsendemail.
+
+
 
 Bundle 'gregsexton/gitv'
 " Extension of fugitive
@@ -1274,6 +1283,11 @@ endif
 
 " Space will toggle folds!
 " TODO: change mapping to sth not so cool placed.
+" z-a opens current fold
+" z-i opens/closes all folds
+" z-c closes current/parrent fold
+" zM - close all folds
+" zv - expand folds to receal cursor
 nnoremap <space> za
 
 " TODO: clean up this space thingy.. :)
