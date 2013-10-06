@@ -1237,7 +1237,18 @@ set sidescrolloff=5        " minimum lines to keep in sides from cursor
 set scrolljump=1          " how many lines to scrool at a time
 
 set list
-set listchars=tab:>.,trail:.,extends:\#,nbsp:. " Highlight problematic whitespace
+
+" use prettier characters to represent whitespace in list mode,
+" and long lines and line wraps
+" possible eol characters if I wanted one: ↩, ↲, ⬎, or ⤸
+set listchars=tab:▸\ ,trail:·,extends:…,nbsp:·
+set showbreak=↪\
+
+" remove comment markers when joining lines
+try
+        set formatoptions+=j
+catch /^Vim\%((\a\+)\)\=:E539/ " the j option was added in Vim 7.4
+endtry
 
 "sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf
 set wrap "wrap long lines
