@@ -532,18 +532,14 @@ nnoremap <leader>a :Ack
 " Bundle 'Shougo/vimshell'
 " Bundle 'tpope/vim-dispatch'
 "
-"colors
-"Bundle 'nanotech/jellybeans.vim'
 " " Misc
 " NeoBundle 'kana/vim-submode'
 " NeoBundle 'kana/vim-scratch'
 " NeoBundle 'vim-scripts/BufOnly.vim'
-" NeoBundle 'sjl/gundo.vim'
 " NeoBundle 't9md/vim-quickhl'
 " NeoBundle 'mattn/webapi-vim'
 " NeoBundle 'mattn/gist-vim'
 " NeoBundle 'koron/nyancat-vim'
-" NeoBundle 'Raimondi/delimitMate'
 " NeoBundle 'ton/vim-bufsurf'
 
 " NOTE: gona try nerdcommenter
@@ -1177,21 +1173,21 @@ Bundle 'jmcomets/vim-pony'
 "       Ddbshell : manage.py dbshell
 "   Tip: I use :Dr for runserver, :Dsy for syncdb and :Dsh for shell.
 
-Bundle 'wting/rust.vim'
-
 " General.
-Bundle 'Lokaltog/vim-distinguished'
 Bundle 'mattn/emmet-vim'
-Bundle 'malkomalko/projections.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'kien/ctrlp.vim'
-Bundle 'rking/ag.vim'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'embear/vim-localvimrc'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'AndrewRadev/switch.vim'
-Bundle 'PeterRincker/vim-argumentative'
-Bundle 'tpope/vim-eunuch'
+" Provides support for expanding abbreavations similar to emmet.
+" Quick tutorial:
+"   Create vim index.html
+"   Type: html:5
+"   Then press "<c-y>,", and it will autocomplete
+" More info: http://emmet.io
+" TODO: play around, read docs
+"
+
+
+" Bundle 'AndrewRadev/switch.vim'
+" Bundle 'PeterRincker/vim-argumentative'
+" Bundle 'tpope/vim-eunuch'
 
 
 
@@ -1282,7 +1278,8 @@ colorscheme ir_black
 "syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
-set number                    " Display line numbers
+" set number                    " Display line numbers
+set relativenumber            " Display relative line numbers. (usual line number is in status line and in middle.)
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 "set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
