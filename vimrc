@@ -7,7 +7,9 @@
 " ctrl-jklm  changes to that split
 " Open NERD tree - leader + n
 "                  leader + tab
-"
+" TrailingWhitespaceDelete - asks confiramtion on trailing white space deletion
+" CDC = Change to Directory of Current file
+" CDCP = Change to Directory of Current file's Parent
 " Indetnt all file gg=G
 " Indent current line ==
 "
@@ -163,7 +165,7 @@ Bundle 'bufkill.vim'
 " When you want to unload/delete/wipe a buffer, use:
 "   :bun/:bd/:bw to close the window as well (vim command), or
 "     :BUN/:BD/:BW to leave the window(s) intact (this script).
-" To move backwards and forwards through the chronological 
+" To move backwards and forwards through the chronological
 " list of buffers accessed, use :BB and :BF, respectively.
 " Mappings are also defined.
 
@@ -242,7 +244,7 @@ let NERDSpaceDelims=1
 " left side (<leader>cl) or both sides (<leader>cb).
 "
 " [count]<leader>cu |NERDComUncommentLine|
-" Uncomments the selected line(s). 
+" Uncomments the selected line(s).
 " ============================================
 " ============================================
 
@@ -250,7 +252,7 @@ Bundle 'tpope/vim-fugitive'
 " Git wrapper so awesome, it should be ilegal!
 " TODO: watch screencasts
 " more info: github.com/tpope/vim-fugitive
-" 
+"
 " :Git add %     " adds currently editing file
 " same as :Gwrite
 "
@@ -292,6 +294,55 @@ Bundle 'gregsexton/gitv'
 " Bundle 'nono/vim-handlebars'
 " Bundle 'pangloss/vim-javascript'
 " Bundle 'kchmck/vim-coffee-script'
+
+" my plugins:
+" Bundle 'ap/vim-css-color'
+" Bundle 'kchmck/vim-coffee-script'
+" Bundle 'othree/html5.vim'
+" Bundle 'tpope/vim-haml'
+" Bundle 'michaeljsmith/vim-indent-object'
+" Bundle 'jQuery'
+" Bundle 'pangloss/vim-javascript'
+" Bundle 'gmarik/vim-markdown'
+" Bundle 'MarcWeber/vim-addon-mw-utils'
+" Bundle 'tomtom/tlib_vim'
+" Bundle 'honza/snipmate-snippets'
+" Bundle 'garbas/vim-snipmate'
+" Bundle 'scrooloose/nerdcommenter'
+" Bundle 'scrooloose/nerdtree'
+" Bundle 'airblade/vim-rooter'
+" " Syntastic below is not recommended for Windows;
+" " disable if it pops up too many cmd windows
+" Bundle 'scrooloose/syntastic'
+" Bundle 'timcharper/textile.vim'
+" Bundle 'tpope/vim-unimpaired'
+" Bundle 'godlygeek/tabular'
+" Bundle 'majutsushi/tagbar'
+" Bundle 'tpope/vim-surround'
+" Bundle 'kogakure/vim-sparkup'
+" Bundle 'ervandew/supertab'
+" Bundle 'sjl/gundo.vim'
+" Bundle 'greplace.vim'
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'int3/vim-extradite'
+" Bundle 'tpope/vim-endwise'
+" Bundle 'bufkill.vim'
+" Bundle 'bufexplorer.zip'
+" Bundle 'tpope/vim-abolish'
+" " disabling YankRing until I fix it overriding my Y mapping
+" "Bundle 'YankRing.vim'
+" " delimitMate is an untried alternative to the below AutoClose--Alves
+" Bundle 'AutoClose--Alves'
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
+" Bundle 'tpope/vim-repeat'
+" Bundle 'paredit.vim'
+" " I can't get swapit to work; try some more
+" Bundle 'mjbrownie/swapit'
+" Bundle 'tpope/vim-speeddating'
+" Bundle 'sukima/xmledit'
+" Bundle 'vbnet.vim'
+" =======================================
 
 Bundle 'cisco.vim'
 " highlights cisco configuration files
@@ -376,7 +427,7 @@ Bundle 'terryma/vim-multiple-cursors'
 "
 "You can also add multiple cursors using a regual expression. The command
 "   MultipleCursorFind accpets a range and a patter, and it will create a
-"   virtual cursor at the end of every match within the range. If no range 
+"   virtual cursor at the end of every match within the range. If no range
 "   is passed in,  then it defaults to the entire buffer.
 
 
@@ -437,7 +488,7 @@ autocmd ColorScheme * highlight clear SignColumn
 "       To turn off eager execution:
 "           let g:gitgutter_eager = 0
 
-Bundle 'uguu-org/vim-matrix-screensaver' 
+Bundle 'uguu-org/vim-matrix-screensaver'
 " Matrix screen fro VIM
 " Usage:
 " Execute :Matrix to start
@@ -469,7 +520,7 @@ nnoremap <leader>a :Ack
 " v    to open in vertical split
 " gv   to open in vertical split silently
 " q    to close the quickfix window
-" 
+"
 " examples:
 "   if you want to find "setup" in python files:
 "       :Ack --python setup
@@ -532,7 +583,7 @@ set fileencodings=         " don't do any encoding conversion
 " ============================================
 " ============================================
 
-" included in python-mode plugin 
+" included in python-mode plugin
 " Bundle 'fs111/pydoc.vim'
 " pydoc integration for the best text editor on earth. :))
 " usage:
@@ -540,7 +591,7 @@ set fileencodings=         " don't do any encoding conversion
 "   :Pydoc foo.bar.baz (e.g.:Pydoc re.compile)
 " Search a word in documentation
 "   :PydocSearch foobar (e.g. :PydocSearch socket)
-" 
+"
 " documentation of the 'word' under the cursor by pressing <Leader>pw>
 " or the 'WORD' (see :help WORD) under the cursor by pressing <Leader>pW
 " Additionally K is mapped to show invoke pydoc as well, when you are editing
@@ -621,14 +672,14 @@ Bundle 'alfredodeza/pytest.vim'
 "   previous
 "   end     - if an error starts in the current file but ends on a different
 "             one, you can call that "end of erro" by calling :Pytest end
-" 
+"
 " Output:
 "   You can display in a split scrach buffer either the last list of failed
 "   tests (with line numbers, errors and paths) or the last session. The
 "   arguments are:
 "       session    " is the buffer with a similar output to the terminal
 "       fails      " has the list of last fails with the exceptions
-"   
+"
 "   If you are looking for the actual error, we have stripped it from the
 "   normal reporting but you can call it at any time with:
 "       :Pytest error
@@ -737,8 +788,8 @@ Bundle 'pytest-compiler'
 
 
 
-
-Bundle 'airblade/vim-rooter'
+" Disabled because added CDC command. :)
+" Bundle 'airblade/vim-rooter'
 " TODO not sure if it works.. :)) test it.
 " Changes Vim working directory to project root (identify by presence
 " of directory or file"
@@ -773,7 +824,7 @@ Bundle 'scrooloose/syntastic'
 
 Bundle 'rodjek/vim-puppet.git'
 " Make vim more Puppet friendly!
-" 
+"
 " provides:
 "   Formatting based on the lates Puppetlabs Style Guide
 "   Syntax highlighting
@@ -859,7 +910,7 @@ let g:ctrlp_use_caching=0 " For updating files without reloading.
 " TODO: doesn't work with old Vim. alternative is supertab.
 Bundle 'Valloric/YouCompleteMe'
 " abosteles SuperTab
-" need to compile ycm core plugin. 
+" need to compile ycm core plugin.
 " You winn need cmake -
 "   sudo apt-get install cmake
 " You will need pytodn headers -
@@ -993,17 +1044,17 @@ let g:startify_custom_header = [
  \ '        .d8888888888b.                 .88 888.         ',
  \ '      .d88888888888888b.             .88 88888.         ',
  \ '     .888888888888888888b.          .d888888 888b.      ',
- \ '    .888888888888888888888        .d88 888 888 888b.    ', 
- \ '    8888888888888888888888       .888888 888 888 888b.  ', 
- \ '    888P""""""""""""""4888      .88 8888888888 8888 88  ', 
- \ '    `P`     .    .     `q`      8 8888 888 888888 88 8  ', 
- \ '     `-..____:  :____..-`       888P""""""""""""""4888  ', 
- \ '             :  :               `P`     .    .     `q`  ', 
- \ '             :  :                `-..____:  :____..-`   ', 
- \ '             :  :                        :  :           ', 
- \ '             :  :                        :  :           ', 
- \ '             :  :                        :  :           ', 
- \ '           \(/\\)\/                    \(/\\)\/         ', 
+ \ '    .888888888888888888888        .d88 888 888 888b.    ',
+ \ '    8888888888888888888888       .888888 888 888 888b.  ',
+ \ '    888P""""""""""""""4888      .88 8888888888 8888 88  ',
+ \ '    `P`     .    .     `q`      8 8888 888 888888 88 8  ',
+ \ '     `-..____:  :____..-`       888P""""""""""""""4888  ',
+ \ '             :  :               `P`     .    .     `q`  ',
+ \ '             :  :                `-..____:  :____..-`   ',
+ \ '             :  :                        :  :           ',
+ \ '             :  :                        :  :           ',
+ \ '             :  :                        :  :           ',
+ \ '           \(/\\)\/                    \(/\\)\/         ',
  \ '',
  \ '                     WELCOME STRANGER! ',
  \ '',
@@ -1023,7 +1074,7 @@ nnoremap <F5> :GundoToggle<CR>
 "  state. This will replay all the changes between your current state and the
 "  target, with a slight pause after each change. It's mostly useless, but can
 "  be fun to watch and see where your editing lags — that might be a good
-"  place to define a new mapping to speed up your editing. 
+"  place to define a new mapping to speed up your editing.
 " ============================================
 " ============================================
 
@@ -1053,7 +1104,7 @@ nnoremap <F5> :GundoToggle<CR>
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
-" requires ruby so not so cool.. 
+" requires ruby so not so cool..
 " TODO: try to use neerd tree and fuzzy finder
 
 " filetype plugin indent on     " required!
@@ -1063,7 +1114,7 @@ let mapleader=","
 
 " ============================================
 " My stuff from learning vim the hard way
-" 
+"
 " Highlights word under the cursor
 " :map <space> viw
 
@@ -1434,4 +1485,27 @@ endif
   " set tabline=%!MyTabLine()
 " endif
 
+" when indenting with < and >, make it easy to repeat
+vnoremap < <gv
+vnoremap > >gv
 
+" run recorded macros easily
+" use qq to record
+" if you want Ex mode, run :normal! Q
+nnoremap Q @q
+
+
+" CDC = Change to Directory of Current file
+" CDCP = Change to Directory of Current file's Parent
+" via http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
+" TODO once saw this command fail when current directory was on a different
+" drive (Z instead of C). This command's fault? Can I fix it?
+command! CDC cd %:p:h
+command! CDCP cd %:p:h/..
+command! CDCPP cd %:p:h/../..
+
+" search for trailing whitespace and confirm its deletion
+" based on http://vim.wikia.com/wiki/Highlight_unwanted_spaces#Highlighting_with_a_search
+" and http://vim.wikia.com/wiki/Remove_unwanted_spaces
+" TODO set options 'highlight' and 'list' before the search
+command! TrailingWhitespaceDelete :%s/\(\S\+\)\@<=\s\+$//c
