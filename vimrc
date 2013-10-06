@@ -287,9 +287,7 @@ Bundle 'gregsexton/gitv'
 " Bundle 'jpalardy/vim-slime' "for executing code in other tmux window
 
 " Languages and markup
-" Bundle 'othree/html5.vim'
 " Bundle 'tpope/vim-haml'
-" Bundle 'tpope/vim-markdown'
 " Bundle 'zaiste/VimClojure'
 " Bundle 'nono/vim-handlebars'
 " Bundle 'pangloss/vim-javascript'
@@ -298,51 +296,37 @@ Bundle 'gregsexton/gitv'
 " my plugins:
 " Bundle 'ap/vim-css-color'
 " Bundle 'kchmck/vim-coffee-script'
-" Bundle 'othree/html5.vim'
 " Bundle 'tpope/vim-haml'
 " Bundle 'michaeljsmith/vim-indent-object'
 " Bundle 'jQuery'
 " Bundle 'pangloss/vim-javascript'
-" Bundle 'gmarik/vim-markdown'
 " Bundle 'MarcWeber/vim-addon-mw-utils'
 " Bundle 'tomtom/tlib_vim'
-" Bundle 'honza/snipmate-snippets'
-" Bundle 'garbas/vim-snipmate'
-" Bundle 'scrooloose/nerdcommenter'
-" Bundle 'scrooloose/nerdtree'
-" Bundle 'airblade/vim-rooter'
-" " Syntastic below is not recommended for Windows;
-" " disable if it pops up too many cmd windows
-" Bundle 'scrooloose/syntastic'
-" Bundle 'timcharper/textile.vim'
-" Bundle 'tpope/vim-unimpaired'
-" Bundle 'godlygeek/tabular'
-" Bundle 'majutsushi/tagbar'
-" Bundle 'tpope/vim-surround'
-" Bundle 'kogakure/vim-sparkup'
-" Bundle 'ervandew/supertab'
-" Bundle 'sjl/gundo.vim'
 " Bundle 'greplace.vim'
-" Bundle 'tpope/vim-fugitive'
 " Bundle 'int3/vim-extradite'
 " Bundle 'tpope/vim-endwise'
-" Bundle 'bufkill.vim'
-" Bundle 'bufexplorer.zip'
-" Bundle 'tpope/vim-abolish'
-" " disabling YankRing until I fix it overriding my Y mapping
-" "Bundle 'YankRing.vim'
-" " delimitMate is an untried alternative to the below AutoClose--Alves
-" Bundle 'AutoClose--Alves'
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" Bundle 'tpope/vim-repeat'
 " Bundle 'paredit.vim'
 " " I can't get swapit to work; try some more
 " Bundle 'mjbrownie/swapit'
-" Bundle 'tpope/vim-speeddating'
 " Bundle 'sukima/xmledit'
-" Bundle 'vbnet.vim'
 " =======================================
+
+Bundle 'tristen/vim-sparkup'
+" Parser for a condensed HTML format
+" REQUIRES: PYTHON 2.5
+" short screencast: http://www.youtube.com/watch?v=Jw3jipcenKc
+" <c-e> - Default mapping for execute sparkup
+" <c-n> - Mapping used to jump to the next empty tag/attribute
+" Configuration:
+   "g:sparkup (Default: 'sparkup') -
+        " Location of the sparkup executable. You shouldn't need to change this
+        " setting if you used the install option above.
+  " g:sparkupArgs (Default: '--no-last-newline') -
+        " Additional args passed to sparkup.
+  " g:sparkupExecuteMapping (Default: '<c-e>') -
+        " Mapping used to execute sparkup.
+  " g:sparkupNextMapping (Default: '<c-n>') -
+        " Mapping used to jump to the next empty tag/attribute. 
 
 Bundle 'cisco.vim'
 " highlights cisco configuration files
@@ -582,6 +566,9 @@ set fileencodings=         " don't do any encoding conversion
 " export TERM=xterm-256color
 " ============================================
 " ============================================
+
+Bundle 'bling/vim-bufferline'
+" A simple vim plugin to show the list of buffers in the command bar.
 
 " included in python-mode plugin
 " Bundle 'fs111/pydoc.vim'
@@ -1081,10 +1068,23 @@ nnoremap <F5> :GundoToggle<CR>
 
 " TODO
 " Syntax plugins
-" Bundle 'hail2u/vim-css3-syntax'
-" Bundle 'othree/html5-syntax.vim'
-" Bundle 'tpope/vim-markdown'
-" Bundle 'jelera/vim-javascript-syntax'
+Bundle 'hail2u/vim-css3-syntax'
+" Add CSS3 syntax support to Vim's built-in syntax/css.vim
+
+Bundle 'othree/html5-syntax.vim'
+" HTML5 syntax file for vim.
+
+
+Bundle 'jelera/vim-javascript-syntax'
+" This is enchanced javascript syntax file for Vim
+" To enable code folding add the following to your .vimrc.
+au FileType javascript call JavaScriptFold()
+ 
+Bundle 'JavaScript-Indent'
+" JavaScript indenter (HMTL indent is included)
+
+
+
 " Bundle 'tpope/vim-haml'
 " Bundle 'jQuery'
 
@@ -1315,6 +1315,8 @@ set preserveindent      " save as much indent structure as posible
 
 " set tabstop=4         " and indentation every four columns
 " set softtabstop=4     " let backspace delete indent
+
+set backspace=indent,eol,start " Fixing backspace crazy defaults :)
 
 
 set backupcopy=yes " Keeps original creator code
