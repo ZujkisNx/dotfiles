@@ -172,7 +172,8 @@ Bundle 'bufkill.vim'
 " Bundle 'CSApprox'
 " Make gvim-only colorschemes work transparently in terminal vim
 
-Bundle 'flazz/vim-colorschemes'
+" Not so cool.. :)
+" Bundle 'flazz/vim-colorschemes'
 " One colorscheme pack to rule them all!
 " Total of 468 color schemes
 
@@ -287,7 +288,6 @@ Bundle 'gregsexton/gitv'
 " Bundle 'jpalardy/vim-slime' "for executing code in other tmux window
 
 " Languages and markup
-" Bundle 'tpope/vim-haml'
 " Bundle 'zaiste/VimClojure'
 " Bundle 'nono/vim-handlebars'
 " Bundle 'pangloss/vim-javascript'
@@ -298,7 +298,6 @@ Bundle 'gregsexton/gitv'
 " Bundle 'kchmck/vim-coffee-script'
 " Bundle 'tpope/vim-haml'
 " Bundle 'michaeljsmith/vim-indent-object'
-" Bundle 'jQuery'
 " Bundle 'pangloss/vim-javascript'
 " Bundle 'MarcWeber/vim-addon-mw-utils'
 " Bundle 'tomtom/tlib_vim'
@@ -512,8 +511,6 @@ nnoremap <leader>a :Ack
 
 
 " TODO:
-" code completion
-" Bundle 'Valloric/YouCompleteMe'
 "
 " file browsing
 " Bundle 'Shougo/vimfiler'
@@ -522,10 +519,6 @@ nnoremap <leader>a :Ack
 " Shell
 " Bundle 'Shougo/vimshell'
 " Bundle 'tpope/vim-dispatch'
-"
-" motions
-" Bundle 'Localtog/vim-easymotion'
-" Bundle 'goldfeld/vim-seek'
 "
 "colors
 "Bundle 'nanotech/jellybeans.vim'
@@ -660,9 +653,7 @@ Bundle 'alfredodeza/pytest.vim'
 "   end     - if an error starts in the current file but ends on a different
 "             one, you can call that "end of erro" by calling :Pytest end
 "
-" Output:
-"   You can display in a split scrach buffer either the last list of failed
-"   tests (with line numbers, errors and paths) or the last session. The
+" Output: You can display in a split scrach buffer either the last list of failed tests (with line numbers, errors and paths) or the last session. The
 "   arguments are:
 "       session    " is the buffer with a similar output to the terminal
 "       fails      " has the list of last fails with the exceptions
@@ -911,6 +902,36 @@ Bundle 'Valloric/YouCompleteMe'
 "
 " ============================================
 " ============================================
+
+Bundle 'marijnh/tern_for_vim'
+" Tern plugiin for Vim
+" In JavaScript files, the package will hook into omni completeion to handle
+" autocompletion, and provide the folowing commands:
+"   TernDef : Jump to the definition of the thing under the cursor.
+"   TernDoc : Look up the documentation of something.
+"   TernType : Find the type of the thing under the cursor.
+"   TernRefs : Show all references to the variable or property under the
+"              cursor.
+"   TernRename : Rename the variable under the cursor.
+"
+" IMPORTANT:
+"   After installation with vundle you need to take some extra steps:
+"       1) make sure you have Node and npm installed.
+"           sudo apt-get install nodejs npm
+"       2) cd ~/.vim/bundle/tern_for_vim && npm install
+
+Bundle 'maksimr/vim-jsbeautify'
+" This extencion allows you to use the jsbeautyfier inside vim-and that will
+" allow you to quickly format jacascript, html and css files.
+" DEPENDENCIES:
+"   nodejs or v8
+Bundel 'einars/js-beautyfy'
+" beautyfier for javascript
+" This little baeutifier will reformat and reindent bookmarklets, ugly
+" JavaScript, unpack scripts by Dean Edward's popular packer, as well as
+" deobfuscate scripts proccessed by jacascripttobfuscator.com
+" You can beautyfy javascript using JS beautyfier in your web browser, on on
+" the command line using node.js or python.
 
 Bundle 'kien/rainbow_parentheses.vim'
 " Better Rainbow Parentheses
