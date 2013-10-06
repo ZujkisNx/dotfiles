@@ -267,7 +267,6 @@ Bundle "git.zip"
 " gitconfig, gitrebase, and gitsendemail.
 
 
-
 Bundle 'gregsexton/gitv'
 " Extension of fugitive
 " Using this plugin you can view a repository's history
