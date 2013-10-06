@@ -1086,7 +1086,7 @@ Bundle 'JavaScript-Indent'
 Bundle 'jQuery'
 " Syntax file for jQuery in Vim
 " curently detect syntax and keywords for jQuery 1.6
-
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
