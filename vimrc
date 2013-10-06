@@ -1083,10 +1083,9 @@ au FileType javascript call JavaScriptFold()
 Bundle 'JavaScript-Indent'
 " JavaScript indenter (HMTL indent is included)
 
-
-
-" Bundle 'tpope/vim-haml'
-" Bundle 'jQuery'
+Bundle 'jQuery'
+" Syntax file for jQuery in Vim
+" curently detect syntax and keywords for jQuery 1.6
 
 
 " Github repos of the user 'vim-scripts'
