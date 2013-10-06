@@ -20,6 +20,10 @@
 " (for you complete me)
 " cmake python-dev
 
+" For JavaScript
+" apt-get nodejs npm
+"
+"   npm install -g jshint
 " ============================================
 " Plugins
 " ============================================
@@ -103,7 +107,15 @@ Bundle 'Raimondi/delimitMate'
 " A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more
 " Enhances surround.vim
 " More info: http://www.vim.org/scripts/script.php?script_id=1896
-"TODO - try it
+" TODO - try it
+"
+" Special JavaScript trick:
+"   Add a key binding that will split my current line. So if I type {,
+"   delimitMate will insert } after my cursor, then I can execute my binding
+"   that will insert a new line in the middle of the two ready to recieve some
+"   code.
+"Mapping Ctrl-c in insert mode for expanding curly braces for JS functions and so on.
+imap <C-c> <CR><Esc>O
 " ============================================
 " ============================================
 
@@ -797,6 +809,13 @@ Bundle 'scrooloose/syntastic'
 " 	:help :lprev
 " FOR ease of use: check vim plugin - unimpaired
 " TODO: add shortcut for syntex check
+"
+" This does what it says on the tin. It will check your file on open too, not
+" just on save.
+let g:synastic_check_on_open=1
+
+" To enable JavaScript linting need to install JSHint.
+"   npm install -g jshint
 " ============================================
 " ============================================
 
@@ -920,12 +939,17 @@ Bundle 'marijnh/tern_for_vim'
 "           sudo apt-get install nodejs npm
 "       2) cd ~/.vim/bundle/tern_for_vim && npm install
 
-Bundle 'maksimr/vim-jsbeautify'
+" Not needed.
+" Bundle 'maksimr/vim-jsbeautify'
 " This extencion allows you to use the jsbeautyfier inside vim-and that will
 " allow you to quickly format jacascript, html and css files.
 " DEPENDENCIES:
 "   nodejs or v8
-Bundel 'einars/js-beautyfy'
+"
+"   Also need to be insalled after the expansion, go to its folder and perform
+"   git submodule update - init - recursive
+"
+" Bundle 'einars/js-beautify'
 " beautyfier for javascript
 " This little baeutifier will reformat and reindent bookmarklets, ugly
 " JavaScript, unpack scripts by Dean Edward's popular packer, as well as
@@ -1100,8 +1124,19 @@ Bundle 'jelera/vim-javascript-syntax'
 " This is enchanced javascript syntax file for Vim
 " To enable code folding add the following to your .vimrc.
 au FileType javascript call JavaScriptFold()
- 
-Bundle 'JavaScript-Indent'
+
+Bundle 'pangloss/vim-javascript'
+" This bundle will add a tiny bit more highlighting as well as completely fix
+" the weird indentation in standalone JavaScript files and code that's
+" embedded with HTML.
+" TODO: read up this one"
+
+Bundle 'nathanaelkane/vim-indent-guides'
+" For lovely highlighting for your perfectly indented callback hell. It's
+" great indicator for what is lined up with what.
+" TODO: read up
+
+" Bundle 'JavaScript-Indent'
 " JavaScript indenter (HMTL indent is included)
 
 Bundle 'jQuery'
