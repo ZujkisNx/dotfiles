@@ -1111,7 +1111,7 @@ nnoremap <F5> :GundoToggle<CR>
 " ============================================
 
 
-" TODO
+
 " Syntax plugins
 Bundle 'hail2u/vim-css3-syntax'
 " Add CSS3 syntax support to Vim's built-in syntax/css.vim
@@ -1123,7 +1123,6 @@ Bundle 'othree/html5-syntax.vim'
 Bundle 'jelera/vim-javascript-syntax'
 " This is enchanced javascript syntax file for Vim
 " To enable code folding add the following to your .vimrc.
-au FileType javascript call JavaScriptFold()
 
 Bundle 'pangloss/vim-javascript'
 " This bundle will add a tiny bit more highlighting as well as completely fix
@@ -1136,33 +1135,71 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " great indicator for what is lined up with what.
 " TODO: read up
 
-" Bundle 'JavaScript-Indent'
-" JavaScript indenter (HMTL indent is included)
-
 Bundle 'jQuery'
 " Syntax file for jQuery in Vim
 " curently detect syntax and keywords for jQuery 1.6
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
-" Github repos of the user 'vim-scripts'
-" => can omit the username part
-" Bundle 'L9'
-" dependancy for fuzzyfinder
+Bundle 'helino/vim-json'
+" Simple wrapper around the JSON syntax highlighting
 
-" Disabled becouse CtrlP seems better.
-" Bundle 'FuzzyFinder'
-" buffer/file/command/tag/etc explorer with fuzzy matching
-"TODO add bindings for commands
-" :help FuzzyFinder
+Bundle 'vim-scripts/django.vim'
+" Type ":setfiletype htmldjango" from within Vim to select highlighting for
+" Django HTML templates. If you decire Django template highlighting but not
+" HTML highlighting, type ":setfiletype django" isntead. Items highlighted
+" include template tags, built-in filters, arguments and comments.
+
+Bundle 'jmcomets/vim-pony'
+" Pony power for working with Django projects.
+" Jump commands:
+"   Dadmin: admin.py
+"   Dmodels: models.py
+"   Dsettings: settings.py
+"   Dtests: tests.py
+"   Durls: ulrs.py
+"   Dviews: views.py
+"       All these jump commands take an optional "app" argument, and will jump
+"       accordingly to the file in that app. Defaults to the current
+"       directory.
+"
+"       Example:
+"           :Dviews app " opens app/views.py
+"           :Dmodels    " opens app/models.py
+"
+"Managing commands
+"   The manage.py utility script is available via :Dmanage. Note that any
+"   command involving the manage.py utility must be run from that directory.
+"
+"   Shortcuts are available for a few common manage.py commands:
+"       Drunserver : manage.py runserver
+"       Dsyncdb : manage.py syncdb
+"       Dshell : manage.py shell
+"       Ddbshell : manage.py dbshell
+"   Tip: I use :Dr for runserver, :Dsy for syncdb and :Dsh for shell.
+
+Bundle 'wting/rust.vim'
+
+" General.
+Bundle 'Lokaltog/vim-distinguished'
+Bundle 'mattn/emmet-vim'
+Bundle 'malkomalko/projections.vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'kien/ctrlp.vim'
+Bundle 'rking/ag.vim'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'embear/vim-localvimrc'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'AndrewRadev/switch.vim'
+Bundle 'PeterRincker/vim-argumentative'
+Bundle 'tpope/vim-eunuch'
 
 
 
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" requires ruby so not so cool..
-" TODO: try to use neerd tree and fuzzy finder
 
-" filetype plugin indent on     " required!
+
+
+
+
 
 " Change the leader o be comma vs slash
 let mapleader=","
