@@ -1600,13 +1600,13 @@ command! CDCPP cd %:p:h/../..
 
 " Alternative approach
 " expand curent path for editing
-map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
-" edit in split
-map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-" edit in vertical split
-map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
-" edit in new tab
-map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+" Additionally, this allows you to expand the directory of the
+" current file anywhere at the command line by pressing %%
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
 
 " search for trailing whitespace and confirm its deletion
 " based on http://vim.wikia.com/wiki/Highlight_unwanted_spaces#Highlighting_with_a_search
