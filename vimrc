@@ -1179,7 +1179,7 @@ Bundle 'jmcomets/vim-pony'
 "       Ddbshell : manage.py dbshell
 "   Tip: I use :Dr for runserver, :Dsy for syncdb and :Dsh for shell.
 
-" General.
+
 Bundle 'mattn/emmet-vim'
 " Provides support for expanding abbreavations similar to emmet.
 " Quick tutorial:
@@ -1598,8 +1598,19 @@ command! CDC cd %:p:h
 command! CDCP cd %:p:h/..
 command! CDCPP cd %:p:h/../..
 
+" Alternative approach
+" expand curent path for editing
+map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+" edit in split
+map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+" edit in vertical split
+map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+" edit in new tab
+map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
 " search for trailing whitespace and confirm its deletion
 " based on http://vim.wikia.com/wiki/Highlight_unwanted_spaces#Highlighting_with_a_search
 " and http://vim.wikia.com/wiki/Remove_unwanted_spaces
 " TODO set options 'highlight' and 'list' before the search
 command! TrailingWhitespaceDelete :%s/\(\S\+\)\@<=\s\+$//c
+
