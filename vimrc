@@ -337,7 +337,7 @@ Bundle 'tristen/vim-sparkup'
   " g:sparkupExecuteMapping (Default: '<c-e>') -
         " Mapping used to execute sparkup.
   " g:sparkupNextMapping (Default: '<c-n>') -
-        " Mapping used to jump to the next empty tag/attribute. 
+        " Mapping used to jump to the next empty tag/attribute.
 
 Bundle 'cisco.vim'
 " highlights cisco configuration files
@@ -533,14 +533,13 @@ nnoremap <leader>a :Ack
 " Bundle 'tpope/vim-dispatch'
 "
 " " Misc
-" NeoBundle 'kana/vim-submode'
-" NeoBundle 'kana/vim-scratch'
-" NeoBundle 'vim-scripts/BufOnly.vim'
-" NeoBundle 't9md/vim-quickhl'
-" NeoBundle 'mattn/webapi-vim'
-" NeoBundle 'mattn/gist-vim'
-" NeoBundle 'koron/nyancat-vim'
-" NeoBundle 'ton/vim-bufsurf'
+" Bundle 'kana/vim-submode'
+" Bundle 'kana/vim-scratch'
+" Bundle 'vim-scripts/BufOnly.vim'
+" Bundle 't9md/vim-quickhl'
+" Bundle 'mattn/webapi-vim'
+" Bundle 'mattn/gist-vim'
+" Bundle 'koron/nyancat-vim'
 
 " NOTE: gona try nerdcommenter
 " Bundle 'tpope/vim-commentary'
@@ -915,6 +914,10 @@ Bundle 'Valloric/YouCompleteMe'
 " cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/cpp
 " make ymc_core
 "
+" Let's test some configs.
+" let g:ycm_add_preview_to_completeopt=0
+" let g:ycm_confirm_extra_conf=0
+" set completeopt-=preview
 " ============================================
 " ============================================
 
@@ -1139,6 +1142,9 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 Bundle 'helino/vim-json'
 " Simple wrapper around the JSON syntax highlighting
 
+Bundle 'evanmiller/nginx-vim-syntax'
+" nginx vim syntax
+
 Bundle 'vim-scripts/django.vim'
 " Type ":setfiletype htmldjango" from within Vim to select highlighting for
 " Django HTML templates. If you decire Django template highlighting but not
@@ -1183,9 +1189,6 @@ Bundle 'mattn/emmet-vim'
 " More info: http://emmet.io
 " TODO: play around, read docs
 "
-
-
-" Bundle 'AndrewRadev/switch.vim'
 " Bundle 'PeterRincker/vim-argumentative'
 " Bundle 'tpope/vim-eunuch'
 
