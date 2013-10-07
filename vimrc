@@ -13,6 +13,11 @@
 " Indetnt all file gg=G
 " Indent current line ==
 "
+" Cool commands:
+" Ctrl-^ : changes back to last buffer you worked on
+" :e!    : restore the file to original state (discard the changes)
+" :bd!   : delete the buffer
+" 
 " ============================================
 " Requirements
 " ============================================
@@ -631,6 +636,9 @@ Bundle 'klen/python-mode'
 " for opening pydoc in vertical split
 let g:pydoc_open_cmd = 'vsplit'
 
+Bundle 'jnwhiteh/vim-golang'
+" Vim plugins for Go
+
 Bundle 'alfredodeza/pytest.vim'
 " Runs your UnitTests with py.test displaying red/green bars and errors
 " Provides single command - :Pytest
@@ -827,6 +835,13 @@ Bundle 'rodjek/vim-puppet.git'
 Bundle 'godlygeek/tabular'
 " Vim script for filering and alignment
 " TODO :help tabular
+
+" <Leader>a= :Tabularize /=<CR>
+" <Leader>a: :Tabularize /:<CR>
+" <Leader>a:: :Tabularize /:\zs<CR>
+" <Leader>a, :Tabularize /,<CR>
+" <Leader>a<Bar> :Tabularize /<Bar><CR>
+
 
 Bundle 'gf3/vim-css-color'
 "Highlight files in CSS files
