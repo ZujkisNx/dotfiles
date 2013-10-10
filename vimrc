@@ -626,6 +626,11 @@ Bundle 'mru.vim'
 " Usage:
 "   :MRU
 
+Bundle 'TaskList.vim'
+" Eclipse like task list
+map <leader>td <Plug>TaskList
+" TODO raad the doc
+
 Bundle 'klen/python-mode'
 " Vim python-mode. PyLing, Rope, Pydoc, breakpoints from box.
 " Python-mode is a vim plugin that allows you to use pylint, rope, pydoc,
@@ -666,7 +671,7 @@ Bundle 'alfredodeza/pytest.vim'
 "   next
 "   previous
 "   end     - if an error starts in the current file but ends on a different
-"             one, you can call that "end of erro" by calling :Pytest end
+"             one, you can call that "end of error" by calling :Pytest end
 "
 " Output: You can display in a split scrach buffer either the last list of failed tests (with line numbers, errors and paths) or the last session. The
 "   arguments are:
@@ -1232,7 +1237,7 @@ let mapleader=","
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
-command! W :w
+comand! W :w
 
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -1259,16 +1264,12 @@ nmap <leader>s<left> :leftabove vnew<CR>
 nmap <leader>s<right> :rightbelow vnew<CR>
 nmap <leader>s<up> :leftabove new<CR>
 nmap <leader>s<down> :rightbelow new<CR>
+" Feel free to replace the arrow keys (up, down, left, right) with k,j,l,h if
+" you're more comfortable with those bindings.
 
 
-
-
-
-
-
-
-" and lets make these all work in insert mode too ( <C-O> makes next cmd
-"  happen as if in command mode )
+" And lets make these all work in insert mode too ( <C-O> makes next cmd
+" happen as if in command mode )
 imap <C-W> <C-O><C-W>
 
 
