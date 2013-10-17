@@ -17,7 +17,9 @@
 " Ctrl-^ : changes back to last buffer you worked on
 " :e!    : restore the file to original state (discard the changes)
 " :bd!   : delete the buffer
-" 
+"
+" F8 - opens tagbar
+"
 " ============================================
 " Requirements
 " ============================================
@@ -77,7 +79,6 @@ Bundle 'majutsushi/tagbar'
 " more info: majutsushi.github.io/tagbar/
 " Opens tags window with F8
 nmap <F8> :TagbarToggle<CR>
-" TODO: not working becouse exuberant is not installed
 " ============================================
 " ============================================
 
@@ -98,6 +99,7 @@ Bundle 'vim-scripts/Align'
 "TODO cosider going for tabular plugin
 " ============================================
 " ============================================
+
 
 Bundle 'Raimondi/delimitMate'
 " Provides automatic closing of quotes, parenthesis, brackets, etc.,
@@ -610,7 +612,7 @@ Bundle 'merlinrebrovic/focus.vim'
 " that satnds for FOCUS MODE TOGGLE
 " cann ramap it with the following:
 "
-" terminale neveikia mappingas
+" TODO:terminale neveikia mappingas
 nmap <S-Space> <Plug>FocusModeToggle
 " ============================================
 " ============================================
@@ -638,6 +640,7 @@ Bundle 'klen/python-mode'
 " looking for bugs, refactoring and some other useful things.
 " TODO: check manual
 " TODO check screencast www.github.com/klein/python-mode
+" TODO: config python-mode based on unlogic.co.uk/posts/vim-python-ide.html
 " for opening pydoc in vertical split
 let g:pydoc_open_cmd = 'vsplit'
 
@@ -840,7 +843,9 @@ Bundle 'rodjek/vim-puppet.git'
 Bundle 'godlygeek/tabular'
 " Vim script for filering and alignment
 " TODO :help tabular
-
+" TODO: choose between align and tabular. Like both so not sure which one is
+" better
+" TODO: <leader>a confilct between Ack and tabularize. ;)
 " <Leader>a= :Tabularize /=<CR>
 " <Leader>a: :Tabularize /:<CR>
 " <Leader>a:: :Tabularize /:\zs<CR>
@@ -1237,7 +1242,7 @@ let mapleader=","
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
-comand! W :w
+command! W :w
 
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -1630,3 +1635,11 @@ map <leader>et :tabe %%
 " TODO set options 'highlight' and 'list' before the search
 command! TrailingWhitespaceDelete :%s/\(\S\+\)\@<=\s\+$//c
 
+" Highlight access line height
+augroup vimrc_autocmds
+    autocmd!
+    " highlight characters past column 120
+    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python match Excess /\%120v.*/
+    autocmd FileType python set nowrap
+augroup END
