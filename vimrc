@@ -641,8 +641,46 @@ Bundle 'klen/python-mode'
 " TODO: check manual
 " TODO check screencast www.github.com/klein/python-mode
 " TODO: config python-mode based on unlogic.co.uk/posts/vim-python-ide.html
-" for opening pydoc in vertical split
-let g:pydoc_open_cmd = 'vsplit'
+" K - show python docs for word under the cursor.
+" <Leader>b   Set, unset breakpoint (g:pymode_breakpoint enabled)
+" [[          Jump on previous class or function (normal, visual, operator
+"             modes)
+" ]]          Jump on next class or function (normal, visual, operator modes)
+" [M          Jump on previuos class or method (normal, visual, operaror mods)
+" ]M          Jump on next class or method (normal, visual, operator modes)
+
+" Disabling rope because of vim-jedi or youcompleteme?
+let g:pymode_rope = 0
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
+"==========================
+
+" for opening pydoc in vertical split (original pydoc setting, not
+" python-mode, so not sure if it works.)
 
 Bundle 'jnwhiteh/vim-golang'
 " Vim plugins for Go
@@ -923,9 +961,45 @@ let g:ctrlp_use_caching=0 " For updating files without reloading.
 " Run :help ctrlp-mappings or submit ? in CtrlP for more mapping help.
 " ============================================
 " ============================================
-
+"
 " TODO: doesn't work with old Vim. alternative is supertab.
 Bundle 'Valloric/YouCompleteMe'
+" ctrl-space : triggers the completion suggestions anywhere.
+"
+" Commands:
+"   :YcmForceCompileAndDiagnostics
+"       Calling this command will force YCM to immediately recompile your file
+"       and deisplay any new diagnostics it encounters. Do note that
+"       recompilation with this command may take a while and during this time
+"       the Vim GUI will be blocked
+"
+"       Could be mapped like:
+"           nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+"
+"   :YcmDiags
+"       Callting this command will fill Vim's loacionlist with errors or
+"       warnings if any were detected in your file and then open it.
+"       (Better option would be use Synastic which will keep your locationlist
+"       up to date automatically and will also show error/warning
+"       notifications in Vim's gutter.)
+"
+"   :YcmShowDetailedDiagnostic
+"       This command shows the full diagnostic text when the user's cursor is
+"       on the line with the diagnostic.
+"
+"   :YcmDebugInfo
+"       This will print out various debug information for the current file.
+"       Usefull to see what compile commands will be used for the file if
+"       you're using the sematic completion engine.
+"
+"   :YcmCompleter
+"       This command can be used to invoke completer-specific commands. If the
+"       first argument is of the form ft=... the completer for that file type
+"       will be used (for example ft=cpp), else the natice completor of the
+"       current buffer will be used. Call YcmCompleter without further
+"       arguments for information about the commands you can call for the
+"       selecter completer.
+"   :Y
 " abosteles SuperTab
 " need to compile ycm core plugin.
 " You winn need cmake -
@@ -943,6 +1017,13 @@ Bundle 'Valloric/YouCompleteMe'
 " let g:ycm_add_preview_to_completeopt=0
 " let g:ycm_confirm_extra_conf=0
 " set completeopt-=preview
+"
+"   from blog.dbrgn.ch/2013/5/27/using-jedi-with-ycm/
+" Enables autoclosing of the preview window when the user accepts the offered
+" completion string.
+let g:ycm_autoclose_preview_window_after_completion=1
+" Maps Jedi's jump to definition/declaration feature to the <leader>g
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " ============================================
 " ============================================
 
@@ -1021,32 +1102,21 @@ Bundle 'SirVer/ultisnips'
 " The trigger used to jump forward to the next placeholder.
 " " NOTE: expansion and forward jumping can, but needn't be the same trigger
 "
-" Set ultisnips triggers
-" NOT WORKING..
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" Directory for custom snippets.
+let g:UltiSnipsSnippetsDir = '~/.vim/snippets/'
+" Where to look for snippets.
+let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
+"
+" For avoiding conflict with YouCompleteMe
+" neet to set different ultisnips triggers
+let g:UltiSnipsExpandTrigger="<c-CR>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<A-d>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<A-a>"
 
 
 " for making ultisnips work with youcompleteme
-function! g:UltiSnips_Complete()
-    call UltiSnips_ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips_JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-e>"
 " ============================================
 " ============================================
 
@@ -1408,6 +1478,15 @@ set list
 set listchars=tab:▸\ ,trail:·,extends:…,nbsp:·
 set showbreak=↪\
 
+
+
+
+" TODO: check options of formatoptions
+" set formatoptions = t,r,q,n
+" my current options is jcroql
+" so need to check c, o, l
+"
+"
 " remove comment markers when joining lines
 try
         set formatoptions+=j
