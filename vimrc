@@ -1109,14 +1109,12 @@ let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
 "
 " For avoiding conflict with YouCompleteMe
 " neet to set different ultisnips triggers
-let g:UltiSnipsExpandTrigger="<c-CR>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<A-d>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<A-a>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<A-d>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsJumpBackwardTrigger="<A-a>"
 
-
-" for making ultisnips work with youcompleteme
 " ============================================
 " ============================================
 
@@ -1142,7 +1140,8 @@ let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.pyo$'
 " ============================================
 " ============================================
 
-Bundle 'YankRing.vim'
+" diabling coz of conflickt of mapping ultisnips
+" Bundle 'YankRing.vim'
 " Maintains a history of previous yanks
 "
 " A tutorial is included to take you through the various features of the
@@ -1322,10 +1321,10 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Place for better movement between splits
 " ctrl-jklm  changes to that split
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+" map <c-j> <c-w>j
+" map <c-k> <c-w>k
+" map <c-l> <c-w>l
+" map <c-h> <c-w>h
 
 " spliting windows
 nmap <leader>sw<left> :topleft vnew<CR>
@@ -1375,13 +1374,17 @@ filetype plugin indent on     " enable loading indent file for filetype
 " set number                    " Display line numbers
 set relativenumber            " Display relative line numbers. (usual line number is in status line and in middle.)
 set numberwidth=1             " using only 1 column (and 1 space) while possible
-"set background=dark           " We are using dark background in vim
+set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 " set wildmode=full             " <Tab> cycles between all matching choices.
 set wildmode=list:longest,full " command <tab> completion, list matches, then longest common part, then all. /from spf
 
 set nolist                    " no whitespace
+
+"set colorcolumn = 80          " mark 80 columns as a line limit with a vertical line
+
+
 
 " don't bell or blink
 set noerrorbells
@@ -1511,12 +1514,18 @@ set preserveindent      " save as much indent structure as posible
 set backspace=indent,eol,start " Fixing backspace crazy defaults :)
 
 
-set backupcopy=yes " Keeps original creator code
 set splitbelow     " Open hsplits below rather than above
 set splitright     " Open vsplits to the right rather than left
 
+set writebackup
 set backup
+set backupcopy=yes " Keeps original creator code
+set backupskip=
 set backupdir=~/.vim/backup
+
+autocmd BufWritePre * let &backupext = '~@'
+    \ . substitute(expand('%:p:h'), '[\\/:]', '%', 'g')
+
 set directory=~/.vim/tmp
 
 " set matchpairs+=<:>   " match, to be used with %
@@ -1722,3 +1731,7 @@ augroup vimrc_autocmds
     autocmd FileType python match Excess /\%120v.*/
     autocmd FileType python set nowrap
 augroup END
+
+
+" <Leader>tab: Toggles NERDTree
+nnoremap <silent> <Leader><tab> :NERDTreeToggle<cr>
