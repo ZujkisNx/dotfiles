@@ -1,3 +1,5 @@
+" Change the leader o be comma vs slash
+let mapleader=","
 " Info
 " Leader - ","
 " Reload vimrc - leader + V
@@ -1294,8 +1296,6 @@ Bundle 'mattn/emmet-vim'
 
 
 
-" Change the leader o be comma vs slash
-let mapleader=","
 
 " ============================================
 " My stuff from learning vim the hard way
@@ -1733,5 +1733,3 @@ augroup vimrc_autocmds
 augroup END
 
 
-" <Leader>tab: Toggles NERDTree
-nnoremap <silent> <Leader><tab> :NERDTreeToggle<cr>
