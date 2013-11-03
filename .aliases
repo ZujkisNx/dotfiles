@@ -7,7 +7,7 @@ alias ll='tree --dirsfirst -ChFupDaLg 1'
 # alias la='ls -A'
 
 # always ask for confirmation when removing files
-alias rm='rm -i'
+# alias rm='rm -i'
 # always ask for confirmation when copying files
 alias cp='cp -i';
 
