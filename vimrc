@@ -15,6 +15,8 @@ let mapleader=","
 " Indetnt all file gg=G
 " Indent current line ==
 "
+" C-c in insert mode to expand brackets
+"
 " Cool commands:
 " Ctrl-^ : changes back to last buffer you worked on
 " :e!    : restore the file to original state (discard the changes)
@@ -22,9 +24,9 @@ let mapleader=","
 "
 " F8 - opens tagbar
 "
-" ============================================
+" =================================================================
 " Requirements
-" ============================================
+" =================================================================
 " apt-get install vim curl git exuberent-ctags gtk-ack
 " (for you complete me)
 " cmake python-dev
@@ -33,9 +35,10 @@ let mapleader=","
 " apt-get nodejs npm
 "
 "   npm install -g jshint
-" ============================================
+
+" =================================================================
 " Plugins
-" ============================================
+" =================================================================
 " vundle - managing plugins
 "
 " vim-fugitive - best Git wrapper of all time
@@ -55,6 +58,7 @@ let mapleader=","
 "               :Gwrite - writes to both the work tree and index
 "               :Gbrowse - open the current file on GitHub
 "
+" =================================================================
 
 set nocompatible               " be iMproved
 filetype off                   " required!
@@ -69,21 +73,15 @@ Bundle 'gmarik/vundle'
 " 	to install selected bundles :BundleInstall
 " 	to update plugins	    :BundleUpdate
 " 	to clean unuded plugins     :BundleClean
-" ============================================
-" ============================================
+" =================================================================
 
 " My Bundles here:
-"
-" original repos on github
-"
 Bundle 'majutsushi/tagbar'
 " Displays tags in a window, ordered by class etc.
 " more info: majutsushi.github.io/tagbar/
 " Opens tags window with F8
 nmap <F8> :TagbarToggle<CR>
-" ============================================
-" ============================================
-
+" =================================================================
 
 Bundle 'vim-scripts/Align'
 " Let's you align statements on their equal signs, make comment boxes,
@@ -99,9 +97,7 @@ Bundle 'vim-scripts/Align'
 " more info: http://www.vim.org/scripts/script.php?script_id=294
 "TODO - add command for autoaligning
 "TODO cosider going for tabular plugin
-" ============================================
-" ============================================
-
+" =================================================================
 
 Bundle 'Raimondi/delimitMate'
 " Provides automatic closing of quotes, parenthesis, brackets, etc.,
@@ -111,13 +107,10 @@ Bundle 'Raimondi/delimitMate'
 " regions), and expansions (off by default), and some more.
 " Most of the features can be modified or disabled permanently, using
 " global variables, or on a FileType basis, using :autocmd.
-
-" Bundle 'tpope/vim-ragtag'
-" A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more
-" Enhances surround.vim
-" More info: http://www.vim.org/scripts/script.php?script_id=1896
-" TODO - try it
-"
+let delimitMate_matchpairs = "(:),[:],{:},<:>"
+let delimitMate_quotes = "\" ' ` *"
+au FileType html let b:delimitMate_quotes = "\" '"
+au FileType python let b:delimitMate_nesting_quotes = ['"']
 " Special JavaScript trick:
 "   Add a key binding that will split my current line. So if I type {,
 "   delimitMate will insert } after my cursor, then I can execute my binding
@@ -125,9 +118,13 @@ Bundle 'Raimondi/delimitMate'
 "   code.
 "Mapping Ctrl-c in insert mode for expanding curly braces for JS functions and so on.
 imap <C-c> <CR><Esc>O
-" ============================================
-" ============================================
+" =================================================================
 
+" Bundle 'tpope/vim-ragtag'
+" A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more
+" Enhances surround.vim
+" More info: http://www.vim.org/scripts/script.php?script_id=1896
+" TODO - try it
 
 Bundle 'tpope/vim-surround'
 " Provides mappings to easily delete, change and add parantheses,
@@ -151,8 +148,7 @@ Bundle 'tpope/vim-surround'
 " NOTE: The . command will work with ds, cs and yss if you install repeat.vim
 " more info: https://github.com/tpope/vim-surround
 " TODO: play around with it.
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'tpope/vim-repeat'
 " Repeat.vim remaps . in a way that plugins can tap into it.
@@ -160,24 +156,20 @@ Bundle 'tpope/vim-repeat'
 " Adding support to a plugin is generally as simple as the following command at
 " the end of your map functions.
 " silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
-"
 " more info: http://www.vim.org/scripts/script.php?script_id=2136
 " TODO: test it with surround commands.
 " TODO: find out about "command after your map function"
-" ============================================
-" ============================================
+" =================================================================
 
+Bundle "tpope/vim-speeddating"
 " 1999-12-24
 " NOTE: CTRL+a decrements number by one
 " NOTE: CTRL+x increments number by one
-Bundle "tpope/vim-speeddating"
 " increments/decrements date formats with commands CTRL-X/CTRL-A
 " d<C-A> sets the timestamp under the cursor to the current time. d<C-X> does
 " the same, but uses UTC rather than the local time.
-"
 " more info: http://www.vim.org/scripts/script.php?script_id=2120
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'bufkill.vim'
 " Unload/delete/wipe a buffer, keep its window(s) display last accessed
@@ -185,31 +177,18 @@ Bundle 'bufkill.vim'
 " Basic Usage:
 " When you want to unload/delete/wipe a buffer, use:
 "   :bun/:bd/:bw to close the window as well (vim command), or
-"     :BUN/:BD/:BW to leave the window(s) intact (this script).
+"   :BUN/:BD/:BW to leave the window(s) intact (this script).
 " To move backwards and forwards through the chronological
 " list of buffers accessed, use :BB and :BF, respectively.
-" Mappings are also defined.
-
-" Bundle 'CSApprox'
-" Make gvim-only colorschemes work transparently in terminal vim
-
-" Not so cool.. :)
-" Bundle 'flazz/vim-colorschemes'
-" One colorscheme pack to rule them all!
-" Total of 468 color schemes
+" =================================================================
 
 Bundle "tpope/vim-abolish"
 " Advanded substitution for words and their forms like:
 " Address to Reference
-"
 " :Subvert/address{,es}/reference{,s}/g
-"
 " Blog to Post (you can just do this with a regular :s also)
-"
 " :Subvert/blog{,s}/post{,s}/g
-"
 " Child to Adult
-"
 " :Subvert/child{,ren}/adult{,s}/g
 "
 " MY FAVOURITE: Want to turn fooBar into foo_bar?
@@ -217,8 +196,7 @@ Bundle "tpope/vim-abolish"
 " snake_case (crs), and UPPER_CASE (cru) are all just 3 keystrokes away. These
 " commands support repeat.vim.
 " TODO: Play around with commands crs crm crc crs cru
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'scrooloose/nerdcommenter'
 " Always leave a space between the comment character and the comment
@@ -267,8 +245,7 @@ let NERDSpaceDelims=1
 "
 " [count]<leader>cu |NERDComUncommentLine|
 " Uncomments the selected line(s).
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'tpope/vim-fugitive'
 " Git wrapper so awesome, it should be ilegal!
@@ -286,20 +263,61 @@ Bundle 'tpope/vim-fugitive'
 "
 " :Git checkout %
 " :Git read
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle "git.zip"
 " Vim Git runtime files
 " Included are syntax, indent, and filetype plugin files for git, gitcommit,
 " gitconfig, gitrebase, and gitsendemail.
+" =================================================================
 
+Bundle 'mattn/gist-vim'
+" Script for creating gists
+" Usage:
+"   Post current buffer to gist, using default privacy option:
+"       :Gist
+"   Post selected text to gist, using default privacy option.
+"       :'<,'>Gist
+"   Create a private gist:
+"       :Gist -p
+"   List you public gists:
+"       :Gist -l
+" Tips:
+"   If you set this command, gist.vim will copy the gist code with option '-c'.
+"       let g:gist_clip_command = 'xclip -selection clipboard'
+"   If you want to detect filetype from the filename:
+let g:gist_detect_filetype = 1
+"   If you want to open browser after the post:
+let g:gist_open_browser_after_post = 1
+"   If you want to change the browser:
+"       let g:gist_browser_command = 'w3m %URL%'
+"   or:
+"       let g:gist_browser_command = 'opera %URL% &'
+" You need to either set global git config:
+"   $ git config --global github.user Username
+" =================================================================
+
+Bundle 'mattn/webapi-vim'
+" dependency for gist
+" vim interface to Web API
+"   Currently supports:
+"       Basic HTTP
+"       OAuth
+"       SOAP
+"       XMLRPC
+"       MetaWeblog API
+"
+"   Contains:
+"       XML parser/HTML parser(hack way)/JSON parser/
+"       BASE64 Hash algorithm/SHA1 Hash Algorithm/HMAC hash algorithm/
+"       Bit Operation Library/Converter for "UTF-8 to Unicode"
+" =================================================================
 
 Bundle 'gregsexton/gitv'
 " Extension of fugitive
 " Using this plugin you can view a repository's history
 " including branching and merging, you can see which commits refs point to.
-" You can quickly an easily view what changed tto which files and when.
+" You can quickly an easily view what changed to which files and when.
 " You can perform arbitrary diffs and you can easily check out whole commits
 " and branches or just individual files if needed be.
 "
@@ -311,15 +329,10 @@ Bundle 'gregsexton/gitv'
 " Languages and markup
 " Bundle 'zaiste/VimClojure'
 " Bundle 'nono/vim-handlebars'
-" Bundle 'pangloss/vim-javascript'
 " Bundle 'kchmck/vim-coffee-script'
 
 " my plugins:
-" Bundle 'ap/vim-css-color'
-" Bundle 'kchmck/vim-coffee-script'
-" Bundle 'tpope/vim-haml'
 " Bundle 'michaeljsmith/vim-indent-object'
-" Bundle 'pangloss/vim-javascript'
 " Bundle 'MarcWeber/vim-addon-mw-utils'
 " Bundle 'tomtom/tlib_vim'
 " Bundle 'greplace.vim'
@@ -329,7 +342,7 @@ Bundle 'gregsexton/gitv'
 " " I can't get swapit to work; try some more
 " Bundle 'mjbrownie/swapit'
 " Bundle 'sukima/xmledit'
-" =======================================
+" =================================================================
 
 Bundle 'tristen/vim-sparkup'
 " Parser for a condensed HTML format
@@ -347,55 +360,11 @@ Bundle 'tristen/vim-sparkup'
         " Mapping used to execute sparkup.
   " g:sparkupNextMapping (Default: '<c-n>') -
         " Mapping used to jump to the next empty tag/attribute.
+" =================================================================
 
 Bundle 'cisco.vim'
 " highlights cisco configuration files
-
-" Not sure if i like it..
-" Bundle 'sexy_scroller.vim'
-" Smooth animation on the cursor and the page whenever they move, with easing.
-" Set the time it takes (in milliseconds) for the buffer to scroll one line or
-" column.
-
-" :let g:SexyScroller_ScrollTime = 1500
-
-" Set the time it takes for the cursor to travel one line.
-" Probably only visible if you have `:set cursorline`.  Set it to 0 to never
-" animate the cursor.
-
-    " :let g:SexyScroller_CursorTime = 5
-
-" (I like to pretend the cursor is "lighter" than the buffer.)
-
-" Set the maximum amount of time that longer scrolls can take:
-
-    " :let g:SexyScroller_MaxTime = 500
-
-" Choose the easing style (how scrolling accelerates and decelerates):
-
-    " :let g:SexyScroller_EasingStyle = 2
-
-" where
-
-  " - 1 = start fast, finish slowly            (like 2 but less so)
-  " - 2 = start very fast, finish very slowly  (recommended, default)
-  " - 3 = start slowly, get faster, end slowly (sexy)
-  " - 4 = start very slowly, end very slowly   (like 3 but more so)
-  " - ? = constant speed                       (dull)
-
-" Interrupts the animation if you press a key.  Resumes the animation if they
-" key you pressed causes further scrolling, otherwise just jumps directly to
-" the destination.  Resuming animation looks best with EasingStyle 1.
-
-    " :let g:SexyScroller_DetectPendingKeys = 1   /   0
-
-" This command is provided to enable/disable the scrolling:
-
-    " :SexyScrollerToggle
-
-" For eye candy, try MaxTime=1200, EasingStyle=3 and increase ScrollTime as
-" well.  This can help to visualise the distance travelled when moving through
-" a document.
+" =================================================================
 
 Bundle 'talek/obvious-resize'
 " A plugin for easy resizing of Vim windows
@@ -403,6 +372,7 @@ noremap <silent> <C-Up> :ObviousResizeUp<CR>
 noremap <silent> <C-Down> :ObviousResizeDown<CR>
 noremap <silent> <C-Left> :ObviousResizeLeft<CR>
 noremap <silent> <C-Right> :ObviousResizeRight<CR>
+" =================================================================
 
 Bundle 'terryma/vim-multiple-cursors'
 " True Sublime Text style multiple selections for Vim
@@ -433,15 +403,13 @@ Bundle 'terryma/vim-multiple-cursors'
 "   MultipleCursorFind accpets a range and a patter, and it will create a
 "   virtual cursor at the end of every match within the range. If no range
 "   is passed in,  then it defaults to the entire buffer.
-
-
-
+" =================================================================
 
 Bundle 'taboo.vim'
 "TODO
 " bring order to vim tabs
 " More info : www.github.com/gcmt/taboo.vim
-
+" =================================================================
 
 Bundle 'airblade/vim-gitgutter'
 " Shows a git diff in the sign column.
@@ -491,20 +459,21 @@ autocmd ColorScheme * highlight clear SignColumn
 "   file.
 "       To turn off eager execution:
 "           let g:gitgutter_eager = 0
+" =================================================================
 
 Bundle 'uguu-org/vim-matrix-screensaver'
 " Matrix screen fro VIM
 " Usage:
 " Execute :Matrix to start
 " close - press a few keys.. :)
+" =================================================================
 
 Bundle 'thinca/vim-quickrun'
 " Run commands quickly
 " <leader> r
 " read the docs..
 " TODO test with python
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'mileszs/ack.vim'
 " recursively search files content in the current directory
@@ -529,6 +498,7 @@ nnoremap <leader>a :Ack
 "   if you want to find "setup" in python files:
 "       :Ack --python setup
 " TODO: play around.
+" =================================================================
 
 
 " TODO:
@@ -546,8 +516,6 @@ nnoremap <leader>a :Ack
 " Bundle 'kana/vim-scratch'
 " Bundle 'vim-scripts/BufOnly.vim'
 " Bundle 't9md/vim-quickhl'
-" Bundle 'mattn/webapi-vim'
-" Bundle 'mattn/gist-vim'
 " Bundle 'koron/nyancat-vim'
 
 " NOTE: gona try nerdcommenter
@@ -556,8 +524,7 @@ nnoremap <leader>a :Ack
 " gc to comment out the target of a motion (for exaple, gcap to comment out a
 " paragraph), and gc in visual mode to comment out the selection.
 " more info: http://www.vim.org/scripts/script.php?script_id=3695
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'bling/vim-airline'
 " lean & mean status/tabline for vim that's light as air.
@@ -573,8 +540,7 @@ set termencoding=utf-8
 set fileencodings=         " don't do any encoding conversion
 " also need to add line to bashrc
 " export TERM=xterm-256color
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'bling/vim-bufferline'
 " A simple vim plugin to show the list of buffers in the command bar.
@@ -596,16 +562,14 @@ Bundle 'bling/vim-bufferline'
 " If you want to open pydoc files in vertical splits or tabs, give the
 " appropriate command in your .vimrc with:
 " let g:pydoc_open_cmd = 'vsplit'
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'Lokaltog/vim-easymotion'
 " vim motions on speed.
 " default <leader><leader>
 " e.g. <leader><leader>t,
 "      <leader><leader>gE
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'merlinrebrovic/focus.vim'
 " plugin that removes clutter and makes working on a widescree monitor
@@ -616,24 +580,26 @@ Bundle 'merlinrebrovic/focus.vim'
 "
 " TODO:terminale neveikia mappingas
 nmap <S-Space> <Plug>FocusModeToggle
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'ZoomWin'
 " Zoom in/out of windows (toggle between one window and multi-window
 " Usage:
 "   Press <c-w>o - the current window zooms into a full screen
 "   Press <c-w>o again - the precious set of windows is restored
+" =================================================================
 
 Bundle 'mru.vim'
 " Plugin to manage most recently used files (MRU)
 " Usage:
 "   :MRU
+" =================================================================
 
 Bundle 'TaskList.vim'
 " Eclipse like task list
 map <leader>td <Plug>TaskList
 " TODO raad the doc
+" =================================================================
 
 Bundle 'klen/python-mode'
 " Vim python-mode. PyLing, Rope, Pydoc, breakpoints from box.
@@ -679,13 +645,11 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
 let g:pymode_folding = 0
-"==========================
-
-" for opening pydoc in vertical split (original pydoc setting, not
-" python-mode, so not sure if it works.)
+" =================================================================
 
 Bundle 'jnwhiteh/vim-golang'
 " Vim plugins for Go
+" =================================================================
 
 Bundle 'alfredodeza/pytest.vim'
 " Runs your UnitTests with py.test displaying red/green bars and errors
@@ -704,9 +668,9 @@ Bundle 'alfredodeza/pytest.vim'
 "       previous command, it would look like:
 "           :Pytest class verbose
 "   strongly encourage a mapping for the above acctions:
-"   nmap <silent><Leader>f <Esc>:Pytest file<CR>
-"   nmap <silent><Leader>c <Esc>:Pytest class<CR>
-"   nmap <silent><Leader>m <Esc>:Pytest method<CR>
+nmap <silent><Leader>f <Esc>:Pytest file<CR>
+nmap <silent><Leader>c <Esc>:Pytest class<CR>
+nmap <silent><Leader>m <Esc>:Pytest method<CR>
 "
 " Errors can be jumped to with arguments:
 "   first
@@ -737,7 +701,7 @@ Bundle 'alfredodeza/pytest.vim'
 "                           pdb.set_trace() somewhere in your code and you
 "                           want to drop to pdb when that code gets executed,
 "                           then you need to pass in the no-capture flag -s
-"
+" =================================================================
 
 Bundle 'xolox/vim-session'
 " Extended session managment for Vim
@@ -768,6 +732,7 @@ Bundle 'xolox/vim-session'
 " dependency for vim-session
 Bundle 'xolox/vim-misc'
 " Miscelenious auto-load Vim scripts
+" =================================================================
 
 Bundle 'Conque-Shell'
 " Conque is a Vim plugin which allows you to run interactive programs, such as
@@ -790,7 +755,7 @@ Bundle 'Conque-Shell'
 "    :ConqueTermTab <command>
 " All text typed in insert mode will be sent to your shell. Use the <F9> key to send a visual selection from any buffer to the shell.
 " For more help type :help ConqueTerm
-
+" =================================================================
 
 Bundle 'pytest-compiler'
 " Compile plugin for py.test
@@ -815,7 +780,6 @@ Bundle 'pytest-compiler'
 "   :compiler rubyunit
 "   :MakeGreen %
 " Mapping *makegreen-mapping*
-" ===========================================================================
 
 " There is no default key mapping at the moment. You can define your own
 " mapping easily anyway:
@@ -825,9 +789,7 @@ Bundle 'pytest-compiler'
 " Or more conservatively:
 " >
     " nnoremap <unique> <leader>t :MakeGreen %<CR>
-"TODO: config for python!!!
-
-
+" =================================================================
 
 " Disabled because added CDC command. :)
 " Bundle 'airblade/vim-rooter'
@@ -843,8 +805,7 @@ Bundle 'pytest-compiler'
 " map <silent> <unique> <Leader>foo <Plug>RooterChangeToRootDirectory
 " where <Leader>foo is the mapping you want.
 " TODO: add command to manualy invoking root directory. 2 lines higher.
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'scrooloose/syntastic'
 " Synastic is a syntax checking plugin that runs files through external
@@ -867,8 +828,7 @@ let g:synastic_check_on_open=1
 
 " To enable JavaScript linting need to install JSHint.
 "   npm install -g jshint
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'rodjek/vim-puppet.git'
 " Make vim more Puppet friendly!
@@ -879,33 +839,22 @@ Bundle 'rodjek/vim-puppet.git'
 "   Automatic => alignment (when tabuler plugin is also insalled)
 "   Doesn't require a blaoted JRE
 "   Doesn't take munutes to open
-
-Bundle 'godlygeek/tabular'
-" Vim script for filering and alignment
-" TODO :help tabular
-" TODO: choose between align and tabular. Like both so not sure which one is
-" better
-" TODO: <leader>a confilct between Ack and tabularize. ;)
-" <Leader>a= :Tabularize /=<CR>
-" <Leader>a: :Tabularize /:<CR>
-" <Leader>a:: :Tabularize /:\zs<CR>
-" <Leader>a, :Tabularize /,<CR>
-" <Leader>a<Bar> :Tabularize /<Bar><CR>
-
+" =================================================================
 
 Bundle 'gf3/vim-css-color'
 "Highlight files in CSS files
+" =================================================================
 
 Bundle 'tpope/vim-unimpaired'
 " pairs of handy bracket mappings
 " more info on github
 " TODO: see the :help unimpaired for mapings
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'tpope/vim-markdown'
 " markdown runtime files
 " TODO: read manual
+" =================================================================
 
 Bundle 'kshenoy/vim-signature'
 " Plugin to place, toggle and display marks.
@@ -929,8 +878,7 @@ Bundle 'kshenoy/vim-signature'
 "   ]-           : Jump to next line having same marker
 "   [-           : Jump to prev line having same marker
 "   m<BackSpace> : Remove all markers
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'kien/ctrlp.vim'
 noremap <leader>t :CtrlP<CR>
@@ -961,8 +909,7 @@ let g:ctrlp_use_caching=0 " For updating files without reloading.
 "    Use <c-y> to create a new file and its parent directories.
 "    Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 " Run :help ctrlp-mappings or submit ? in CtrlP for more mapping help.
-" ============================================
-" ============================================
+" =================================================================
 "
 " TODO: doesn't work with old Vim. alternative is supertab.
 Bundle 'Valloric/YouCompleteMe'
@@ -1026,8 +973,7 @@ Bundle 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion=1
 " Maps Jedi's jump to definition/declaration feature to the <leader>g
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'marijnh/tern_for_vim'
 " Tern plugiin for Vim
@@ -1063,6 +1009,7 @@ Bundle 'marijnh/tern_for_vim'
 " deobfuscate scripts proccessed by jacascripttobfuscator.com
 " You can beautyfy javascript using JS beautyfier in your web browser, on on
 " the command line using node.js or python.
+" =================================================================
 
 Bundle 'kien/rainbow_parentheses.vim'
 " Better Rainbow Parentheses
@@ -1094,8 +1041,7 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-
+" =================================================================
 
 Bundle 'SirVer/ultisnips'
 " snippets
@@ -1110,15 +1056,12 @@ let g:UltiSnipsSnippetsDir = '~/.vim/snippets/'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
 "
 " For avoiding conflict with YouCompleteMe
-" neet to set different ultisnips triggers
+" need to set different ultisnips triggers
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpForwardTrigger="<A-d>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" let g:UltiSnipsJumpBackwardTrigger="<A-a>"
-
-" ============================================
-" ============================================
+let g:UltiSnipsListSnippets="<c-l>"
+" =================================================================
 
 Bundle 'scrooloose/nerdtree'
 " A tree explorer plugin for vim
@@ -1134,16 +1077,14 @@ Bundle 'scrooloose/nerdtree'
 "   press m to lauch nerdtree enu inside vim
 "   TODO: play around
 " <Leader>tab: Toggles NERDTree
-nnoremap <silent> <Leader><tab> :NERDTreeToggle<cr>
+" nnoremap <silent> <Leader><tab> :NERDTreeToggle<cr>
 
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.pyo$', '\.pyc$']
-" ============================================
-" ============================================
+" =================================================================
 
-" diabling coz of conflickt of mapping ultisnips
-" Bundle 'YankRing.vim'
+Bundle 'YankRing.vim'
 " Maintains a history of previous yanks
 "
 " A tutorial is included to take you through the various features of the
@@ -1151,8 +1092,9 @@ let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.pyo$'
 "   :h yankring.txt
 "   :h yankring-tutorial
 "TODO: go throo tutorial
-" ============================================
-" ============================================
+Bundle 'jistr/vim-nerdtree-tabs.git'
+nnoremap <silent> <Leader><tab> :NERDTreeTabsToggle<cr>
+" =================================================================
 
 Bundle 'mhinz/vim-startify'
 " fancy start screen
@@ -1186,8 +1128,7 @@ let g:startify_custom_header = [
  \ '                     WELCOME STRANGER! ',
  \ '',
  \ ]
-" ============================================
-" ============================================
+" =================================================================
 
 Bundle 'sjl/gundo.vim'
 " Plugin to visualize your Vim undo tree.
@@ -1202,50 +1143,55 @@ nnoremap <F5> :GundoToggle<CR>
 "  target, with a slight pause after each change. It's mostly useless, but can
 "  be fun to watch and see where your editing lags — that might be a good
 "  place to define a new mapping to speed up your editing.
-" ============================================
-" ============================================
-
-
+" =================================================================
 
 " Syntax plugins
 Bundle 'hail2u/vim-css3-syntax'
 " Add CSS3 syntax support to Vim's built-in syntax/css.vim
+" =================================================================
 
 Bundle 'othree/html5-syntax.vim'
 " HTML5 syntax file for vim.
-
+" =================================================================
 
 Bundle 'jelera/vim-javascript-syntax'
 " This is enchanced javascript syntax file for Vim
 " To enable code folding add the following to your .vimrc.
+" =================================================================
 
 Bundle 'pangloss/vim-javascript'
 " This bundle will add a tiny bit more highlighting as well as completely fix
 " the weird indentation in standalone JavaScript files and code that's
 " embedded with HTML.
 " TODO: read up this one"
+" =================================================================
 
 Bundle 'nathanaelkane/vim-indent-guides'
 " For lovely highlighting for your perfectly indented callback hell. It's
 " great indicator for what is lined up with what.
 " TODO: read up
+" =================================================================
 
 Bundle 'jQuery'
 " Syntax file for jQuery in Vim
 " curently detect syntax and keywords for jQuery 1.6
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+" =================================================================
 
 Bundle 'helino/vim-json'
 " Simple wrapper around the JSON syntax highlighting
+" =================================================================
 
 Bundle 'evanmiller/nginx-vim-syntax'
 " nginx vim syntax
+" =================================================================
 
 Bundle 'vim-scripts/django.vim'
 " Type ":setfiletype htmldjango" from within Vim to select highlighting for
 " Django HTML templates. If you decire Django template highlighting but not
 " HTML highlighting, type ":setfiletype django" isntead. Items highlighted
 " include template tags, built-in filters, arguments and comments.
+" =================================================================
 
 Bundle 'jmcomets/vim-pony'
 " Pony power for working with Django projects.
@@ -1274,7 +1220,7 @@ Bundle 'jmcomets/vim-pony'
 "       Dshell : manage.py shell
 "       Ddbshell : manage.py dbshell
 "   Tip: I use :Dr for runserver, :Dsy for syncdb and :Dsh for shell.
-
+" =================================================================
 
 Bundle 'mattn/emmet-vim'
 " Provides support for expanding abbreavations similar to emmet.
@@ -1284,18 +1230,10 @@ Bundle 'mattn/emmet-vim'
 "   Then press "<c-y>,", and it will autocomplete
 " More info: http://emmet.io
 " TODO: play around, read docs
+" =================================================================
 "
 " Bundle 'PeterRincker/vim-argumentative'
 " Bundle 'tpope/vim-eunuch'
-
-
-
-
-
-
-
-
-
 
 " ============================================
 " My stuff from learning vim the hard way
@@ -1731,5 +1669,4 @@ augroup vimrc_autocmds
     autocmd FileType python match Excess /\%120v.*/
     autocmd FileType python set nowrap
 augroup END
-
 
