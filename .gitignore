@@ -13,6 +13,3 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-.vim/bundle/**
-~.vim/bundle/vundle
-.netrwhist
