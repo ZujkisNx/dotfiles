@@ -107,8 +107,8 @@ Bundle 'Raimondi/delimitMate'
 " regions), and expansions (off by default), and some more.
 " Most of the features can be modified or disabled permanently, using
 " global variables, or on a FileType basis, using :autocmd.
-let delimitMate_matchpairs = "(:),[:],{:},<:>"
-let delimitMate_quotes = "\" ' ` *"
+let delimitMate_matchpairs = "(:),[:],{:}"
+let delimitMate_quotes = "\" ' `"
 au FileType html let b:delimitMate_quotes = "\" '"
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 " Special JavaScript trick:
@@ -118,6 +118,7 @@ au FileType python let b:delimitMate_nesting_quotes = ['"']
 "   code.
 "Mapping Ctrl-c in insert mode for expanding curly braces for JS functions and so on.
 imap <C-c> <CR><Esc>O
+imap <C-o> <Esc>o
 " =================================================================
 
 " Bundle 'tpope/vim-ragtag'
