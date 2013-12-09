@@ -1,4 +1,4 @@
-Compiled Python files
+# Compiled Python files
 *.pyc
 
 # Folder view configuration files
@@ -12,4 +12,8 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# Log files
+*.log
+weechat/logs
 
