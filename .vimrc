@@ -705,6 +705,7 @@ nmap <silent><Leader>m <Esc>:Pytest method<CR>
 " =================================================================
 
 Bundle 'xolox/vim-session'
+:let g:session_autoload = 'no'
 " Extended session managment for Vim
 " :SaveSession
 " :OpenSession
