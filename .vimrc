@@ -592,6 +592,7 @@ Bundle 'ZoomWin'
 
 Bundle 'mru.vim'
 " Plugin to manage most recently used files (MRU)
+let MRU_File = '/home/hara/.vim/.vim_mru_files'
 " Usage:
 "   :MRU
 " =================================================================
