@@ -16,3 +16,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 [ -r "$file" ] && source "$file"
 done
+
+# Autojump
+. /usr/share/autojump/autojump.sh

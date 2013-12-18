@@ -28,3 +28,6 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/racket/bin:$PATH
 
 # Added aliases
 source $HOME/.dotfiles/.aliases
+
+# Autojump (autojump --help)
+. /usr/share/autojump/autojump.sh
