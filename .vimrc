@@ -1235,6 +1235,15 @@ Bundle 'mattn/emmet-vim'
 " TODO: play around, read docs
 " =================================================================
 "
+Bundle 'altercation/vim-colors-solarized'
+" =================================================================
+"
+Bundle 'tomasr/molokai'
+Bundle 'Pychimp/Pychimp-vim'
+" Bundle 'Localtog/vim-distinguished'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'desert256.vim'
+" =================================================================
 " Bundle 'PeterRincker/vim-argumentative'
 " Bundle 'tpope/vim-eunuch'
 
@@ -1295,7 +1304,8 @@ imap <C-W> <C-O><C-W>
 " Solarized setup
 syntax enable
 
-colorscheme ir_black
+" colorscheme desert256
+colorscheme jellybeans
 
 
 
@@ -1355,8 +1365,8 @@ nnoremap <up> <ESC>:tabp<CR>
 nnoremap <down> <ESC>:tabn<CR>
 
 " Left and Right are for switching buffers, not moving the cursor:
-nnoremap <right> <ESC>:bn<CR>
-nnoremap <left> <ESC>:bp<CR>
+nnoremap <right> <ESC>:bn<CR>:echo @%<CR>
+nnoremap <left> <ESC>:bp<CR>:echo @%<CR>
 
 
 """ Searching and Patterns
@@ -1490,14 +1500,18 @@ if version > 700
   set nospell
 endif
 
-" Space will toggle folds!
 " TODO: change mapping to sth not so cool placed.
 " z-a opens current fold
 " z-i opens/closes all folds
 " z-c closes current/parrent fold
 " zM - close all folds
 " zv - expand folds to receal cursor
-nnoremap <space> za
+
+" Space will toggle folds!
+" nnoremap <space> za
+" Space will update file if any changes made
+nnoremap <space> :up<CR>
+
 
 " TODO: clean up this space thingy.. :)
 " <space> switches to the next window (give it a second)
@@ -1673,3 +1687,5 @@ augroup vimrc_autocmds
     autocmd FileType python set nowrap
 augroup END
 
+
+" hi Normal ctermbg=NONE
