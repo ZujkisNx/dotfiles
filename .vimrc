@@ -647,6 +647,8 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
 let g:pymode_folding = 0
+" Disable runner, coz of quickrun-vim plugin shortcuts interference
+let g:pymode_run = 0
 " =================================================================
 
 Bundle 'jnwhiteh/vim-golang'
