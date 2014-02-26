@@ -3,19 +3,25 @@
   email = pauliusruzgas@gmail.com 
 
 [alias]
+  amend = commit --amend -C HEAD
   br  = branch
   ci  = commit
   co  = checkout
   df  = diff
+  ds  = diff --staged
   g   = grep -I
   lg  = log -p
+  ls  = log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short
   loq = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   pb  = publish-branch
   rb  = rbranch
   rc  = rank-contributors
   rv  = review
+  s   = status -sb
   sm  = show-merges
   st  = status
+  standup = log --since '1 day ago' --oneline --author pauliusruzgas@gmail.com
+  undo= reset --soft HEAD^
 
 [branch]
   autosetuprebase = always
