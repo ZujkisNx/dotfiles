@@ -2,14 +2,27 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .4='cd../../../../'
+alias .5='cd../../../../../'
 alias ~='cd ~'
 alias ll='tree --dirsfirst -ChFupDaLg 1'
 # alias la='ls -A'
 
-# always ask for confirmation when removing files
-# alias rm='rm -i'
-# always ask for confirmation when copying files
-alias cp='cp -i';
+# Safety nets
+# do not delete / or prompt if deleting more than 3 files at a time
+alias rm='rm -I --preserve-root'
+# confirmations
+alias cp='cp -i'
+alias mv='mv -i'
+alias ln='ln -i'
+# parenting changing perms on /
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# Tune sudo and su
+alias root='sudo -i'
+alias su='sudo -i'
 
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
@@ -17,11 +30,18 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 
+# Create parent directories on demand
+alias mkdir='mkdir -pv'
+
+# Colorize diff (needs colordiff package)
+alias diff='colordiff'
+
 # Utilities
 alias a="ack -ia"
 alias b="bundle exec"
 alias c="pygmentize -O style=monokai -f console256 -g"
-alias d="du -h -d=1"
+alias d="du -h -d1"
+alias du="du -h"
 alias df="df -h"
 alias g="git"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
@@ -32,6 +52,26 @@ alias rkt="racket -il xrepl"
 alias tmux="tmux -2"
 alias view="vim -p -R"
 alias vp="vim -p"
+
+# New commands
+alias path='echo -e ${PATH//:/\\n}'
+alias now="date +'%T'"
+
+# Ping
+alias ping='ping -c 5'
+alias fastping='ping -c 100 -i .2'
+
+# Resume wget downloads by default
+alias wget='wget -c'
+
+# Show open ports
+alias ports='netstat -tulanp'
+
+# Debuging web server / cdn problems with curl
+# get web server headers
+alias header='curl -I'
+# find out if remote server supports gzip / mod_deflate or not
+alias headerc='curl -I --compress'
 
 # Sync
 # alias sync_irc="rsync -avz ~/Sites/IRC/ talos:/mnt/www/irc.gf3.ca/public"
@@ -56,10 +96,8 @@ alias l="ls -l ${colorflag}"
 # List all files colorized in long format, including dot files
 alias la="ls -la ${colorflag}"
 
-
 # # List only directories
 alias lsd='ls -l | grep "^d"'
-
 
 # List only directories
 alias lsd='ls -l | grep "^d"'
@@ -108,3 +146,39 @@ alias fs="stat -f \"%z bytes\""
 
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+
+# Pass halt/reboot via sudo
+alias reboot='sudo /sbin/reboot'
+alias poweroff='sudo /sbin/poweroff'
+alias halt='sudo /sbin/halt'
+alias shutdown='sudo /sbin/shutdown'
+
+# Control web servers
+alias nginxreload='sudo /usr/local/nginx/sbin/nginx -s reload'
+alias nginxtest='sudo /usr/local/nginx/sbin/nginx -t'
+alias lightyload='sudo /etc/init.d/lighttpd reload'
+alias lightytest='sudo /etc/init.d/lighttpd -f /etc/lighttpd/lighttpd.conf -t'
+alias httpdreload='sudo /usr/sbin/apachectl -k graceful'
+alias httpdtest='sudo /usr/sbin/apachectl -t && /usr/sbin/apachectl -t -D DUMP_VHOSTS'
+
+# Memcached server status
+alias mcdstats='/usr/bin/memcached-tool 10.10.27.11:11211 stats'
+alias mcdshow='/usr/bin/memcached-tool 10.10.27.11:11211 display'
+# quickly flush out memcached server
+alias flushmcd='echo "flush_all" | nc 10.10.27.11 11211'
+
+# Get system memory, cpu usage, and gpu memory info quickly
+# pass options to free
+alias meminfo='free -m -l -t'
+# get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+# get top process eating cpu
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+# get server cpu info
+alias cpuinfo='lscpu'
+## older system use /proc/cpuinfo
+# alias cpuinfo='less /proc/cpuinfo'
+# get GPU ram on desktop / laptop
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
