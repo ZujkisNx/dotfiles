@@ -182,3 +182,6 @@ alias cpuinfo='lscpu'
 # alias cpuinfo='less /proc/cpuinfo'
 # get GPU ram on desktop / laptop
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+
+# Command for mint16/ProBook backup
+alias backupmintprobook='rsync -avz /home/hara/ /media/hara/Foo/backupai/probookMint16/rsync'
