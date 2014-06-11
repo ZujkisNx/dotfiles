@@ -6,14 +6,14 @@ Prerequisites
 
 * Git (1.8+ recommended)
 * Mercurial (1.6+ recommended)
-* Vim (7.3+ recommended)
+* Vim (7.4+ recommended)
 * Tree
 * Pygments
 * xmllint
 
 Optional, but recommended:
 
-* [rbenv](http://rbenv.org) or [RVM](http://rvm.beginrescueend.com/)
+* [rbenv](http://rbenv.org) or [RVM](http://rvm.io/)
 * [Homebrew](http://mxcl.github.com/homebrew/) (OS X only)
 
 
@@ -156,7 +156,7 @@ and [.bash_prompt](https://github.com/gf3/dotfiles/blob/master/.bash_prompt).
 Aliases
 -------
 
-Check out [.aliases](https://github.com/gf3/dotfiles/blob/master/.aliases)
+Check out [.aliases](https://github.com/ZujkisNx/dotfiles/blob/master/.aliases)
 
 
 Scripts
@@ -170,6 +170,7 @@ Additional useful scripts bundled:
 
 Fonts
 =====
+Source Code Pro
 
 A modified version of Menlo is available in `.fonts` for use with [powerline.vim](https://github.com/Lokaltog/vim-powerline/).
 
@@ -179,10 +180,10 @@ Git
 
 I've included some handy git script additions as well as configution changes.
 Have a look at
-[.gitconfig](https://github.com/gf3/dotfiles/blob/master/.gitconfig) to see
+[.gitconfig](https://github.com/ZujkisNx/dotfiles/blob/master/.gitconfig) to see
 various aliases and settings.
 
-Additional scripts (see [.scripts](https://github.com/gf3/dotfiles/tree/master/.scripts/) directory for source):
+Additional scripts (see [.scripts](https://github.com/ZujkisNx/dotfiles/tree/master/.scripts/) directory for source):
 
 * git-publish-branch
 * git-rank-contributors
