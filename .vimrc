@@ -121,7 +121,7 @@ imap <C-c> <CR><Esc>O
 imap <C-o> <Esc>o
 " =================================================================
 
-" Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-ragtag'
 " A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more
 " Enhances surround.vim
 " More info: http://www.vim.org/scripts/script.php?script_id=1896
@@ -345,22 +345,11 @@ Bundle 'gregsexton/gitv'
 " Bundle 'sukima/xmledit'
 " =================================================================
 
-Bundle 'tristen/vim-sparkup'
+Bundle 'rstacruz/sparkup'
 " Parser for a condensed HTML format
-" REQUIRES: PYTHON 2.5
 " short screencast: http://www.youtube.com/watch?v=Jw3jipcenKc
 " <c-e> - Default mapping for execute sparkup
 " <c-n> - Mapping used to jump to the next empty tag/attribute
-" Configuration:
-   "g:sparkup (Default: 'sparkup') -
-        " Location of the sparkup executable. You shouldn't need to change this
-        " setting if you used the install option above.
-  " g:sparkupArgs (Default: '--no-last-newline') -
-        " Additional args passed to sparkup.
-  " g:sparkupExecuteMapping (Default: '<c-e>') -
-        " Mapping used to execute sparkup.
-  " g:sparkupNextMapping (Default: '<c-n>') -
-        " Mapping used to jump to the next empty tag/attribute.
 " =================================================================
 
 Bundle 'cisco.vim'
@@ -650,6 +639,11 @@ let g:pymode_folding = 0
 " Disable runner, coz of quickrun-vim plugin shortcuts interference
 let g:pymode_run = 0
 " =================================================================
+
+Bundle 'Keithbsmiley/investigate.vim'
+" Plugin for integrating Zeal documentation
+let g:investigate_command_for_python = '/usr/bin/zeal --query ^s'
+:nnoremap gz :!zeal --query "<cword>"&<CR><CR>
 
 Bundle 'jnwhiteh/vim-golang'
 " Vim plugins for Go
@@ -1084,6 +1078,9 @@ Bundle 'scrooloose/nerdtree'
 " <Leader>tab: Toggles NERDTree
 " nnoremap <silent> <Leader><tab> :NERDTreeToggle<cr>
 
+" Wont open nerdree on gvim startup
+let g:nerdtree_tabs_open_on_gui_startup = 0
+
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.pyo$', '\.pyc$']
@@ -1155,9 +1152,13 @@ Bundle 'hail2u/vim-css3-syntax'
 " Add CSS3 syntax support to Vim's built-in syntax/css.vim
 " =================================================================
 
-Bundle 'othree/html5-syntax.vim'
+Bundle 'cakebaker/scss-syntax.vim'
+
+" Bundle 'othree/html5-syntax.vim'
 " HTML5 syntax file for vim.
 " =================================================================
+
+Bundle 'othree/html5.vim'
 
 Bundle 'jelera/vim-javascript-syntax'
 " This is enchanced javascript syntax file for Vim
@@ -1248,6 +1249,35 @@ Bundle 'desert256.vim'
 " =================================================================
 " Bundle 'PeterRincker/vim-argumentative'
 " Bundle 'tpope/vim-eunuch'
+
+
+" ============================================
+" Stuff from Damian Convey
+" Make vaa select the entire file..
+vmap aa VGo1G
+
+" Handle Mac and dos line-endings, but prefer Unix endings
+set fileformats=unix,mac,dos
+
+" Take off and nuke the entire buffer contents from space
+" (It's the only way to be sure)...
+nmap XX 1GdG
+
+" Correct common mistypings in-the-fly
+iab retrun return
+iab pritn print
+iab teh the
+iab liek like
+iab Pauilus Paulius
+iab pauilus paulius
+
+" NOTE: not sure if I need this
+" Work out what the comment character is, by filetype
+" autocmd BufNewFile,BufRead *                     let b:cmt = exists('b:cmt') ? b:cmt : ''
+" autocmd FileType *sh,awk,python,perl,perl16,ruby let b:cmt = exists('b:cmt') ? b:cmt : '#'
+" autocmd FileType vim                             let b:cmt = exists('b:cmt') ? b:cmt : '"'
+
+
 
 " ============================================
 " My stuff from learning vim the hard way
@@ -1414,6 +1444,14 @@ nnoremap <leader>w :w!<CR>
 
 set ruler " Always show curent position
 
+set nostartofline " Avoid moving cursor to BOL when jumping around
+
+set wrap          " wrap long lines
+set linebreak     " don't wrap text in the middle of a word
+
+" not sure if works
+set shortmess+=a  " Use [+]/[RO]/[w] for modified/readonly/written.
+
 set cmdheight=2 " Height of the command bar
 
 " Set to auto read when a file is changed from the outside
@@ -1449,8 +1487,6 @@ try
 catch /^Vim\%((\a\+)\)\=:E539/ " the j option was added in Vim 7.4
 endtry
 
-"sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf sdfasdfasdfasdf
-set wrap "wrap long lines
 
 set autoindent " indent at the same level of the previous line
 set shiftwidth=4 " uses indents of 4 spaces
@@ -1588,7 +1624,7 @@ vnoremap <silent> <Leader>0 :!python<cr>
 
 
 " <Leader>o: only
-nnoremap <Leader>o :only<cr>
+" nnoremap <Leader>o :only<cr>
 
 " <Leader>m: Maximize current split
 nnoremap <Leader>m <C-w>_<C-w><Bar>
@@ -1654,6 +1690,7 @@ vnoremap > >gv
 " if you want Ex mode, run :normal! Q
 nnoremap Q @q
 
+" gVim config stuff
 
 " CDC = Change to Directory of Current file
 " CDCP = Change to Directory of Current file's Parent
